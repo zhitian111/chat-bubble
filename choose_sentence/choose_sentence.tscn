@@ -1,0 +1,68 @@
+[gd_scene format=3 uid="uid://dclb550ddq3p5"]
+
+[node name="choose_sentence" type="VBoxContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 20.0
+offset_top = 746.0
+offset_right = -20.0
+offset_bottom = -56.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+metadata/_edit_group_ = true
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="CenterContainer"]
+custom_minimum_size = Vector2(500, 50)
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CenterContainer/HBoxContainer"]
+layout_mode = 2
+text = "A."
+
+[node name="Label2" type="Label" parent="CenterContainer/HBoxContainer"]
+layout_mode = 2
+text = "GG"
+
+[node name="CenterContainer2" type="CenterContainer" parent="."]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="CenterContainer2"]
+custom_minimum_size = Vector2(500, 50)
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer2"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CenterContainer2/HBoxContainer"]
+layout_mode = 2
+text = "A."
+
+[node name="Label2" type="Label" parent="CenterContainer2/HBoxContainer"]
+layout_mode = 2
+text = "GG"
+
+[node name="CenterContainer3" type="CenterContainer" parent="."]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="CenterContainer3"]
+custom_minimum_size = Vector2(500, 50)
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer3"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CenterContainer3/HBoxContainer"]
+layout_mode = 2
+text = "A."
+
+[node name="Label2" type="Label" parent="CenterContainer3/HBoxContainer"]
+layout_mode = 2
+text = "GG"
