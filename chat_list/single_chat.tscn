@@ -1,0 +1,72 @@
+[gd_scene load_steps=8 format=3 uid="uid://cpfpbyiyc6jjj"]
+
+[ext_resource type="Texture2D" uid="uid://dgwkuou7ydwxp" path="res://chat_list/OIP.jpg" id="1_5xlj3"]
+[ext_resource type="Script" path="res://chat_list/single_chat.gd" id="1_7mhey"]
+
+[sub_resource type="Theme" id="Theme_pa7s8"]
+
+[sub_resource type="Theme" id="Theme_ddb3e"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_kffjv"]
+font_size = 40
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_qk1i6"]
+font_size = 40
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_ayd4r"]
+font_size = 25
+font_color = Color(0, 0, 0, 1)
+
+[node name="SingleChat" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme = SubResource("Theme_pa7s8")
+script = ExtResource("1_7mhey")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme = SubResource("Theme_ddb3e")
+
+[node name="avatar" type="TextureRect" parent="HBoxContainer"]
+clip_contents = true
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+texture = ExtResource("1_5xlj3")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="name" type="Label" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "李佳灿"
+label_settings = SubResource("LabelSettings_kffjv")
+
+[node name="message" type="Label" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "发送了一条新消息"
+label_settings = SubResource("LabelSettings_qk1i6")
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="time" type="Label" parent="HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+text = "剩余时间：
+66：66"
+label_settings = SubResource("LabelSettings_ayd4r")
+
+[node name="Button" type="Button" parent="."]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_right = 540.0
+offset_bottom = 112.0
+
+[connection signal="button_down" from="Button" to="." method="_on_button_button_down"]
