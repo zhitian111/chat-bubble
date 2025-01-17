@@ -1,0 +1,40 @@
+[gd_scene load_steps=7 format=3 uid="uid://b03ykmcylqosb"]
+
+[ext_resource type="Texture2D" uid="uid://big3cqg8et58b" path="res://icon.svg" id="1_cypw2"]
+[ext_resource type="Script" path="res://chat_bubble/chat_bubble.gd" id="2_3tj2q"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_drqe6"]
+texture = ExtResource("1_cypw2")
+texture_margin_left = 16.0
+texture_margin_top = 16.0
+texture_margin_right = 16.0
+texture_margin_bottom = 16.0
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+region_rect = Rect2(-1, 0, 130, 130)
+
+[sub_resource type="Theme" id="Theme_s21il"]
+Label/styles/normal = SubResource("StyleBoxTexture_drqe6")
+
+[sub_resource type="SystemFont" id="SystemFont_yel16"]
+font_names = PackedStringArray("Microsoft YaHei")
+
+[sub_resource type="LabelSettings" id="LabelSettings_bqa2p"]
+font = SubResource("SystemFont_yel16")
+font_size = 32
+font_color = Color(1, 0.243137, 1, 1)
+
+[node name="chat_bubble" type="Label"]
+custom_minimum_size = Vector2(200, 0)
+anchors_preset = -1
+anchor_right = 0.185
+anchor_bottom = 0.116
+offset_right = -0.119995
+offset_bottom = -0.167999
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_s21il")
+text = "1213331"
+label_settings = SubResource("LabelSettings_bqa2p")
+autowrap_mode = 3
+script = ExtResource("2_3tj2q")

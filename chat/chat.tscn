@@ -1,0 +1,28 @@
+[gd_scene load_steps=3 format=3 uid="uid://v0k4wvdk3cpg"]
+
+[ext_resource type="PackedScene" uid="uid://7u5tp0a0pyk2" path="res://dialogs/dialogs.tscn" id="1_exmix"]
+[ext_resource type="PackedScene" uid="uid://dclb550ddq3p5" path="res://choose_sentence/choose_sentence.tscn" id="2_2udvc"]
+
+[node name="chat" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="dialogs" parent="." instance=ExtResource("1_exmix")]
+layout_mode = 1
+offset_bottom = -620.0
+
+[node name="choose_sentence" parent="." instance=ExtResource("2_2udvc")]
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 16.0
+offset_top = 784.0
+offset_right = 516.0
+offset_bottom = 942.0
+grow_horizontal = 1
+grow_vertical = 1
