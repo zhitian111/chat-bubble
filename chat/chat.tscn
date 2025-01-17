@@ -1,5 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://v0k4wvdk3cpg"]
+[gd_scene load_steps=4 format=3 uid="uid://v0k4wvdk3cpg"]
 
+[ext_resource type="Script" path="res://chat/chat.gd" id="1_engbf"]
 [ext_resource type="PackedScene" uid="uid://7u5tp0a0pyk2" path="res://dialogs/dialogs.tscn" id="1_exmix"]
 [ext_resource type="PackedScene" uid="uid://dclb550ddq3p5" path="res://choose_sentence/choose_sentence.tscn" id="2_2udvc"]
 
@@ -10,10 +11,12 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_engbf")
 
 [node name="dialogs" parent="." instance=ExtResource("1_exmix")]
 layout_mode = 1
-offset_bottom = -620.0
+offset_top = 628.0
+offset_bottom = 768.0
 
 [node name="choose_sentence" parent="." instance=ExtResource("2_2udvc")]
 layout_mode = 0
@@ -26,3 +29,8 @@ offset_right = 516.0
 offset_bottom = 942.0
 grow_horizontal = 1
 grow_vertical = 1
+
+[node name="Camera2D" type="Camera2D" parent="."]
+offset = Vector2(270, 480)
+
+[connection signal="new_message" from="dialogs" to="." method="_on_dialogs_new_message"]

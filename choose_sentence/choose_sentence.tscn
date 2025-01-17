@@ -1,4 +1,6 @@
-[gd_scene format=3 uid="uid://dclb550ddq3p5"]
+[gd_scene load_steps=2 format=3 uid="uid://dclb550ddq3p5"]
+
+[ext_resource type="Script" path="res://choose_sentence/choose_sentence.gd" id="1_orf3n"]
 
 [node name="choose_sentence" type="VBoxContainer"]
 anchors_preset = 15
@@ -11,6 +13,7 @@ offset_bottom = -56.0
 grow_horizontal = 2
 grow_vertical = 2
 alignment = 1
+script = ExtResource("1_orf3n")
 metadata/_edit_group_ = true
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
