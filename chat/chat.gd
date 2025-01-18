@@ -6,16 +6,18 @@ extends Control
 @onready var progress_bar = $TextureProgressBar
 @onready var camera = $Camera2D
 
-#var parents_camera
+@onready var lose_info = $lose_inf
+@onready var button_mark = $button_mark
 
 @export var chat_name = "test"
 
 signal all_info(message:String,poster: String,time:int,name:String,camera:Camera2D)
 signal back
+signal lose
 
 var done:bool = false
-# signal new_message(message:String,poster: String)
-# signal timer_start(time:int)
+
+var rating = preload("res://choose_sentence/rating/rating.tscn")
 
 var time_length = 10
 
@@ -37,10 +39,10 @@ func _ready():
 	progress_bar.visible = false
 
 	progress_bar.max_value = time_length
-	progress_bar.step = time_length/200
+	progress_bar.step = time_length/200.0
 
-	#if get_parent().camera != null:
-		#parents_camera = get_parent().camera
+	$AnimationPlayer.play("dialog")
+
 
 
 func start_choosing():
@@ -53,21 +55,49 @@ func _process(delta: float) -> void:
 
 func end_choosing():
 	done = true
-	timer.stop()
+	timer.paused = true
+	if timer.time_left <= 2/3*time_length:
+		var rate = rating.instantiate()
+		rate.set_type(rate.rating.good)
+		self.add_child(rate)
 
+		rate.start()
 
+		rate.global_position = get_viewport().get_mouse_position() - Vector2(rate.size.x/2,rate.size.y/2)
+	if timer.time_left > 2/3*time_length:
+		var rate = rating.instantiate()
+		rate.set_type(rate.rating.perfect)
+		self.add_child(rate)
+
+		rate.start()
+
+		rate.global_position = get_viewport().get_mouse_position() - Vector2(rate.size.x/2,rate.size.y/2)
 
 func _on_dialogs_new_message(message: String, poster: String) -> void:
-	# new_message.emit(message,poster)
+
 	all_info.emit(message,poster,time_length,chat_name,$Camera2D)
-	pass # Replace with function body.
 
 
 func _on_back_pressed() -> void:
 	
 	back.emit()
-	if done:
-		self.queue_free()	
-	#if parents_camera:
-		#parents_camera.make_current()
+
+
 	
+
+
+func _on_timer_timeout() -> void:
+
+	var tween = get_tree().create_tween()
+
+	tween.tween_property(lose_info,"position",Vector2(0,-lose_info.size.y),0.3).as_relative()
+	tween.parallel()
+	tween.tween_property(dialogs,"position",Vector2(0,-lose_info.size.y),0.3).as_relative()
+
+	var rate = rating.instantiate()
+	rate.set_type(rate.rating.bad)
+	self.add_child(rate)
+
+	rate.start()
+
+	rate.global_position = button_mark.global_position - Vector2(rate.size.x/2,rate.size.y/2)
