@@ -66,6 +66,9 @@ func _process(delta: float) -> void:
 		progress_bar.tint_progress += delta*(Color(1,1,1,1) - Color(0, 1, 0, 1))/time_length
 
 func script_end_choosing() -> void:
+
+	$kill.start()
+
 	done = true
 	timer.paused = true
 	chosen.emit()
@@ -82,10 +85,13 @@ func script_end_choosing() -> void:
 	buttons.chosen1()
 	chosen_mark = true
 
+
 func end_choosing():
 	done = true
 	timer.paused = true
 	chosen_mark = true
+
+	$kill.start()
 
 	chosen.emit()
 	if timer.time_left * 1.0 < 1.0/3.0*time_length:
@@ -130,6 +136,8 @@ func _on_back_pressed() -> void:
 
 func _on_timer_timeout() -> void:
 
+	$kill.start()
+
 	var tween = get_tree().create_tween()
 
 	tween.tween_property(lose_info,"position",Vector2(0,-lose_info.size.y),0.3).as_relative()
@@ -143,3 +151,8 @@ func _on_timer_timeout() -> void:
 	rate.start()
 
 	rate.global_position = button_mark.global_position - Vector2(rate.size.x/2,rate.size.y/2)
+
+func _on_kill_timeout() -> void:
+	if camera.is_current():
+		return
+	self.queue_free()

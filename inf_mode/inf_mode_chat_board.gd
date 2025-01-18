@@ -34,7 +34,6 @@ func dynamic_add_chat(new_chat)->void:
 	new_chat.connect("chosen",Callable(self,"chosen").bind(new_chat))
 	new_chat.connect("timer_start",Callable(self,"_on_time_start"))
 
-
 func _on_all_info_received(message: String, poster: String, time: int, name: String, _camera: Camera2D) -> void:
 	if game.avatars.has(name):
 		add_chat(game.avatars[name], name, message, float(time))
@@ -54,6 +53,7 @@ func add_chat(path: String, namee: String, textt: String, timee: float):
 		chats[namee] = c
 		c.connect("chat_button_pressed", Callable(self, "_on_chat_button_pressed").bind(c))
 		c.connect("time_end",Callable(self,"_on_time_end").bind(c))
+		chat_objs[namee].connect("tree_exited",Callable(c,"queue_free"))
 	# chats[namee].set_timer(timee)
 	add_point(namee)
 
