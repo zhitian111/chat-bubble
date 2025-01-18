@@ -8,7 +8,6 @@ var chats: Dictionary
 var chat_objs:Dictionary={}
 var cameras: Dictionary = {}
 func _ready() -> void:
-	cameras["李佳灿"] = camera
 	camera.make_current()
 	for c in characters.get_children():
 		chat_objs[c.chat_name]=c

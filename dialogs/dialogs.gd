@@ -1,11 +1,14 @@
 extends GridContainer
 @onready var player = $controller
+@onready var choose=$"../choose_sentence"
 var speaker = []
 signal player_end
 signal new_message(message: String, poster: String)
 var mine_bubble = preload("res://chat_bubble/mine/mine_bubble.tscn")
 var others_bubble = preload("res://chat_bubble/others/others_bubble.tscn")
-
+func set_choice(choice1:String,choice2:String,choice3:String):
+	print(choice1,choice2,choice3)
+	choose.set_text(choice1,choice2,choice3)
 func _ready() -> void:
 	$mine_bubble.queue_free()
 	$others_bubble.queue_free()
