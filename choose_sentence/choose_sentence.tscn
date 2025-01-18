@@ -50,7 +50,7 @@ layout_mode = 2
 [node name="Label" type="Label" parent="CenterContainer2/HBoxContainer"]
 z_index = 1
 layout_mode = 2
-text = "A."
+text = "B."
 label_settings = ExtResource("3_2pqud")
 
 [node name="Label2" type="Label" parent="CenterContainer2/HBoxContainer"]
@@ -73,7 +73,7 @@ layout_mode = 2
 [node name="Label" type="Label" parent="CenterContainer3/HBoxContainer"]
 z_index = 1
 layout_mode = 2
-text = "A."
+text = "C."
 label_settings = ExtResource("3_2pqud")
 
 [node name="Label2" type="Label" parent="CenterContainer3/HBoxContainer"]
