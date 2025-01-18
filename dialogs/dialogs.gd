@@ -11,7 +11,7 @@ func set_choice(choice1:String,choice2:String,choice3:String):
 	choose.set_text(choice1,choice2,choice3)
 func _ready() -> void:
 	if get_parent():
-		new_message.connect(get_parent().all_info)
+		new_message.connect(get_parent()._on_dialogs_new_message)
 	#$mine_bubble.queue_free()
 	#$others_bubble.queue_free()
 	# add_sentence("Hello, how are you?", 0)

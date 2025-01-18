@@ -40,8 +40,10 @@ layout_mode = 2
 offset_top = 100.0
 offset_right = 540.0
 offset_bottom = 893.0
+horizontal_scroll_mode = 0
 
 [node name="ChatList" type="VBoxContainer" parent="ChatList"]
+custom_minimum_size = Vector2(540, 0)
 layout_mode = 2
 theme_override_constants/separation = 130
 

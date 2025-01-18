@@ -27,17 +27,15 @@ font_color = Color(0, 0, 0, 1)
 [node name="SingleChat" type="Control"]
 layout_mode = 3
 anchors_preset = 0
-offset_left = 20.0
-offset_top = 20.0
-offset_right = 20.0
-offset_bottom = 20.0
 theme = SubResource("Theme_pa7s8")
 script = ExtResource("1_7mhey")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = 21.0
+offset_top = 20.0
+offset_right = 365.0
+offset_bottom = 108.0
 theme = SubResource("Theme_ddb3e")
 
 [node name="avatar" type="TextureRect" parent="HBoxContainer"]
@@ -80,15 +78,17 @@ label_settings = SubResource("LabelSettings_qk1i6")
 [node name="Button" type="Button" parent="."]
 modulate = Color(1, 1, 1, 0)
 layout_mode = 0
-offset_right = 540.0
-offset_bottom = 112.0
+offset_left = 21.0
+offset_top = 20.0
+offset_right = 561.0
+offset_bottom = 132.0
 
 [node name="TimerBox" type="VBoxContainer" parent="."]
 layout_mode = 2
-offset_left = 350.0
-offset_top = 11.0
-offset_right = 475.0
-offset_bottom = 117.0
+offset_left = 371.0
+offset_top = 31.0
+offset_right = 496.0
+offset_bottom = 137.0
 
 [node name="time" type="Label" parent="TimerBox"]
 layout_mode = 2
@@ -96,10 +96,13 @@ text = "剩余时间：
 66：66"
 label_settings = SubResource("LabelSettings_ayd4r")
 
-[node name="MenuCharacter2" type="Sprite2D" parent="."]
+[node name="MenuCharacter2" type="TextureRect" parent="."]
 z_index = -100
-position = Vector2(246.5, 43.5)
-scale = Vector2(0.50282, 0.388554)
+layout_mode = 0
+offset_left = 1.32322e-05
+offset_right = 1064.0
+offset_bottom = 332.0
+scale = Vector2(0.508459, 0.388554)
 texture = ExtResource("4_4ixrp")
 
 [connection signal="button_down" from="Button" to="." method="_on_button_button_down"]

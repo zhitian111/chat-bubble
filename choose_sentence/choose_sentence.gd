@@ -18,14 +18,17 @@ func set_text(choice1:String,choice2:String,choice3:String):
 
 
 func _ready() -> void:
-	button_1.pressed.connect(chosen)
-	button_2.pressed.connect(chosen)
-	button_3.pressed.connect(chosen)
-func chosen() -> void:
+	button_1.pressed.connect(chosen1)
+	button_2.pressed.connect(chosen2)
+	button_3.pressed.connect(chosen3)
+func chosen1() -> void:
 	visible=false
-	if button_1.pressed:
-		value_chosen.emit("A",chat_name)
-	elif button_2.pressed:
-		value_chosen.emit("B",chat_name)
-	elif button_3.pressed:
-		value_chosen.emit("C",chat_name)
+	value_chosen.emit("A",chat_name)
+func chosen2() -> void:
+	visible=false
+
+	value_chosen.emit("B",chat_name)
+func chosen3() -> void:
+	visible=false
+
+	value_chosen.emit("C",chat_name)
