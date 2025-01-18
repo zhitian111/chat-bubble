@@ -28,21 +28,25 @@ func start()->void:
 		perfect_texture.queue_free()
 		bad_texture.queue_free()
 		nice_texture.queue_free()
+		game.rating_count["great"]+=1
 	if type == rating.bad:
 		bad_texture.show()
 		good_texture.queue_free()
 		perfect_texture.queue_free()
 		nice_texture.queue_free()
+		game.rating_count["miss"]+=1
 	if type == rating.perfect:
 		perfect_texture.show()
 		good_texture.queue_free()
 		bad_texture.queue_free()
 		nice_texture.queue_free()
+		game.rating_count["perfect"]+=1
 	if type == rating.nice:
 		nice_texture.show()
 		good_texture.queue_free()
 		bad_texture.queue_free()
 		perfect_texture.queue_free()
+		game.rating_count["nice"]+=1
 
 	is_started = true
 	timer.start()

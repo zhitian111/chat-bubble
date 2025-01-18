@@ -86,7 +86,7 @@ func end_choosing():
 	done = true
 	timer.paused = true
 	chosen_mark = true
-	
+
 	chosen.emit()
 	if timer.time_left * 1.0 < 1.0/3.0*time_length:
 		var rate = rating.instantiate()
@@ -142,4 +142,4 @@ func _on_timer_timeout() -> void:
 
 	rate.start()
 
-	rate.global_position = button_mark.global_position - Vector2(rate.size.x/2,rate.size.y/2) + self.global_position
+	rate.global_position = button_mark.global_position - Vector2(rate.size.x/2,rate.size.y/2)

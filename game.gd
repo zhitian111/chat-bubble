@@ -18,3 +18,11 @@ var choice: Dictionary = {
 	"情人": "D",
 	"妻子": "D"
 }
+
+
+var rating_count = {
+	"perfect":0,
+	"great":0,
+	"nice":0,
+	"miss":0
+}

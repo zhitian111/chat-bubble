@@ -11,6 +11,13 @@ var chats: Dictionary
 var chat_objs:Dictionary={}
 var cameras: Dictionary = {}
 func _ready() -> void:
+
+	game.rating_count["miss"] = 0
+	game.rating_count["nice"] = 0
+	game.rating_count["great"] = 0
+	game.rating_count["perfect"] = 0
+
+
 	camera.make_current()
 	for c in characters.get_children():
 		chat_objs[c.chat_name]=c
@@ -85,6 +92,7 @@ func _on_mass_mailing_pressed() -> void:
 			continue
 		chat_objs[i.chat_name.text].script_chosen.connect(_on_script_chosen)
 		chat_objs[i.chat_name.text].script_end_choosing()
+		chats[i.chat_name.text]._on_button_button_down()
 
 func _on_script_chosen(left_time:float,rating:int,chat_name:String):
 	var node = rating_view.instantiate()
@@ -113,4 +121,5 @@ func _on_recording_timeout() -> void:
 			continue
 		chat_objs[i.chat_name.text].script_chosen.connect(_on_script_chosen)
 		chat_objs[i.chat_name.text].script_end_choosing()
+		chats[i.chat_name.text]._on_button_button_down()
 		break
