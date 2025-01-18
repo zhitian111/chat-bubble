@@ -9,8 +9,8 @@ func _ready() -> void:
 # 	$chat_bubble.queue_free()
 # 	$placeholder.queue_free()
 
-func set_user_name(name:String)->void:
-	user_name = name
+func set_user_name(new_name:String)->void:
+	user_name = new_name
 	$name.text = user_name
 
 func add_sentence(sentence: String) -> void:
