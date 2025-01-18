@@ -1,0 +1,125 @@
+[gd_scene load_steps=6 format=3 uid="uid://gg4g8lda1d5c"]
+
+[ext_resource type="Script" path="res://inf_mode/sum/summarize.gd" id="1_5481m"]
+[ext_resource type="Texture2D" uid="uid://bcncl0ydu7bb2" path="res://assets/game_over/normal.png" id="2_emq1o"]
+[ext_resource type="LabelSettings" uid="uid://dhaqcfxdubn0o" path="res://inf_mode/unlock/new_label_settings.tres" id="3_mckjd"]
+
+[sub_resource type="Animation" id="Animation_54h38"]
+resource_name = "end"
+length = 15.0
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.0333333, 1, 1.96667, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"values": [{
+"args": [],
+"method": &"show_perfect_label"
+}, {
+"args": [],
+"method": &"show_great_label"
+}, {
+"args": [],
+"method": &"show_miss_label"
+}, {
+"args": [],
+"method": &"show_nice_label"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_pnxk0"]
+_data = {
+"end": SubResource("Animation_54h38")
+}
+
+[node name="summarize" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_5481m")
+
+[node name="background" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 540.0
+offset_bottom = 960.0
+texture = ExtResource("2_emq1o")
+expand_mode = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_pnxk0")
+}
+
+[node name="great" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 100.613
+offset_top = 101.764
+offset_right = 140.613
+offset_bottom = 141.764
+
+[node name="count" type="Label" parent="great"]
+layout_mode = 0
+offset_left = 229.387
+offset_top = 137.236
+offset_right = 319.387
+offset_bottom = 182.236
+text = "great:"
+label_settings = ExtResource("3_mckjd")
+
+[node name="perfect" type="Control" parent="."]
+anchors_preset = 0
+offset_left = 116.327
+offset_top = 159.383
+offset_right = 156.327
+offset_bottom = 199.383
+
+[node name="count" type="Label" parent="perfect"]
+layout_mode = 0
+offset_left = -43.3275
+offset_top = 84.6166
+offset_right = 16.6725
+offset_bottom = 107.617
+text = "perfect:"
+label_settings = ExtResource("3_mckjd")
+
+[node name="miss" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 147.756
+offset_top = 221.493
+offset_right = 187.756
+offset_bottom = 261.493
+
+[node name="count" type="Label" parent="miss"]
+layout_mode = 0
+offset_left = -13.7564
+offset_top = 79.5071
+offset_right = 65.2436
+offset_bottom = 124.507
+text = "miss:"
+label_settings = ExtResource("3_mckjd")
+
+[node name="nice" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 200.886
+offset_top = 281.358
+offset_right = 240.886
+offset_bottom = 321.358
+
+[node name="count" type="Label" parent="nice"]
+layout_mode = 0
+offset_left = 143.114
+offset_top = 22.6424
+offset_right = 215.114
+offset_bottom = 67.6424
+text = "nice:"
+label_settings = ExtResource("3_mckjd")

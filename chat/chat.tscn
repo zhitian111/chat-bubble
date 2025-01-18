@@ -134,6 +134,10 @@ libraries = {
 [node name="button_mark" type="Marker2D" parent="."]
 position = Vector2(262.932, 864.226)
 
+[node name="kill" type="Timer" parent="."]
+wait_time = 3.0
+
 [connection signal="new_message" from="dialogs" to="." method="_on_dialogs_new_message"]
 [connection signal="pressed" from="back" to="." method="_on_back_pressed"]
 [connection signal="timeout" from="timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="kill" to="." method="_on_kill_timeout"]
