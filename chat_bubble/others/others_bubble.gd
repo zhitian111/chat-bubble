@@ -15,6 +15,12 @@ func set_user_name(new_name:String)->void:
 	if game.avatars.has(user_name):
 		if game.avatars[user_name] != null:
 			$avatar.texture = load(game.avatars[user_name])
+	else:
+		var avatar_keys = game.avatars.keys()  # 获取所有键（用户名）
+		print(avatar_keys)
+		if avatar_keys.size() > 0:  # 确保有头像可以选择
+			var random_key = avatar_keys[randi() % avatar_keys.size()]  # 随机选择一个键
+			$avatar.texture = load(game.avatars[random_key])
 
 
 func add_sentence(sentence: String) -> void:

@@ -76,7 +76,6 @@ layout_mode = 1
 offset_left = 3770.0
 offset_right = 4270.0
 offset_bottom = 920.0
-chat_name = "情人"
 
 [node name="妻子" parent="characters" instance=ExtResource("7_faph5")]
 offset_left = 1344.0

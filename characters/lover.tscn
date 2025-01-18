@@ -60,14 +60,17 @@ tracks/1/path = NodePath("AnimationPlayer")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(7.33333, 8.7, 9.9),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(8.1, 8.93333, 9.5, 9.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "values": [{
-"args": ["情人", "1A"],
-"method": &"choose_A"
+"args": ["情人", "A", "1A"],
+"method": &"choose"
 }, {
-"args": ["情人", "1B"],
-"method": &"choose_B"
+"args": ["情人", "B", "1B"],
+"method": &"choose"
+}, {
+"args": ["情人", "C", "1B"],
+"method": &"choose"
 }, {
 "args": [false],
 "method": &"stop"
@@ -172,7 +175,7 @@ tracks/0/path = NodePath("dialogs")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0.833333),
+"times": PackedFloat32Array(0.2),
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": ["你为什么总是这么说？！对你来说我到底算什么？！！", "情人"],
@@ -210,6 +213,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_b83f3")
+chat_name = "情人"
 
 [node name="dialog_background" type="ColorRect" parent="."]
 z_index = -3
