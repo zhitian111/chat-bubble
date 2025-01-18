@@ -1,22 +1,25 @@
-[gd_scene load_steps=16 format=3 uid="uid://cpfpbyiyc6jjj"]
+[gd_scene load_steps=19 format=3 uid="uid://cpfpbyiyc6jjj"]
 
 [ext_resource type="Texture2D" uid="uid://dgwkuou7ydwxp" path="res://chat_list/OIP.jpg" id="1_5xlj3"]
 [ext_resource type="Script" path="res://chat_list/single_chat.gd" id="1_7mhey"]
+[ext_resource type="Texture2D" uid="uid://bnimovg3u6rem" path="res://assets/menu/menu_circle.png" id="3_bllyw"]
+[ext_resource type="Texture2D" uid="uid://ef0txhuxlccg" path="res://assets/menu/Sprite-0001.png" id="3_ujkuv"]
 [ext_resource type="Texture2D" uid="uid://bgjesbvlg7mc7" path="res://chat_list/无标题.png" id="3_und5p"]
+[ext_resource type="Texture2D" uid="uid://du8u0e5y31wsj" path="res://assets/menu/menu_character_2.png" id="4_4ixrp"]
 
 [sub_resource type="Theme" id="Theme_pa7s8"]
 
 [sub_resource type="Theme" id="Theme_ddb3e"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_x1qq5"]
-font_size = 80
+font_size = 40
 
 [sub_resource type="LabelSettings" id="LabelSettings_kffjv"]
-font_size = 37
+font_size = 30
 font_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_qk1i6"]
-font_size = 37
+font_size = 30
 font_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_ayd4r"]
@@ -69,8 +72,10 @@ animations = [{
 [node name="SingleChat" type="Control"]
 layout_mode = 3
 anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 20.0
+offset_bottom = 20.0
 theme = SubResource("Theme_pa7s8")
 script = ExtResource("1_7mhey")
 
@@ -89,19 +94,26 @@ expand_mode = 1
 stretch_mode = 5
 
 [node name="Sprite2D" type="Sprite2D" parent="HBoxContainer/avatar"]
-visible = false
-position = Vector2(87, 12)
-scale = Vector2(0.15, 0.15)
-texture = ExtResource("1_5xlj3")
+z_index = 100
+position = Vector2(77, 11)
+scale = Vector2(0.45, 0.45)
+texture = ExtResource("3_ujkuv")
 
 [node name="Label" type="Label" parent="HBoxContainer/avatar/Sprite2D"]
-visible = false
-offset_left = -60.0
-offset_top = -53.3333
-offset_right = 77.0
-offset_bottom = 56.6667
-text = "111"
+z_index = 200
+offset_left = -12.5
+offset_top = -30.0
+offset_right = 141.5
+offset_bottom = 107.0
+text = "6
+"
 label_settings = SubResource("LabelSettings_x1qq5")
+
+[node name="MenuCircle" type="Sprite2D" parent="HBoxContainer/avatar"]
+z_index = 1
+position = Vector2(50, 43)
+scale = Vector2(0.37963, 0.37963)
+texture = ExtResource("3_bllyw")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
 layout_mode = 2
@@ -116,26 +128,36 @@ layout_mode = 2
 text = "发送了一条新消息"
 label_settings = SubResource("LabelSettings_qk1i6")
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="HBoxContainer"]
-layout_mode = 2
+[node name="Button" type="Button" parent="."]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_right = 540.0
+offset_bottom = 112.0
 
-[node name="time" type="Label" parent="HBoxContainer/VBoxContainer2"]
+[node name="TimerBox" type="VBoxContainer" parent="."]
+layout_mode = 2
+offset_left = 320.0
+offset_top = -1.0
+offset_right = 445.0
+offset_bottom = 105.0
+
+[node name="time" type="Label" parent="TimerBox"]
 layout_mode = 2
 text = "剩余时间：
 66：66"
 label_settings = SubResource("LabelSettings_ayd4r")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="HBoxContainer/VBoxContainer2"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="TimerBox"]
 position = Vector2(62, 65)
 scale = Vector2(0.358896, 0.4375)
 sprite_frames = SubResource("SpriteFrames_uoy2k")
 autoplay = "default"
 frame_progress = 0.440844
 
-[node name="Button" type="Button" parent="."]
-modulate = Color(1, 1, 1, 0)
-layout_mode = 0
-offset_right = 540.0
-offset_bottom = 112.0
+[node name="MenuCharacter2" type="Sprite2D" parent="."]
+z_index = -100
+position = Vector2(246.5, 43.5)
+scale = Vector2(0.50282, 0.388554)
+texture = ExtResource("4_4ixrp")
 
 [connection signal="button_down" from="Button" to="." method="_on_button_button_down"]

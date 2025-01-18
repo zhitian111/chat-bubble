@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://eev2ac75hv1q"]
+[gd_scene load_steps=6 format=3 uid="uid://eev2ac75hv1q"]
 
 [ext_resource type="Script" path="res://chat_board.gd" id="1_b6m4g"]
-[ext_resource type="Texture2D" uid="uid://7ahmm3ah16yl" path="res://chat_list/bottom.png" id="3_3cl1b"]
+[ext_resource type="Texture2D" uid="uid://sn53n2kcr5uw" path="res://assets/menu/menu_top.png" id="2_x0q1t"]
+[ext_resource type="Texture2D" uid="uid://ci1jympqhobx" path="res://assets/menu/menu_bottom.png" id="4_3ujoa"]
 [ext_resource type="PackedScene" uid="uid://v0k4wvdk3cpg" path="res://chat/chat.tscn" id="4_n8412"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_tow6j"]
@@ -18,27 +19,26 @@ z_index = -100
 layout_mode = 0
 offset_right = 540.0
 offset_bottom = 961.0
-color = Color(1, 1, 0.972549, 1)
+color = Color(0.815686, 0.815686, 0.815686, 1)
 
-[node name="Board" type="VBoxContainer" parent="."]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="top" type="Label" parent="Board"]
+[node name="top" type="Label" parent="."]
 layout_mode = 2
+offset_right = 310.0
+offset_bottom = 55.0
 text = "                       微Q"
 label_settings = SubResource("LabelSettings_tow6j")
 
-[node name="ColorRect" type="ColorRect" parent="Board/top"]
-z_index = -50
-layout_mode = 0
-offset_right = 541.0
-offset_bottom = 58.0
-color = Color(0.92549, 0.929412, 0.929412, 1)
+[node name="MenuTop" type="Sprite2D" parent="top"]
+position = Vector2(270, 49.9375)
+scale = Vector2(0.48, 0.328279)
+texture = ExtResource("2_x0q1t")
 
-[node name="ChatList" type="VBoxContainer" parent="Board"]
+[node name="ChatList" type="VBoxContainer" parent="."]
 layout_mode = 2
+offset_left = 20.0
+offset_top = 120.0
+offset_right = 20.0
+offset_bottom = 120.0
 theme_override_constants/separation = 110
 
 [node name="bottom" type="Label" parent="."]
@@ -52,10 +52,10 @@ size_flags_vertical = 8
 text = "微Q"
 label_settings = SubResource("LabelSettings_tow6j")
 
-[node name="bottombar" type="Sprite2D" parent="bottom"]
-position = Vector2(33.5, 16.85)
-scale = Vector2(0.643282, 0.64661)
-texture = ExtResource("3_3cl1b")
+[node name="MenuBottom" type="Sprite2D" parent="bottom"]
+position = Vector2(34, 7)
+scale = Vector2(0.480889, 0.395221)
+texture = ExtResource("4_3ujoa")
 
 [node name="chat" parent="." instance=ExtResource("4_n8412")]
 layout_mode = 1
@@ -64,4 +64,6 @@ offset_right = 1640.0
 offset_bottom = 960.0
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(273, 479)
+position = Vector2(270, 480)
+
+[connection signal="back" from="chat" to="." method="_on_chat_back"]
