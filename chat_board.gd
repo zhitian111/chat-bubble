@@ -4,10 +4,6 @@ extends Control
 @onready var vbox = $ChatList
 @onready var camera = $Camera2D
 var chats: Dictionary
-var avatars: Dictionary = {
-	"李佳灿": "res://chat_list/OIP.jpg",
-	"test":"res://chat_list/OIP.jpg",
-}
 var chat_objs:Dictionary={}
 var cameras: Dictionary = {}
 func _ready() -> void:
@@ -16,7 +12,7 @@ func _ready() -> void:
 	chat_objs["test"]=$chat
 	chat_objs["test"].connect("all_info", Callable(self, "_on_all_info_received"))
 func _on_all_info_received(message: String, poster: String, time: int, name: String, _camera: Camera2D) -> void:
-	add_chat(avatars[name], name, message, float(time))
+	add_chat(game.avatars[name], name, message, float(time))
 	cameras[name]=_camera
 func add_chat(path: String, namee: String, textt: String, timee: float):
 	if !chats.has(namee):

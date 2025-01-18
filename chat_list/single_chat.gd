@@ -33,6 +33,7 @@ func set_timer(atime: float=5):
 func _on_timer_timeout() -> void:
 	emit_signal("time_end")
 	timer_box.visible=false
+	timer.stop()
 
 # 更新剩余时间
 func _process(_delta: float) -> void:
