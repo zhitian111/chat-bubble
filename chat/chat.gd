@@ -13,13 +13,12 @@ extends Control
 
 signal all_info(message:String,poster: String,time:int,name:String,camera:Camera2D)
 signal back
-signal lose
 
 var done:bool = false
 
 var rating = preload("res://choose_sentence/rating/rating.tscn")
 
-var time_length = 10
+@export var time_length = 10
 
 
 
@@ -56,7 +55,7 @@ func _process(delta: float) -> void:
 func end_choosing():
 	done = true
 	timer.paused = true
-	if timer.time_left <= 2/3*time_length:
+	if timer.time_left * 1.0 <= 2.0/3.0*time_length:
 		var rate = rating.instantiate()
 		rate.set_type(rate.rating.good)
 		self.add_child(rate)
@@ -64,7 +63,7 @@ func end_choosing():
 		rate.start()
 
 		rate.global_position = get_viewport().get_mouse_position() - Vector2(rate.size.x/2,rate.size.y/2)
-	if timer.time_left > 2/3*time_length:
+	if timer.time_left * 1.0 > 2.0/3.0*time_length:
 		var rate = rating.instantiate()
 		rate.set_type(rate.rating.perfect)
 		self.add_child(rate)

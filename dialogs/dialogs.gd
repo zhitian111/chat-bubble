@@ -15,8 +15,8 @@ func _ready() -> void:
 
 func add_sentence(sentence: String, poster:String) -> void:
 	var tween = get_tree().create_tween()
-	
-	new_message.emit(sentence, poster)
+	if poster != "me":
+		new_message.emit(sentence, poster)
 
 	if speaker.is_empty():
 		if poster == "me":
