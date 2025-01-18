@@ -1,7 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://eev2ac75hv1q"]
+[gd_scene load_steps=5 format=3 uid="uid://eev2ac75hv1q"]
 
 [ext_resource type="Script" path="res://chat_board.gd" id="1_b6m4g"]
-[ext_resource type="PackedScene" uid="uid://cpfpbyiyc6jjj" path="res://chat_list/single_chat.tscn" id="2_2ad85"]
 [ext_resource type="Texture2D" uid="uid://7ahmm3ah16yl" path="res://chat_list/bottom.png" id="3_3cl1b"]
 [ext_resource type="Script" path="res://chat_list/error.gd" id="4_v1k56"]
 
@@ -41,12 +40,6 @@ color = Color(0.92549, 0.929412, 0.929412, 1)
 [node name="ChatList" type="VBoxContainer" parent="Board"]
 layout_mode = 2
 theme_override_constants/separation = 110
-
-[node name="SingleChat" parent="Board/ChatList" instance=ExtResource("2_2ad85")]
-layout_mode = 2
-
-[node name="SingleChat2" parent="Board/ChatList" instance=ExtResource("2_2ad85")]
-layout_mode = 2
 
 [node name="bottom" type="Label" parent="."]
 layout_mode = 2
