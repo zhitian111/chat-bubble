@@ -14,4 +14,4 @@ func _ready() -> void:
 	button_3.pressed.connect(chosen)
 
 func chosen() -> void:
-	self.queue_free()
+	self.visible=false

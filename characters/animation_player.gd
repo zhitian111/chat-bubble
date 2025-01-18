@@ -24,3 +24,7 @@ func play_next_animation():
 func _on_animation_finished(anim_name: String) -> void:
 	print("动画 '" + anim_name + "' 播放完毕")
 	play_next_animation()  # 播放下一个动画
+
+
+func _on_timer_timeout() -> void:
+	stop()

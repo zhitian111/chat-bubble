@@ -74,7 +74,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_k0dr5")
-chat_name = "游戏开黑群"
 
 [node name="dialog_background" type="ColorRect" parent="."]
 z_index = -3
@@ -113,15 +112,6 @@ offset_right = 519.0
 offset_bottom = 943.0
 grow_horizontal = 1
 grow_vertical = 1
-
-[node name="Label2" parent="choose_sentence/CenterContainer/HBoxContainer" index="1"]
-text = "收到"
-
-[node name="Label2" parent="choose_sentence/CenterContainer2/HBoxContainer" index="1"]
-text = "无语"
-
-[node name="Label2" parent="choose_sentence/CenterContainer3/HBoxContainer" index="1"]
-text = "666"
 
 [node name="Camera2D" type="Camera2D" parent="."]
 offset = Vector2(270, 480)
@@ -183,5 +173,3 @@ script = ExtResource("6_8rejo")
 [connection signal="new_message" from="dialogs" to="." method="_on_dialogs_new_message"]
 [connection signal="pressed" from="back" to="." method="_on_back_pressed"]
 [connection signal="timeout" from="timer" to="." method="_on_timer_timeout"]
-
-[editable path="choose_sentence"]
