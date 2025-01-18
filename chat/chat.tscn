@@ -1,10 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://v0k4wvdk3cpg"]
+[gd_scene load_steps=11 format=3 uid="uid://v0k4wvdk3cpg"]
 
 [ext_resource type="Script" path="res://chat/chat.gd" id="1_engbf"]
 [ext_resource type="PackedScene" uid="uid://7u5tp0a0pyk2" path="res://dialogs/dialogs.tscn" id="1_exmix"]
 [ext_resource type="PackedScene" uid="uid://dclb550ddq3p5" path="res://choose_sentence/choose_sentence.tscn" id="2_2udvc"]
 [ext_resource type="LabelSettings" path="res://chat/new_label_settings.tres" id="4_al2pt"]
 [ext_resource type="Texture2D" uid="uid://b1h72wdx435n3" path="res://icon.svg" id="5_a2v0q"]
+[ext_resource type="Script" path="res://chat/animation_player.gd" id="6_wnpp7"]
 
 [sub_resource type="Theme" id="Theme_4bjhw"]
 Button/font_sizes/font_size = 36
@@ -131,6 +132,7 @@ tint_progress = Color(1, 0, 0, 1)
 libraries = {
 "": SubResource("AnimationLibrary_aii7r")
 }
+script = ExtResource("6_wnpp7")
 
 [node name="lose_inf" type="Label" parent="."]
 z_index = -2

@@ -1,10 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://ss5iryjqoobs"]
+[gd_scene load_steps=12 format=3 uid="uid://ss5iryjqoobs"]
 
 [ext_resource type="Script" path="res://chat/chat.gd" id="1_k0dr5"]
 [ext_resource type="PackedScene" uid="uid://7u5tp0a0pyk2" path="res://dialogs/dialogs.tscn" id="2_heomk"]
 [ext_resource type="PackedScene" uid="uid://dclb550ddq3p5" path="res://choose_sentence/choose_sentence.tscn" id="3_s4l5i"]
 [ext_resource type="LabelSettings" path="res://chat/new_label_settings.tres" id="4_ce2of"]
 [ext_resource type="Texture2D" uid="uid://b1h72wdx435n3" path="res://icon.svg" id="5_bkts8"]
+[ext_resource type="Script" path="res://characters/animation_player.gd" id="6_8rejo"]
 
 [sub_resource type="Theme" id="Theme_4bjhw"]
 Button/font_sizes/font_size = 36
@@ -34,9 +35,35 @@ tracks/0/keys = {
 }]
 }
 
+[sub_resource type="Animation" id="Animation_iq5u5"]
+resource_name = "dialog2"
+length = 10.0
+step = 0.5
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("dialogs")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(1, 3, 4.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"values": [{
+"args": ["菜就多练", "坤坤"],
+"method": &"add_sentence"
+}, {
+"args": ["输不起就别玩", "丁真"],
+"method": &"add_sentence"
+}, {
+"args": [],
+"method": &"dialog_end"
+}]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_k7nqq"]
 _data = {
-"dialog1": SubResource("Animation_o5hsi")
+"dialog1": SubResource("Animation_o5hsi"),
+"dialog2": SubResource("Animation_iq5u5")
 }
 
 [node name="game_group" type="Control"]
@@ -151,6 +178,7 @@ libraries = {
 "": SubResource("AnimationLibrary_k7nqq")
 }
 autoplay = "dialog1"
+script = ExtResource("6_8rejo")
 
 [connection signal="new_message" from="dialogs" to="." method="_on_dialogs_new_message"]
 [connection signal="pressed" from="back" to="." method="_on_back_pressed"]
