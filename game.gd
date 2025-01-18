@@ -26,3 +26,5 @@ var rating_count = {
 	"nice":0,
 	"miss":0
 }
+
+var  inf_mode_health = 89.0

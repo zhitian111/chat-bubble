@@ -35,6 +35,7 @@ func start()->void:
 		perfect_texture.queue_free()
 		nice_texture.queue_free()
 		game.rating_count["miss"]+=1
+		game.inf_mode_health -= 7
 	if type == rating.perfect:
 		perfect_texture.show()
 		good_texture.queue_free()

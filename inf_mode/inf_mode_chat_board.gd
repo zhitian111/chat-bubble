@@ -17,6 +17,7 @@ func _ready() -> void:
 	game.rating_count["great"] = 0
 	game.rating_count["perfect"] = 0
 
+	game.inf_mode_health = 80
 
 	camera.make_current()
 	for c in characters.get_children():
@@ -123,3 +124,7 @@ func _on_recording_timeout() -> void:
 		chat_objs[i.chat_name.text].script_end_choosing()
 		chats[i.chat_name.text]._on_button_button_down()
 		break
+
+func _process(delta: float) -> void:
+	var date_time = Time.get_datetime_dict_from_system()
+	$time.text = str(date_time["hour"]) + " : " + str(date_time["minute"]) 
