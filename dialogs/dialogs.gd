@@ -9,9 +9,9 @@ var others_bubble = preload("res://chat_bubble/others/others_bubble.tscn")
 func set_choice(choice1:String,choice2:String,choice3:String):
 	print(choice1,choice2,choice3)
 	choose.set_text(choice1,choice2,choice3)
-func _ready() -> void:
-	$mine_bubble.queue_free()
-	$others_bubble.queue_free()
+#func _ready() -> void:
+	#$mine_bubble.queue_free()
+	#$others_bubble.queue_free()
 	# add_sentence("Hello, how are you?", 0)
 	# add_sentence("I'm fine, thanks for asking.", 1)
 	# $controller.play("dialog")
@@ -20,8 +20,13 @@ func _ready() -> void:
 func add_label(sentence: Label, poster:String) -> void:
 	add_sentence(sentence.text, poster)
 
+
+
 func add_sentence(sentence: String, poster:String) -> void:
 	var tween = get_tree().create_tween()
+
+	print(self.size)
+
 	if poster != "me":
 		new_message.emit(sentence, poster)
 

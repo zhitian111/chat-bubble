@@ -3,12 +3,14 @@ extends CenterContainer
 @onready var perfect_texture = $perfect
 @onready var good_texture = $good
 @onready var bad_texture = $bad
+@onready var nice_texture = $nice
 @onready var timer = $Timer
 
 enum rating{
 	good,
 	bad,
-	perfect
+	perfect,
+	nice
 }
 
 var speed = 100.0
@@ -25,14 +27,23 @@ func start()->void:
 		good_texture.show()
 		perfect_texture.queue_free()
 		bad_texture.queue_free()
+		nice_texture.queue_free()
 	if type == rating.bad:
 		bad_texture.show()
 		good_texture.queue_free()
 		perfect_texture.queue_free()
+		nice_texture.queue_free()
 	if type == rating.perfect:
 		perfect_texture.show()
 		good_texture.queue_free()
 		bad_texture.queue_free()
+		nice_texture.queue_free()
+	if type == rating.nice:
+		nice_texture.show()
+		good_texture.queue_free()
+		bad_texture.queue_free()
+		perfect_texture.queue_free()
+
 	is_started = true
 	timer.start()
 

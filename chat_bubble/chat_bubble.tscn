@@ -18,6 +18,7 @@ Label/styles/normal = SubResource("StyleBoxTexture_drqe6")
 
 [sub_resource type="SystemFont" id="SystemFont_yel16"]
 font_names = PackedStringArray("Microsoft YaHei")
+subpixel_positioning = 0
 
 [sub_resource type="LabelSettings" id="LabelSettings_bqa2p"]
 font = SubResource("SystemFont_yel16")
@@ -26,9 +27,6 @@ font_color = Color(0.111197, 0.111197, 0.111197, 1)
 
 [node name="chat_bubble" type="Label"]
 custom_minimum_size = Vector2(200, 0)
-anchors_preset = -1
-anchor_right = 0.185
-anchor_bottom = 0.116
 offset_right = -0.119995
 offset_bottom = -0.167999
 grow_horizontal = 2

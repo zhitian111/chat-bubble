@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://c4ntj6ogailif"]
+[gd_scene load_steps=6 format=3 uid="uid://c4ntj6ogailif"]
 
 [ext_resource type="Script" path="res://choose_sentence/rating/rating.gd" id="1_ateax"]
 [ext_resource type="Texture2D" uid="uid://15oaqpbapytl" path="res://assets/pgmn/Perfect.png" id="2_dsxle"]
 [ext_resource type="Texture2D" uid="uid://b82gm6enejiiv" path="res://assets/pgmn/Great.png" id="3_057dm"]
 [ext_resource type="Texture2D" uid="uid://doyro0py5q2n1" path="res://assets/pgmn/Miss.png" id="4_tbaca"]
+[ext_resource type="Texture2D" uid="uid://rodw5mx85flm" path="res://assets/pgmn/Nice-1.png" id="5_b3xfb"]
 
 [node name="rating" type="CenterContainer"]
 anchors_preset = 15
@@ -34,6 +35,13 @@ visible = false
 custom_minimum_size = Vector2(0, 64)
 layout_mode = 2
 texture = ExtResource("4_tbaca")
+expand_mode = 3
+
+[node name="nice" type="TextureRect" parent="."]
+visible = false
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 2
+texture = ExtResource("5_b3xfb")
 expand_mode = 3
 
 [node name="Timer" type="Timer" parent="."]

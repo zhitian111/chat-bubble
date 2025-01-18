@@ -1,0 +1,88 @@
+[gd_scene load_steps=8 format=3 uid="uid://clj5183xngyuf"]
+
+[ext_resource type="Script" path="res://chat_board.gd" id="1_4ty8s"]
+[ext_resource type="Texture2D" uid="uid://sn53n2kcr5uw" path="res://assets/menu/menu_top.png" id="2_c00ie"]
+[ext_resource type="Texture2D" uid="uid://ci1jympqhobx" path="res://assets/menu/menu_bottom.png" id="3_c8imd"]
+[ext_resource type="PackedScene" uid="uid://v0k4wvdk3cpg" path="res://chat/chat.tscn" id="4_rwvhy"]
+[ext_resource type="Script" path="res://inf_mode/inf_characters.gd" id="4_xa7pj"]
+[ext_resource type="PackedScene" uid="uid://ss5iryjqoobs" path="res://characters/game_group.tscn" id="5_46qjk"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_tow6j"]
+font_size = 40
+font_color = Color(0, 0, 0, 1)
+
+[node name="infModeChatBoard" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_4ty8s")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+z_index = -100
+layout_mode = 0
+offset_right = 540.0
+offset_bottom = 961.0
+color = Color(0.815686, 0.815686, 0.815686, 1)
+
+[node name="top" type="Label" parent="."]
+layout_mode = 2
+offset_right = 310.0
+offset_bottom = 55.0
+text = "                       微Q"
+label_settings = SubResource("LabelSettings_tow6j")
+
+[node name="MenuTop" type="Sprite2D" parent="top"]
+position = Vector2(270, 49.9375)
+scale = Vector2(0.48, 0.328279)
+texture = ExtResource("2_c00ie")
+
+[node name="ChatList" type="VBoxContainer" parent="."]
+layout_mode = 2
+offset_left = 20.0
+offset_top = 120.0
+offset_right = 20.0
+offset_bottom = 120.0
+theme_override_constants/separation = 130
+
+[node name="bottom" type="Label" parent="."]
+layout_mode = 2
+offset_left = 237.0
+offset_top = 905.0
+offset_right = 308.0
+offset_bottom = 960.0
+size_flags_horizontal = 0
+size_flags_vertical = 8
+text = "微Q"
+label_settings = SubResource("LabelSettings_tow6j")
+
+[node name="MenuBottom" type="Sprite2D" parent="bottom"]
+position = Vector2(34, 7)
+scale = Vector2(0.480889, 0.395221)
+texture = ExtResource("3_c8imd")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(270, 480)
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.5
+
+[node name="characters" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("4_xa7pj")
+
+[node name="test" parent="characters" instance=ExtResource("4_rwvhy")]
+layout_mode = 1
+offset_left = 1100.0
+offset_right = 1640.0
+offset_bottom = 960.0
+
+[node name="游戏开黑群" parent="characters" instance=ExtResource("5_46qjk")]
+layout_mode = 1
+offset_left = 2483.0
+offset_right = 3023.0
+offset_bottom = 960.0
+
+[connection signal="timeout" from="Timer" to="characters" method="_on_timer_timeout"]
+
+[editable path="characters/test"]

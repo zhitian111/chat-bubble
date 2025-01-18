@@ -45,7 +45,8 @@ func _ready():
 
 	$AnimationPlayer.play("dialog")
 
-
+	progress_bar.z_index = 1
+	progress_bar.tint_progress = Color(0, 1, 0, 1)
 
 func start_choosing():
 	buttons.visible = true
@@ -55,15 +56,23 @@ func start_choosing():
 func _process(delta: float) -> void:
 	progress_bar.value = timer.time_left
 	if !timer.is_stopped() && !done:
-		progress_bar.tint_progress += delta*(Color(1,1,1,1) - Color(0, 1, 0, 0.835))/time_length
+		progress_bar.tint_progress += delta*(Color(1,1,1,1) - Color(0, 1, 0, 1))/time_length
 
 func end_choosing():
 	done = true
 	timer.paused = true
 
 	chosen.emit()
+	if timer.time_left * 1.0 < 1.0/3.0*time_length:
+		var rate = rating.instantiate()
+		rate.set_type(rate.rating.nice)
+		self.add_child(rate)
 
-	if timer.time_left * 1.0 <= 2.0/3.0*time_length:
+		rate.start()
+
+		rate.global_position = get_viewport().get_mouse_position() - Vector2(rate.size.x/2,rate.size.y/2) + self.global_position
+
+	if timer.time_left * 1.0 <= 2.0/3.0*time_length && timer.time_left * 1.0 >= 1.0/3.0*time_length:
 		var rate = rating.instantiate()
 		rate.set_type(rate.rating.good)
 		self.add_child(rate)
@@ -71,6 +80,7 @@ func end_choosing():
 		rate.start()
 
 		rate.global_position = get_viewport().get_mouse_position() - Vector2(rate.size.x/2,rate.size.y/2) + self.global_position
+
 	if timer.time_left * 1.0 > 2.0/3.0*time_length:
 		var rate = rating.instantiate()
 		rate.set_type(rate.rating.perfect)
