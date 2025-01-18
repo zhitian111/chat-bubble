@@ -6,7 +6,7 @@ var animations = []
 func _ready() -> void:
 	# 获取所有动画的名称
 	animations = get_animation_list()
-	print(animations)
+	
 	if animations.size() > 0:
 		play_next_animation()
 
@@ -16,7 +16,7 @@ func play_next_animation():
 		var animation_name = animations[current_animation_index]
 		play(animation_name)  # 使用 play 方法来播放动画
 		current_animation_index += 1
-		connect("animation_finished", Callable(self, "_on_animation_finished"))
+		connect("animation_finished",Callable( self, "_on_animation_finished"))
 	else:
 		print("所有动画播放完毕")
 
@@ -26,11 +26,15 @@ func _on_animation_finished(anim_name: String) -> void:
 	play_next_animation()  # 播放下一个动画
 
 
-func _on_timer_timeout() -> void:
-	stop()
-func Aturn(dname:String):
-	play(dname)
-func Bturn(dname:String):
-	play(dname)
-func Cturn(dname:String):
-	play(dname)	
+func _on_choose_sentence_value_chosen(count: String, chat_name: String) -> void:
+	game.choice[chat_name]=count
+func choose_A(chat_name:String,next:String):
+	print(game.choice[chat_name])
+	if game.choice[chat_name]=="A":
+		play(next)
+func choose_B(chat_name:String,next:String):
+	if game.choice[chat_name]=="B":
+		play(next)
+func choose_C(chat_name:String,next:String):
+	if game.choice[chat_name]=="C":
+		play(next)

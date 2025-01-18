@@ -214,5 +214,6 @@ autoplay = "dialog1"
 script = ExtResource("6_8rejo")
 
 [connection signal="new_message" from="dialogs" to="." method="_on_dialogs_new_message"]
+[connection signal="value_chosen" from="choose_sentence" to="AnimationPlayer" method="_on_choose_sentence_value_chosen"]
 [connection signal="pressed" from="back" to="." method="_on_back_pressed"]
 [connection signal="timeout" from="timer" to="." method="_on_timer_timeout"]
