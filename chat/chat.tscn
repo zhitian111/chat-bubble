@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://v0k4wvdk3cpg"]
+[gd_scene load_steps=15 format=3 uid="uid://v0k4wvdk3cpg"]
 
 [ext_resource type="Script" path="res://chat/chat.gd" id="1_engbf"]
 [ext_resource type="PackedScene" uid="uid://7u5tp0a0pyk2" path="res://dialogs/dialogs.tscn" id="1_exmix"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://cs7ha4xagp2qs" path="res://assets/chat/chat_exit.png" id="5_oepvv"]
 [ext_resource type="Texture2D" uid="uid://ddw1xaeohn5f7" path="res://assets/chat/progress-Sheet.png" id="6_ay6v7"]
 [ext_resource type="AnimationLibrary" uid="uid://cdlehoq8riec2" path="res://animations/dialogs.res" id="8_7puw2"]
+[ext_resource type="Script" path="res://chat/animation_player.gd" id="9_hoyb8"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_jy8os"]
 font_color = Color(0, 0, 0, 1)
@@ -130,6 +131,7 @@ tint_progress = Color(0, 1, 0, 0.835294)
 libraries = {
 "dialogs": ExtResource("8_7puw2")
 }
+script = ExtResource("9_hoyb8")
 
 [node name="button_mark" type="Marker2D" parent="."]
 position = Vector2(262.932, 864.226)

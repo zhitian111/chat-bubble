@@ -47,7 +47,7 @@ func _ready():
 	progress_bar.max_value = time_length
 	progress_bar.step = time_length / 200.0
 
-	$AnimationPlayer.play("dialog")
+	$AnimationPlayer.play_random_animation()
 
 	progress_bar.z_index = 1
 	progress_bar.tint_progress = Color(0, 1, 0, 1)

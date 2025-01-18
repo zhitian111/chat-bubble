@@ -19,7 +19,21 @@ func _ready() -> void:
 	$TimerBox/time.text = ""
 func init(path: String, aname: String, amessage: String) -> void:
 	avatar.texture = load(path)
-	chat_name.text = aname
+	var group_names = [
+		"代码吧少年",
+		"秃头研究协会",
+		"今天也要努力划水",
+		"吃饭睡觉打代码",
+		"闲聊不如赚钱",
+		"复读机选手俱乐部",
+		"摸鱼摸到海底",
+		"卷不动也得卷",
+		"键盘侠终极联盟",
+		"改Bug第一天"
+	]
+	randomize()  # 确保随机性
+	var random_name = group_names[randi() % group_names.size()]
+	chat_name.text = random_name
 	if amessage.length() > 7:
 		amessage = amessage.substr(0, 7) + "..."  # 超过部分显示省略号
 	message.text = amessage
