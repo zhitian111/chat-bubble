@@ -1,29 +1,15 @@
-[gd_scene load_steps=4 format=3 uid="uid://7u5tp0a0pyk2"]
+[gd_scene load_steps=2 format=3 uid="uid://7u5tp0a0pyk2"]
 
-[ext_resource type="PackedScene" uid="uid://2n21asxdjxhp" path="res://chat_bubble/mine/mine_bubble.tscn" id="1_6ai3x"]
 [ext_resource type="Script" path="res://dialogs/dialogs.gd" id="1_aiebn"]
-[ext_resource type="PackedScene" uid="uid://qvxyry0dp7wu" path="res://chat_bubble/others/others_bubble.tscn" id="2_ap8id"]
 
 [node name="dialogs" type="GridContainer"]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+custom_minimum_size = Vector2(540, 0)
+offset_right = 540.0
 columns = 2
 script = ExtResource("1_aiebn")
 
 [node name="placeholder1" type="Control" parent="."]
 layout_mode = 2
 
-[node name="mine_bubble" parent="." instance=ExtResource("1_6ai3x")]
-layout_mode = 2
-
-[node name="others_bubble" parent="." instance=ExtResource("2_ap8id")]
-layout_mode = 2
-
 [node name="placeholder2" type="Control" parent="."]
 layout_mode = 2
-
-[editable path="mine_bubble"]
-[editable path="others_bubble"]

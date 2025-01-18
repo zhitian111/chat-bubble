@@ -145,6 +145,7 @@ expand_icon = true
 one_shot = true
 
 [node name="TextureProgressBar" type="TextureProgressBar" parent="."]
+z_index = 1
 layout_mode = 0
 offset_top = 104.0
 offset_right = 540.0

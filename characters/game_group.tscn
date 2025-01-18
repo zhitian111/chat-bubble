@@ -38,8 +38,8 @@ tracks/0/path = NodePath("dialogs")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5, 1.5),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(0, 0.5, 1.5, 2, 2.5, 3, 3.5, 4, 4.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
 "values": [{
 "args": ["666", "无语", "哈哈哈"],
 "method": &"set_choice"
@@ -49,6 +49,24 @@ tracks/0/keys = {
 }, {
 "args": [],
 "method": &"dialog_end"
+}, {
+"args": ["1.@全体成员，请在10秒钟内在该群聊中发送至少一条文字消息，否则将被踢出群聊！！", "群主"],
+"method": &"add_sentence"
+}, {
+"args": ["1.@全体成员，请在10秒钟内在该群聊中发送至少一条文字消息，否则将被踢出群聊！！", "群主"],
+"method": &"add_sentence"
+}, {
+"args": ["1.@全体成员，请在10秒钟内在该群聊中发送至少一条文字消息，否则将被踢出群聊！！", "群主"],
+"method": &"add_sentence"
+}, {
+"args": ["1.@全体成员，请在10秒钟内在该群聊中发送至少一条文字消息，否则将被踢出群聊！！", "群主"],
+"method": &"add_sentence"
+}, {
+"args": ["1.@全体成员，请在10秒钟内在该群聊中发送至少一条文字消息，否则将被踢出群聊！！", "群主"],
+"method": &"add_sentence"
+}, {
+"args": ["1.@全体成员，请在10秒钟内在该群聊中发送至少一条文字消息，否则将被踢出群聊！！", "群主"],
+"method": &"add_sentence"
 }]
 }
 
