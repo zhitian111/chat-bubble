@@ -1,7 +1,7 @@
 extends Control
 @export var chat = preload("res://chat_list/single_chat.tscn")
 @export var miss= preload("res://miss/miss.tscn")
-@onready var vbox = $ChatList
+@onready var vbox = $ChatList/ChatList
 @onready var camera = $Camera2D
 @onready var characters=$characters
 var chats: Dictionary

@@ -9,7 +9,9 @@ var others_bubble = preload("res://chat_bubble/others/others_bubble.tscn")
 func set_choice(choice1:String,choice2:String,choice3:String):
 	print(choice1,choice2,choice3)
 	choose.set_text(choice1,choice2,choice3)
-#func _ready() -> void:
+func _ready() -> void:
+	if get_parent():
+		new_message.connect(get_parent().all_info)
 	#$mine_bubble.queue_free()
 	#$others_bubble.queue_free()
 	# add_sentence("Hello, how are you?", 0)

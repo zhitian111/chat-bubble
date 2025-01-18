@@ -35,12 +35,14 @@ position = Vector2(270, 49.9375)
 scale = Vector2(0.48, 0.328279)
 texture = ExtResource("2_c00ie")
 
-[node name="ChatList" type="VBoxContainer" parent="."]
+[node name="ChatList" type="ScrollContainer" parent="."]
 layout_mode = 2
-offset_left = 20.0
-offset_top = 120.0
-offset_right = 20.0
-offset_bottom = 120.0
+offset_top = 100.0
+offset_right = 540.0
+offset_bottom = 893.0
+
+[node name="ChatList" type="VBoxContainer" parent="ChatList"]
+layout_mode = 2
 theme_override_constants/separation = 130
 
 [node name="bottom" type="Label" parent="."]
