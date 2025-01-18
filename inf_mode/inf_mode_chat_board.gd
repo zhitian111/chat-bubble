@@ -4,6 +4,9 @@ extends Control
 @onready var vbox = $ChatList/ChatList
 @onready var camera = $Camera2D
 @onready var characters=$characters
+
+var rating_view = preload("res://choose_sentence/rating/rating.tscn")
+
 var chats: Dictionary
 var chat_objs:Dictionary={}
 var cameras: Dictionary = {}
@@ -22,6 +25,7 @@ func dynamic_add_chat(new_chat)->void:
 	new_chat.connect("all_info", Callable(self, "_on_all_info_received"))
 	new_chat.connect("back",Callable(self,"_on_chat_back"))
 	new_chat.connect("chosen",Callable(self,"chosen").bind(new_chat))
+	new_chat.connect("timer_start",Callable(self,"_on_time_start"))
 
 
 func _on_all_info_received(message: String, poster: String, time: int, name: String, _camera: Camera2D) -> void:
@@ -30,6 +34,9 @@ func _on_all_info_received(message: String, poster: String, time: int, name: Str
 	else:
 		add_chat(game.avatars["test"],name,message,float(time))
 	cameras[name]=_camera
+
+
+
 func add_chat(path: String, namee: String, textt: String, timee: float):
 	# print(path)
 	if !chats.has(namee):
@@ -40,8 +47,10 @@ func add_chat(path: String, namee: String, textt: String, timee: float):
 		chats[namee] = c
 		c.connect("chat_button_pressed", Callable(self, "_on_chat_button_pressed").bind(c))
 		c.connect("time_end",Callable(self,"_on_time_end").bind(c))
-	chats[namee].set_timer(timee)
+	# chats[namee].set_timer(timee)
 	add_point(namee)
+
+
 func add_point(namee: String):
 	chats[namee].set_number(chats[namee].get_number() + 1)
 	chats[namee].add_point()
@@ -63,3 +72,31 @@ func _on_time_end(sender:Node):
 
 func _on_chat_back() -> void:
 	camera.make_current()
+
+func _on_time_start(namee:String,timee:int):
+	chats[namee].set_timer(timee)
+
+
+func _on_mass_mailing_pressed() -> void:
+	for i in vbox.get_children():
+		if !chat_objs[i.chat_name.text].start_choosing_mark:
+			continue
+		if chat_objs[i.chat_name.text].chosen_mark:
+			continue
+		chat_objs[i.chat_name.text].script_chosen.connect(_on_script_chosen)
+		chat_objs[i.chat_name.text].script_end_choosing()
+
+func _on_script_chosen(left_time:float,rating:int,chat_name:String):
+	var node = rating_view.instantiate()
+	if rating == 1:
+		node.set_type(node.rating.nice)
+	if rating == 2:
+		node.set_type(node.rating.good)
+	if rating == 3:
+		node.set_type(node.rating.perfect)
+	
+	chats[chat_name].add_child(node)
+	node.scale = Vector2(0.5,0.5)
+	node.position = Vector2(270,100)
+	node.start()
+	pass

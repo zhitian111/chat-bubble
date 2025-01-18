@@ -1,11 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://clj5183xngyuf"]
+[gd_scene load_steps=6 format=3 uid="uid://clj5183xngyuf"]
 
 [ext_resource type="Script" path="res://inf_mode/inf_mode_chat_board.gd" id="1_y7vlg"]
 [ext_resource type="Texture2D" uid="uid://sn53n2kcr5uw" path="res://assets/menu/menu_top.png" id="2_c00ie"]
 [ext_resource type="Texture2D" uid="uid://ci1jympqhobx" path="res://assets/menu/menu_bottom.png" id="3_c8imd"]
-[ext_resource type="PackedScene" uid="uid://v0k4wvdk3cpg" path="res://chat/chat.tscn" id="4_rwvhy"]
 [ext_resource type="Script" path="res://inf_mode/inf_characters.gd" id="4_xa7pj"]
-[ext_resource type="PackedScene" uid="uid://ss5iryjqoobs" path="res://characters/game_group.tscn" id="5_46qjk"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_tow6j"]
 font_size = 40
@@ -39,7 +37,7 @@ texture = ExtResource("2_c00ie")
 layout_mode = 2
 offset_top = 100.0
 offset_right = 540.0
-offset_bottom = 893.0
+offset_bottom = 858.0
 horizontal_scroll_mode = 0
 
 [node name="ChatList" type="VBoxContainer" parent="ChatList"]
@@ -75,18 +73,12 @@ offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("4_xa7pj")
 
-[node name="test" parent="characters" instance=ExtResource("4_rwvhy")]
-layout_mode = 1
-offset_left = 1100.0
-offset_right = 1640.0
-offset_bottom = 960.0
-
-[node name="游戏开黑群" parent="characters" instance=ExtResource("5_46qjk")]
-layout_mode = 1
-offset_left = 2483.0
-offset_right = 3023.0
-offset_bottom = 960.0
+[node name="mass_mailing" type="Button" parent="."]
+layout_mode = 0
+offset_left = 76.0
+offset_top = 881.0
+offset_right = 131.0
+offset_bottom = 936.0
 
 [connection signal="timeout" from="Timer" to="characters" method="_on_timer_timeout"]
-
-[editable path="characters/test"]
+[connection signal="pressed" from="mass_mailing" to="." method="_on_mass_mailing_pressed"]

@@ -33,18 +33,18 @@ script = ExtResource("1_7mhey")
 [node name="MenuCharacter2" type="TextureRect" parent="."]
 z_index = -100
 layout_mode = 0
-offset_left = 1.0
+offset_left = 21.0
 offset_top = 1.0
-offset_right = 501.0
+offset_right = 521.0
 offset_bottom = 157.015
 texture = ExtResource("4_4ixrp")
 expand_mode = 5
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 0
-offset_left = 22.0
+offset_left = 42.0
 offset_top = 33.0
-offset_right = 366.0
+offset_right = 386.0
 offset_bottom = 121.0
 theme = SubResource("Theme_ddb3e")
 
@@ -85,19 +85,11 @@ layout_mode = 2
 text = "发送了一条新消息"
 label_settings = SubResource("LabelSettings_qk1i6")
 
-[node name="Button" type="Button" parent="."]
-modulate = Color(1, 1, 1, 0)
-layout_mode = 0
-offset_left = 22.0
-offset_top = 1.0
-offset_right = 522.0
-offset_bottom = 157.0
-
 [node name="TimerBox" type="VBoxContainer" parent="."]
 layout_mode = 2
-offset_left = 372.0
+offset_left = 392.0
 offset_top = 44.0
-offset_right = 497.0
+offset_right = 517.0
 offset_bottom = 150.0
 
 [node name="time" type="Label" parent="TimerBox"]
@@ -105,5 +97,13 @@ layout_mode = 2
 text = "剩余时间：
 66：66"
 label_settings = SubResource("LabelSettings_ayd4r")
+
+[node name="Button" type="Button" parent="."]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+offset_left = 35.0
+offset_top = 19.0
+offset_right = 507.0
+offset_bottom = 143.0
 
 [connection signal="button_down" from="Button" to="." method="_on_button_button_down"]

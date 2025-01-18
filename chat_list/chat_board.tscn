@@ -37,9 +37,7 @@ texture = ExtResource("2_x0q1t")
 
 [node name="ChatList" type="VBoxContainer" parent="."]
 layout_mode = 2
-offset_left = 20.0
 offset_top = 120.0
-offset_right = 20.0
 offset_bottom = 120.0
 theme_override_constants/separation = 130
 

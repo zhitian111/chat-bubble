@@ -103,8 +103,8 @@ vertical_alignment = 1
 
 [node name="dialogs" parent="." instance=ExtResource("1_exmix")]
 layout_mode = 1
-offset_right = 4.0
-offset_bottom = 140.0
+offset_top = 696.0
+offset_bottom = 836.0
 
 [node name="choose_sentence" parent="." instance=ExtResource("2_2udvc")]
 layout_mode = 0
