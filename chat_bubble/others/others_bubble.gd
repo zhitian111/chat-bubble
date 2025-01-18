@@ -12,7 +12,10 @@ func _ready() -> void:
 func set_user_name(new_name:String)->void:
 	user_name = new_name
 	$name.text = user_name
-	
+	if game.avatars.has(user_name):
+		if game.avatars[user_name] != null:
+			$avatar.texture = load(game.avatars[user_name])
+
 
 func add_sentence(sentence: String) -> void:
 	var bubble = chat_bubble.instantiate()

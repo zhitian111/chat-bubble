@@ -13,6 +13,7 @@ extends Control
 
 signal all_info(message:String,poster: String,time:int,name:String,camera:Camera2D)
 signal back
+signal chosen
 
 var done:bool = false
 
@@ -55,6 +56,9 @@ func _process(delta: float) -> void:
 func end_choosing():
 	done = true
 	timer.paused = true
+
+	chosen.emit()
+
 	if timer.time_left * 1.0 <= 2.0/3.0*time_length:
 		var rate = rating.instantiate()
 		rate.set_type(rate.rating.good)
