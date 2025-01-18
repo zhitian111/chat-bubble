@@ -66,7 +66,7 @@ func _on_chat_button_pressed(sender: Node):
 func _on_time_end(sender:Node):
 	for key in chats.keys():
 		if chats[key] == sender:
-			chats[key].set_message("你已被拉黑")
+			chats[key].set_message("你已被移出群聊")
 	var m=miss.instantiate()
 	get_tree().current_scene.add_child(m)
 
@@ -100,3 +100,17 @@ func _on_script_chosen(left_time:float,rating:int,chat_name:String):
 	node.position = Vector2(270,100)
 	node.start()
 	pass
+
+
+
+func _on_recording_timeout() -> void:
+	for i in vbox.get_children():
+		if !chat_objs[i.chat_name.text].start_choosing_mark:
+			continue
+		if chat_objs[i.chat_name.text].chosen_mark:
+			continue
+		if chat_objs[i.chat_name.text].camera.is_current():
+			continue
+		chat_objs[i.chat_name.text].script_chosen.connect(_on_script_chosen)
+		chat_objs[i.chat_name.text].script_end_choosing()
+		break
