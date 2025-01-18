@@ -28,3 +28,9 @@ func _on_animation_finished(anim_name: String) -> void:
 
 func _on_timer_timeout() -> void:
 	stop()
+func Aturn(dname:String):
+	play(dname)
+func Bturn(dname:String):
+	play(dname)
+func Cturn(dname:String):
+	play(dname)	
