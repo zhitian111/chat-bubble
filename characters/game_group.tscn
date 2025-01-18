@@ -1,0 +1,187 @@
+[gd_scene load_steps=12 format=3 uid="uid://ss5iryjqoobs"]
+
+[ext_resource type="Script" path="res://chat/chat.gd" id="1_k0dr5"]
+[ext_resource type="PackedScene" uid="uid://7u5tp0a0pyk2" path="res://dialogs/dialogs.tscn" id="2_heomk"]
+[ext_resource type="PackedScene" uid="uid://dclb550ddq3p5" path="res://choose_sentence/choose_sentence.tscn" id="3_s4l5i"]
+[ext_resource type="LabelSettings" path="res://chat/new_label_settings.tres" id="4_ce2of"]
+[ext_resource type="Texture2D" uid="uid://b1h72wdx435n3" path="res://icon.svg" id="5_bkts8"]
+[ext_resource type="Script" path="res://characters/animation_player.gd" id="6_8rejo"]
+
+[sub_resource type="Theme" id="Theme_4bjhw"]
+Button/font_sizes/font_size = 36
+
+[sub_resource type="LabelSettings" id="LabelSettings_jy8os"]
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Animation" id="Animation_o5hsi"]
+resource_name = "dialog1"
+length = 10.0
+step = 0.5
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("dialogs")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.5, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": ["1.@全体成员，请在10秒钟内在该群聊中发送至少一条文字消息，否则将被踢出群聊！！", "群主"],
+"method": &"add_sentence"
+}, {
+"args": [],
+"method": &"dialog_end"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_iq5u5"]
+resource_name = "dialog2"
+length = 10.0
+step = 0.5
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("dialogs")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(1, 3, 4.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"values": [{
+"args": ["菜就多练", "坤坤"],
+"method": &"add_sentence"
+}, {
+"args": ["输不起就别玩", "丁真"],
+"method": &"add_sentence"
+}, {
+"args": [],
+"method": &"dialog_end"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_k7nqq"]
+_data = {
+"dialog1": SubResource("Animation_o5hsi"),
+"dialog2": SubResource("Animation_iq5u5")
+}
+
+[node name="game_group" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_k0dr5")
+chat_name = "游戏开黑群"
+
+[node name="dialog_background" type="ColorRect" parent="."]
+z_index = -3
+layout_mode = 0
+offset_right = 540.0
+offset_bottom = 961.0
+
+[node name="choice_background" type="ColorRect" parent="."]
+z_index = -1
+layout_mode = 2
+offset_top = 768.0
+offset_right = 540.0
+offset_bottom = 961.0
+color = Color(0.12549, 0.698039, 0.666667, 1)
+
+[node name="header_background" type="ColorRect" parent="."]
+z_index = 1
+layout_mode = 0
+offset_right = 540.0
+offset_bottom = 104.0
+color = Color(0.12549, 0.698039, 0.666667, 1)
+
+[node name="dialogs" parent="." instance=ExtResource("2_heomk")]
+layout_mode = 1
+offset_top = 700.0
+offset_bottom = 840.0
+
+[node name="choose_sentence" parent="." instance=ExtResource("3_s4l5i")]
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 19.0
+offset_top = 785.0
+offset_right = 519.0
+offset_bottom = 943.0
+grow_horizontal = 1
+grow_vertical = 1
+
+[node name="Label2" parent="choose_sentence/CenterContainer/HBoxContainer" index="1"]
+text = "收到"
+
+[node name="Label2" parent="choose_sentence/CenterContainer2/HBoxContainer" index="1"]
+text = "无语"
+
+[node name="Label2" parent="choose_sentence/CenterContainer3/HBoxContainer" index="1"]
+text = "666"
+
+[node name="Camera2D" type="Camera2D" parent="."]
+offset = Vector2(270, 480)
+
+[node name="header" type="Label" parent="."]
+z_index = 2
+layout_mode = 0
+offset_right = 540.0
+offset_bottom = 104.0
+label_settings = ExtResource("4_ce2of")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="back" type="Button" parent="."]
+z_index = 1
+layout_mode = 0
+offset_right = 104.0
+offset_bottom = 104.0
+theme = SubResource("Theme_4bjhw")
+text = "←"
+flat = true
+
+[node name="timer" type="Timer" parent="."]
+one_shot = true
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="."]
+layout_mode = 0
+offset_top = 104.0
+offset_right = 540.0
+offset_bottom = 117.0
+value = 25.0
+nine_patch_stretch = true
+texture_under = ExtResource("5_bkts8")
+texture_progress = ExtResource("5_bkts8")
+tint_over = Color(1, 0, 1, 1)
+tint_progress = Color(1, 0, 0, 1)
+
+[node name="lose_inf" type="Label" parent="."]
+z_index = -2
+layout_mode = 0
+offset_top = 767.0
+offset_right = 540.0
+offset_bottom = 833.0
+text = "您已被移除群聊"
+label_settings = SubResource("LabelSettings_jy8os")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="button_mark" type="Marker2D" parent="."]
+position = Vector2(262.932, 864.226)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_k7nqq")
+}
+autoplay = "dialog1"
+script = ExtResource("6_8rejo")
+
+[connection signal="new_message" from="dialogs" to="." method="_on_dialogs_new_message"]
+[connection signal="pressed" from="back" to="." method="_on_back_pressed"]
+[connection signal="timeout" from="timer" to="." method="_on_timer_timeout"]
+
+[editable path="choose_sentence"]

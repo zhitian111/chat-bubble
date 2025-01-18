@@ -53,3 +53,6 @@ func set_number(num:int):
 	number=num
 func get_number():
 	return number;
+func chosen():
+	timer.stop()
+	timer_box.visible=false

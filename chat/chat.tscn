@@ -160,6 +160,7 @@ tint_progress = Color(0, 1, 0, 0.835294)
 libraries = {
 "": SubResource("AnimationLibrary_aii7r")
 }
+script = ExtResource("6_wnpp7")
 
 [node name="button_mark" type="Marker2D" parent="."]
 position = Vector2(262.932, 864.226)
