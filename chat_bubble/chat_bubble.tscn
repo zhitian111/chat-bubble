@@ -1,17 +1,17 @@
 [gd_scene load_steps=7 format=3 uid="uid://b03ykmcylqosb"]
 
-[ext_resource type="Texture2D" uid="uid://b1h72wdx435n3" path="res://icon.svg" id="1_cypw2"]
+[ext_resource type="Texture2D" uid="uid://d2tj5xbsbj3rg" path="res://assets/chat/chat_bubble_700_216.png" id="1_fvtw7"]
 [ext_resource type="Script" path="res://chat_bubble/chat_bubble.gd" id="2_3tj2q"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_drqe6"]
-texture = ExtResource("1_cypw2")
-texture_margin_left = 16.0
-texture_margin_top = 16.0
-texture_margin_right = 16.0
-texture_margin_bottom = 16.0
+texture = ExtResource("1_fvtw7")
+texture_margin_left = 30.0
+texture_margin_top = 30.0
+texture_margin_right = 30.0
+texture_margin_bottom = 30.0
 axis_stretch_horizontal = 2
 axis_stretch_vertical = 2
-region_rect = Rect2(-1, 0, 130, 130)
+region_rect = Rect2(0, 0, 700, 216)
 
 [sub_resource type="Theme" id="Theme_s21il"]
 Label/styles/normal = SubResource("StyleBoxTexture_drqe6")
@@ -22,7 +22,7 @@ font_names = PackedStringArray("Microsoft YaHei")
 [sub_resource type="LabelSettings" id="LabelSettings_bqa2p"]
 font = SubResource("SystemFont_yel16")
 font_size = 32
-font_color = Color(1, 0.243137, 1, 1)
+font_color = Color(0.111197, 0.111197, 0.111197, 1)
 
 [node name="chat_bubble" type="Label"]
 custom_minimum_size = Vector2(200, 0)

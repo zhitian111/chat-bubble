@@ -1,0 +1,9 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://cmpn4c6jt5d72"]
+
+[ext_resource type="StyleBox" uid="uid://bcayy7h8n1vdw" path="res://choose_sentence/text.tres" id="1_oq44s"]
+
+[resource]
+Button/icons/icon = null
+Button/styles/focus = ExtResource("1_oq44s")
+Button/styles/hover = ExtResource("1_oq44s")
+Button/styles/normal = ExtResource("1_oq44s")

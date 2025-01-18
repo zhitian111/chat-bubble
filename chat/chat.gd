@@ -52,6 +52,8 @@ func start_choosing():
 
 func _process(delta: float) -> void:
 	progress_bar.value = timer.time_left
+	if !timer.is_stopped() && !done:
+		progress_bar.tint_progress += delta*(Color(1,1,1,1) - Color(0, 1, 0, 0.835))/time_length
 
 func end_choosing():
 	done = true

@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://dclb550ddq3p5"]
+[gd_scene load_steps=4 format=3 uid="uid://dclb550ddq3p5"]
 
 [ext_resource type="Script" path="res://choose_sentence/choose_sentence.gd" id="1_orf3n"]
+[ext_resource type="Theme" uid="uid://cmpn4c6jt5d72" path="res://choose_sentence/button_text.tres" id="2_q4s1f"]
+[ext_resource type="LabelSettings" uid="uid://blie06vi7rgui" path="res://choose_sentence/choice_text.tres" id="3_2pqud"]
 
 [node name="choose_sentence" type="VBoxContainer"]
 anchors_preset = 15
@@ -19,53 +21,68 @@ metadata/_edit_group_ = true
 [node name="CenterContainer" type="CenterContainer" parent="."]
 layout_mode = 2
 
-[node name="Button" type="Button" parent="CenterContainer"]
-custom_minimum_size = Vector2(500, 50)
-layout_mode = 2
-
 [node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer"]
 layout_mode = 2
 
 [node name="Label" type="Label" parent="CenterContainer/HBoxContainer"]
+z_index = 1
 layout_mode = 2
 text = "A."
+label_settings = ExtResource("3_2pqud")
 
 [node name="Label2" type="Label" parent="CenterContainer/HBoxContainer"]
+z_index = 1
 layout_mode = 2
 text = "GG"
+label_settings = ExtResource("3_2pqud")
+
+[node name="Button" type="Button" parent="CenterContainer"]
+custom_minimum_size = Vector2(500, 50)
+layout_mode = 2
+theme = ExtResource("2_q4s1f")
 
 [node name="CenterContainer2" type="CenterContainer" parent="."]
-layout_mode = 2
-
-[node name="Button" type="Button" parent="CenterContainer2"]
-custom_minimum_size = Vector2(500, 50)
 layout_mode = 2
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer2"]
 layout_mode = 2
 
 [node name="Label" type="Label" parent="CenterContainer2/HBoxContainer"]
+z_index = 1
 layout_mode = 2
 text = "A."
+label_settings = ExtResource("3_2pqud")
 
 [node name="Label2" type="Label" parent="CenterContainer2/HBoxContainer"]
+z_index = 1
 layout_mode = 2
 text = "GG"
+label_settings = ExtResource("3_2pqud")
+
+[node name="Button" type="Button" parent="CenterContainer2"]
+custom_minimum_size = Vector2(500, 50)
+layout_mode = 2
+theme = ExtResource("2_q4s1f")
 
 [node name="CenterContainer3" type="CenterContainer" parent="."]
-layout_mode = 2
-
-[node name="Button" type="Button" parent="CenterContainer3"]
-custom_minimum_size = Vector2(500, 50)
 layout_mode = 2
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer3"]
 layout_mode = 2
 
 [node name="Label" type="Label" parent="CenterContainer3/HBoxContainer"]
+z_index = 1
 layout_mode = 2
 text = "A."
+label_settings = ExtResource("3_2pqud")
 
 [node name="Label2" type="Label" parent="CenterContainer3/HBoxContainer"]
+z_index = 1
 layout_mode = 2
 text = "GG"
+label_settings = ExtResource("3_2pqud")
+
+[node name="Button" type="Button" parent="CenterContainer3"]
+custom_minimum_size = Vector2(500, 50)
+layout_mode = 2
+theme = ExtResource("2_q4s1f")
