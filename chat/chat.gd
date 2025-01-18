@@ -24,9 +24,11 @@ var rating = preload("res://choose_sentence/rating/rating.tscn")
 
 
 func _ready():
-	buttons.button_1.pressed.connect(dialogs.add_sentence.bind(buttons.text1.text,"me"))
-	buttons.button_2.pressed.connect(dialogs.add_sentence.bind(buttons.text2.text,"me"))
-	buttons.button_3.pressed.connect(dialogs.add_sentence.bind(buttons.text3.text,"me"))
+	buttons.button_1.pressed.connect(dialogs.add_label.bind(buttons.text1,"me"))
+	buttons.button_2.pressed.connect(dialogs.add_label.bind(buttons.text2,"me"))
+	buttons.button_3.pressed.connect(dialogs.add_label.bind(buttons.text3,"me"))
+
+	
 	buttons.button_1.pressed.connect(end_choosing)
 	buttons.button_2.pressed.connect(end_choosing)
 	buttons.button_3.pressed.connect(end_choosing)

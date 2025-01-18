@@ -1,17 +1,31 @@
-[gd_scene load_steps=12 format=3 uid="uid://ss5iryjqoobs"]
+[gd_scene load_steps=17 format=3 uid="uid://ss5iryjqoobs"]
 
 [ext_resource type="Script" path="res://chat/chat.gd" id="1_k0dr5"]
+[ext_resource type="Texture2D" uid="uid://ceh5bc05nclt7" path="res://assets/chat/chat_choice_block.png" id="2_ci3dn"]
 [ext_resource type="PackedScene" uid="uid://7u5tp0a0pyk2" path="res://dialogs/dialogs.tscn" id="2_heomk"]
 [ext_resource type="PackedScene" uid="uid://dclb550ddq3p5" path="res://choose_sentence/choose_sentence.tscn" id="3_s4l5i"]
-[ext_resource type="LabelSettings" path="res://chat/new_label_settings.tres" id="4_ce2of"]
-[ext_resource type="Texture2D" uid="uid://b1h72wdx435n3" path="res://icon.svg" id="5_bkts8"]
+[ext_resource type="LabelSettings" uid="uid://b5rgynu4bhoi6" path="res://chat/new_label_settings.tres" id="4_ce2of"]
+[ext_resource type="Texture2D" uid="uid://cs7ha4xagp2qs" path="res://assets/chat/chat_exit.png" id="6_5ytvb"]
 [ext_resource type="Script" path="res://characters/animation_player.gd" id="6_8rejo"]
+[ext_resource type="Texture2D" uid="uid://ddw1xaeohn5f7" path="res://assets/chat/progress-Sheet.png" id="7_f65tf"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_jy8os"]
+font_color = Color(0, 0, 0, 1)
 
 [sub_resource type="Theme" id="Theme_4bjhw"]
 Button/font_sizes/font_size = 36
 
-[sub_resource type="LabelSettings" id="LabelSettings_jy8os"]
-font_color = Color(0, 0, 0, 1)
+[sub_resource type="AtlasTexture" id="AtlasTexture_20wuk"]
+atlas = ExtResource("7_f65tf")
+region = Rect2(0, 0, 1125, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i41xn"]
+atlas = ExtResource("7_f65tf")
+region = Rect2(0, 0, 1125, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lh4br"]
+atlas = ExtResource("7_f65tf")
+region = Rect2(12, 60, 1101, 25)
 
 [sub_resource type="Animation" id="Animation_o5hsi"]
 resource_name = "dialog1"
@@ -24,9 +38,12 @@ tracks/0/path = NodePath("dialogs")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0.5, 1.5),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0, 0.5, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1),
 "values": [{
+"args": ["666", "无语", "哈哈哈"],
+"method": &"set_choice"
+}, {
 "args": ["1.@全体成员，请在10秒钟内在该群聊中发送至少一条文字消息，否则将被踢出群聊！！", "群主"],
 "method": &"add_sentence"
 }, {
@@ -46,9 +63,12 @@ tracks/0/path = NodePath("dialogs")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(1, 3, 4.5),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(0, 1, 3, 4.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "values": [{
+"args": ["以前是以前", "现在是现在", "原神，启动！"],
+"method": &"set_choice"
+}, {
 "args": ["菜就多练", "坤坤"],
 "method": &"add_sentence"
 }, {
@@ -66,7 +86,7 @@ _data = {
 "dialog2": SubResource("Animation_iq5u5")
 }
 
-[node name="game_group" type="Control"]
+[node name="chat" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -74,27 +94,41 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_k0dr5")
+chat_name = "游戏开黑群"
 
 [node name="dialog_background" type="ColorRect" parent="."]
 z_index = -3
 layout_mode = 0
 offset_right = 540.0
 offset_bottom = 961.0
+color = Color(0.815686, 0.815686, 0.815686, 1)
 
-[node name="choice_background" type="ColorRect" parent="."]
+[node name="choice_background" type="TextureRect" parent="."]
 z_index = -1
 layout_mode = 2
 offset_top = 768.0
 offset_right = 540.0
 offset_bottom = 961.0
-color = Color(0.12549, 0.698039, 0.666667, 1)
+texture = ExtResource("2_ci3dn")
+expand_mode = 1
 
 [node name="header_background" type="ColorRect" parent="."]
 z_index = 1
 layout_mode = 0
 offset_right = 540.0
 offset_bottom = 104.0
-color = Color(0.12549, 0.698039, 0.666667, 1)
+color = Color(0.133333, 0.12549, 0.203922, 1)
+
+[node name="lose_inf" type="Label" parent="."]
+z_index = -2
+layout_mode = 0
+offset_top = 767.0
+offset_right = 540.0
+offset_bottom = 833.0
+text = "您已被移除群聊"
+label_settings = SubResource("LabelSettings_jy8os")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="dialogs" parent="." instance=ExtResource("2_heomk")]
 layout_mode = 1
@@ -131,8 +165,10 @@ layout_mode = 0
 offset_right = 104.0
 offset_bottom = 104.0
 theme = SubResource("Theme_4bjhw")
-text = "←"
+icon = ExtResource("6_5ytvb")
 flat = true
+icon_alignment = 1
+expand_icon = true
 
 [node name="timer" type="Timer" parent="."]
 one_shot = true
@@ -144,21 +180,10 @@ offset_right = 540.0
 offset_bottom = 117.0
 value = 25.0
 nine_patch_stretch = true
-texture_under = ExtResource("5_bkts8")
-texture_progress = ExtResource("5_bkts8")
-tint_over = Color(1, 0, 1, 1)
-tint_progress = Color(1, 0, 0, 1)
-
-[node name="lose_inf" type="Label" parent="."]
-z_index = -2
-layout_mode = 0
-offset_top = 767.0
-offset_right = 540.0
-offset_bottom = 833.0
-text = "您已被移除群聊"
-label_settings = SubResource("LabelSettings_jy8os")
-horizontal_alignment = 1
-vertical_alignment = 1
+texture_under = SubResource("AtlasTexture_20wuk")
+texture_over = SubResource("AtlasTexture_i41xn")
+texture_progress = SubResource("AtlasTexture_lh4br")
+tint_progress = Color(0, 1, 0, 0.835294)
 
 [node name="button_mark" type="Marker2D" parent="."]
 position = Vector2(262.932, 864.226)
