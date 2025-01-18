@@ -1,9 +1,8 @@
-[gd_scene load_steps=18 format=3 uid="uid://cpfpbyiyc6jjj"]
+[gd_scene load_steps=11 format=3 uid="uid://cpfpbyiyc6jjj"]
 
 [ext_resource type="Texture2D" uid="uid://dgwkuou7ydwxp" path="res://chat_list/OIP.jpg" id="1_5xlj3"]
 [ext_resource type="Script" path="res://chat_list/single_chat.gd" id="1_7mhey"]
 [ext_resource type="Texture2D" uid="uid://ef0txhuxlccg" path="res://assets/menu/Sprite-0001.png" id="3_ujkuv"]
-[ext_resource type="Texture2D" uid="uid://bgjesbvlg7mc7" path="res://chat_list/无标题.png" id="3_und5p"]
 [ext_resource type="Texture2D" uid="uid://du8u0e5y31wsj" path="res://assets/menu/menu_character_2.png" id="4_4ixrp"]
 
 [sub_resource type="Theme" id="Theme_pa7s8"]
@@ -24,49 +23,6 @@ font_color = Color(0, 0, 0, 1)
 [sub_resource type="LabelSettings" id="LabelSettings_ayd4r"]
 font_size = 25
 font_color = Color(0, 0, 0, 1)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_vd2ge"]
-atlas = ExtResource("3_und5p")
-region = Rect2(163, 128, 163, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_h2ji5"]
-atlas = ExtResource("3_und5p")
-region = Rect2(326, 128, 163, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_773k8"]
-atlas = ExtResource("3_und5p")
-region = Rect2(489, 128, 163, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_r5iv8"]
-atlas = ExtResource("3_und5p")
-region = Rect2(652, 128, 163, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_8p2ir"]
-atlas = ExtResource("3_und5p")
-region = Rect2(815, 128, 163, 128)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_uoy2k"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_vd2ge")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_h2ji5")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_773k8")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_r5iv8")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_8p2ir")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
 
 [node name="SingleChat" type="Control"]
 layout_mode = 3
@@ -129,23 +85,16 @@ offset_bottom = 112.0
 
 [node name="TimerBox" type="VBoxContainer" parent="."]
 layout_mode = 2
-offset_left = 320.0
-offset_top = -1.0
-offset_right = 445.0
-offset_bottom = 105.0
+offset_left = 350.0
+offset_top = 11.0
+offset_right = 475.0
+offset_bottom = 117.0
 
 [node name="time" type="Label" parent="TimerBox"]
 layout_mode = 2
 text = "剩余时间：
 66：66"
 label_settings = SubResource("LabelSettings_ayd4r")
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="TimerBox"]
-position = Vector2(62, 65)
-scale = Vector2(0.358896, 0.4375)
-sprite_frames = SubResource("SpriteFrames_uoy2k")
-autoplay = "default"
-frame_progress = 0.440844
 
 [node name="MenuCharacter2" type="Sprite2D" parent="."]
 z_index = -100
