@@ -7,6 +7,8 @@ extends Control
 @onready var red_point_num=$HBoxContainer/avatar/Sprite2D/Label
 var timer: Timer
 var number:int=0
+signal chat_button_pressed
+signal time_end
 func _ready() -> void:
 	red_point.visible=false
 	red_point_num.visible=false
@@ -24,7 +26,7 @@ func set_timer(atime: float=5):
 	timer.set_wait_time(atime)
 	timer.start()
 func _on_timer_timeout() -> void:
-	print("定时器结束")
+	emit_signal("time_end")
 
 # 更新剩余时间
 func _process(_delta: float) -> void:
@@ -35,6 +37,7 @@ func _on_button_button_down() -> void:
 	number=0
 	red_point.visible=false
 	red_point_num.visible=false
+	emit_signal("chat_button_pressed")
 func add_point():
 	red_point.visible=true
 	red_point_num.visible=true
