@@ -12,6 +12,7 @@ func _ready() -> void:
 func set_user_name(new_name:String)->void:
 	user_name = new_name
 	$name.text = user_name
+	
 
 func add_sentence(sentence: String) -> void:
 	var bubble = chat_bubble.instantiate()

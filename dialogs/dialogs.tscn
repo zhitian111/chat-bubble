@@ -24,3 +24,6 @@ layout_mode = 2
 
 [node name="placeholder2" type="Control" parent="."]
 layout_mode = 2
+
+[editable path="mine_bubble"]
+[editable path="others_bubble"]
