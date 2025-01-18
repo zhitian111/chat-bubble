@@ -1,8 +1,7 @@
-[gd_scene load_steps=19 format=3 uid="uid://cpfpbyiyc6jjj"]
+[gd_scene load_steps=18 format=3 uid="uid://cpfpbyiyc6jjj"]
 
 [ext_resource type="Texture2D" uid="uid://dgwkuou7ydwxp" path="res://chat_list/OIP.jpg" id="1_5xlj3"]
 [ext_resource type="Script" path="res://chat_list/single_chat.gd" id="1_7mhey"]
-[ext_resource type="Texture2D" uid="uid://bnimovg3u6rem" path="res://assets/menu/menu_circle.png" id="3_bllyw"]
 [ext_resource type="Texture2D" uid="uid://ef0txhuxlccg" path="res://assets/menu/Sprite-0001.png" id="3_ujkuv"]
 [ext_resource type="Texture2D" uid="uid://bgjesbvlg7mc7" path="res://chat_list/无标题.png" id="3_und5p"]
 [ext_resource type="Texture2D" uid="uid://du8u0e5y31wsj" path="res://assets/menu/menu_character_2.png" id="4_4ixrp"]
@@ -108,12 +107,6 @@ offset_bottom = 107.0
 text = "6
 "
 label_settings = SubResource("LabelSettings_x1qq5")
-
-[node name="MenuCircle" type="Sprite2D" parent="HBoxContainer/avatar"]
-z_index = 1
-position = Vector2(50, 43)
-scale = Vector2(0.37963, 0.37963)
-texture = ExtResource("3_bllyw")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
 layout_mode = 2
