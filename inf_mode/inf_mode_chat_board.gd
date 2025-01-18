@@ -32,7 +32,10 @@ func _on_all_info_received(message: String, poster: String, time: int, name: Str
 	if game.avatars.has(name):
 		add_chat(game.avatars[name], name, message, float(time))
 	else:
-		add_chat(game.avatars["test"],name,message,float(time))
+		var avatar_keys = game.avatars.keys()  # 获取所有键（用户名）
+		if avatar_keys.size() > 0:  # 确保有头像可以选择
+			var random_key = avatar_keys[randi() % avatar_keys.size()]  # 随机选择一个键
+			add_chat(game.avatars[random_key],name,message,float(time))
 	cameras[name]=_camera
 
 

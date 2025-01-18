@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://c7i2gda31kweb"
+path="res://.godot/imported/20 Gauge Double Tap Isolated.mp3-218ced24fddda59f246fafaf51b6f9c6.mp3str"
+
+[deps]
+
+source_file="res://assets/sfx/Snake's SECOND Authentic Gun Sounds/Isolated/20 Gauge/MP3/20 Gauge Double Tap Isolated.mp3"
+dest_files=["res://.godot/imported/20 Gauge Double Tap Isolated.mp3-218ced24fddda59f246fafaf51b6f9c6.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

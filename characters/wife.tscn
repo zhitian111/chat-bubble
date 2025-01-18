@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://bfvhorvp2b8em"]
+[gd_scene load_steps=25 format=3 uid="uid://bfvhorvp2b8em"]
 
 [ext_resource type="Script" path="res://chat/chat.gd" id="1_4sp5x"]
 [ext_resource type="Texture2D" uid="uid://ceh5bc05nclt7" path="res://assets/chat/chat_choice_block.png" id="2_bxtkp"]
@@ -29,7 +29,7 @@ region = Rect2(12, 60, 1101, 25)
 
 [sub_resource type="Animation" id="Animation_sia8x"]
 resource_name = "dialog"
-length = 10.0
+length = 15.0
 tracks/0/type = "method"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -37,7 +37,7 @@ tracks/0/path = NodePath("dialogs")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.9, 1.96667, 2.86667, 3.96667, 5.33333),
+"times": PackedFloat32Array(0, 1.9, 3.4, 4.76667, 6.7, 7.4),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "values": [{
 "args": ["[转账¥2000]", "最近手头有点紧，以后再说吧，你自己花钱也节制一点", "呜呜呜我没钱"],
@@ -66,17 +66,14 @@ tracks/1/path = NodePath("AnimationPlayer")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(6.9, 7.53333, 8.26667),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(10.8, 11.7333),
+"transitions": PackedFloat32Array(1, 1),
 "values": [{
 "args": ["妻子", "A", "1A"],
 "method": &"choose"
 }, {
-"args": ["妻子", "B", "1B"],
-"method": &"choose"
-}, {
-"args": ["妻子", "C", "1B"],
-"method": &"choose"
+"args": [&"1B", -1, 1.0, false],
+"method": &"play"
 }]
 }
 
@@ -90,13 +87,10 @@ tracks/0/path = NodePath("dialogs")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0.266667, 2.53333),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(2.03333),
+"transitions": PackedFloat32Array(1),
 "values": [{
 "args": ["嘻嘻，你对我最好啦", "妻子"],
-"method": &"add_sentence"
-}, {
-"args": ["你他吗的真是一点也看不上我了，你给我等着！", "妻子"],
 "method": &"add_sentence"
 }]
 }
@@ -107,11 +101,11 @@ tracks/1/path = NodePath("AnimationPlayer")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(3.43333),
+"times": PackedFloat32Array(4.36667),
 "transitions": PackedFloat32Array(1),
 "values": [{
-"args": [false],
-"method": &"stop"
+"args": [&"dialog3", -1, 1.0, false],
+"method": &"play"
 }]
 }
 
@@ -125,10 +119,10 @@ tracks/0/path = NodePath("dialogs")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0.0333333, 1.4, 2.36667),
+"times": PackedFloat32Array(0.0333333, 3.3, 3.83333),
 "transitions": PackedFloat32Array(1, 1, 1),
 "values": [{
-"args": ["别闹了，贱人，你能不能懂点事？", "对不起老婆，我马上努力工作，一定尽快给你买上。", "菜就多练"],
+"args": ["对不起老婆，我马上努力工作，一定尽快给你买上。", "别闹了，贱人，你能不能懂点事？", "菜就多练"],
 "method": &"set_choice"
 }, {
 "args": ["为了你我连班都不上了，结果你连这点钱都赚不来？", "妻子"],
@@ -145,22 +139,20 @@ tracks/1/path = NodePath("AnimationPlayer")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(2.83333, 3.13333, 3.4),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(8.43333, 9.4),
+"transitions": PackedFloat32Array(1, 1),
 "values": [{
 "args": ["妻子", "A", "2A"],
 "method": &"choose"
 }, {
-"args": ["妻子", "B", "2B"],
-"method": &"choose"
-}, {
-"args": ["妻子", "C", "2A"],
-"method": &"choose"
+"args": [&"2B", -1, 1.0, false],
+"method": &"play"
 }]
 }
 
 [sub_resource type="Animation" id="Animation_vbs2s"]
 resource_name = "2A"
+length = 3.0
 tracks/0/type = "method"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -168,11 +160,11 @@ tracks/0/path = NodePath("AnimationPlayer")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0.733333),
+"times": PackedFloat32Array(2.8),
 "transitions": PackedFloat32Array(1),
 "values": [{
-"args": [false],
-"method": &"stop"
+"args": [&"dialog3", -1, 1.0, false],
+"method": &"play"
 }]
 }
 tracks/1/type = "method"
@@ -182,16 +174,17 @@ tracks/1/path = NodePath("dialogs")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0.266667),
+"times": PackedFloat32Array(1.46667),
 "transitions": PackedFloat32Array(1),
 "values": [{
-"args": ["你他吗的真是一点也看不上我了，你给我等着！", "妻子"],
+"args": ["好吧，我知道了。就信你这一次哦。", "妻子"],
 "method": &"add_sentence"
 }]
 }
 
 [sub_resource type="Animation" id="Animation_l61mx"]
 resource_name = "2B"
+length = 5.0
 tracks/0/type = "method"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -199,9 +192,195 @@ tracks/0/path = NodePath("AnimationPlayer")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0.233333),
+"times": PackedFloat32Array(4.8),
 "transitions": PackedFloat32Array(1),
 "values": [{
+"args": [&"bd", -1, 1.0, false],
+"method": &"play"
+}]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("dialogs")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(2.16667),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": ["你他吗的真是一点也看不上我了，你给我等着！", "妻子"],
+"method": &"add_sentence"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_8rfle"]
+resource_name = "dialog3"
+length = 10.0
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("dialogs")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.1, 2.16667, 5.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"values": [{
+"args": ["今天很愉快。", "不好", "..."],
+"method": &"set_choice"
+}, {
+"args": ["今天还好吗？", "妻子"],
+"method": &"add_sentence"
+}, {
+"args": [],
+"method": &"dialog_end"
+}]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimationPlayer")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(8.86667),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [&"dialog4", -1, 1.0, false],
+"method": &"play"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_2oh14"]
+resource_name = "dialog4"
+length = 14.0
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("dialogs")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.0333333, 3.33333, 5.73333, 8.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"values": [{
+"args": ["谢谢你，亲爱的。", "这肉质，这口感，这味道，真奇妙啊！", "原来鹿肉是这个味道。"],
+"method": &"set_choice"
+}, {
+"args": ["亲爱的，今天我爸妈送来了我们老家的特产山鹿肉，我给你煲个肉羹吃。", "妻子"],
+"method": &"add_sentence"
+}, {
+"args": ["冰箱里还有好多肉呢，接下来几天都给你煲汤喝哦。", "妻子"],
+"method": &"add_sentence"
+}, {
+"args": [],
+"method": &"dialog_end"
+}]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimationPlayer")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(12.1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [&"dialog5", -1, 1.0, false],
+"method": &"play"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_mmksx"]
+resource_name = "dialog5"
+length = 8.0
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("dialogs")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(1.93333, 5),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": ["亲爱的，我今天感觉有点头晕恶心。今天能吃点清淡的吗？", "me"],
+"method": &"add_sentence"
+}, {
+"args": ["天哪，可是我们冰箱里只剩下鹿肉了。再吃最后一天吧，我给你准备点水果。", "妻子"],
+"method": &"add_sentence"
+}]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimationPlayer")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(7.9),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [&"dialog6", -1, 1.0, false],
+"method": &"play"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_64bgi"]
+resource_name = "dialog6"
+length = 9.0
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("dialogs")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2.03333, 3.46667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"values": [{
+"args": ["？", "？？", "？？？"],
+"method": &"set_choice"
+}, {
+"args": ["......", "妻子"],
+"method": &"add_sentence"
+}, {
+"args": [],
+"method": &"dialog_end"
+}]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimationPlayer")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(5.4),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [&"bd", -1, 1.0, false],
+"method": &"play"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_hpik0"]
+resource_name = "bd"
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimationPlayer")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.0666667, 0.866667),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"bad_ending"
+}, {
 "args": [false],
 "method": &"stop"
 }]
@@ -213,7 +392,12 @@ _data = {
 "1B": SubResource("Animation_1sxue"),
 "2A": SubResource("Animation_vbs2s"),
 "2B": SubResource("Animation_l61mx"),
-"dialog": SubResource("Animation_sia8x")
+"bd": SubResource("Animation_hpik0"),
+"dialog": SubResource("Animation_sia8x"),
+"dialog3": SubResource("Animation_8rfle"),
+"dialog4": SubResource("Animation_2oh14"),
+"dialog5": SubResource("Animation_mmksx"),
+"dialog6": SubResource("Animation_64bgi")
 }
 
 [node name="妻子" type="Control"]
@@ -325,8 +509,10 @@ position = Vector2(262.932, 864.226)
 libraries = {
 "": SubResource("AnimationLibrary_rm3ei")
 }
+autoplay = "dialog"
 script = ExtResource("8_cka04")
 
 [connection signal="new_message" from="dialogs" to="." method="_on_dialogs_new_message"]
+[connection signal="value_chosen" from="choose_sentence" to="AnimationPlayer" method="_on_choose_sentence_value_chosen"]
 [connection signal="pressed" from="back" to="." method="_on_back_pressed"]
 [connection signal="timeout" from="timer" to="." method="_on_timer_timeout"]

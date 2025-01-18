@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bmyt3nbityifm"
+path="res://.godot/imported/44 Magnum Eject Full and Empty Part 2.mp3-9a8a7e696f577733c1812b2febc5f888.mp3str"
+
+[deps]
+
+source_file="res://assets/sfx/Snake's SECOND Authentic Gun Sounds/& More/Revolver/44 Magnum/MP3/44 Magnum Eject Full and Empty Part 2.mp3"
+dest_files=["res://.godot/imported/44 Magnum Eject Full and Empty Part 2.mp3-9a8a7e696f577733c1812b2febc5f888.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

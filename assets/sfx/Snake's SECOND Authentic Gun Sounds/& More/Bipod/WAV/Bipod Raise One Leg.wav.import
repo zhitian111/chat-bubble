@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cmxmv7wynsbqr"
+path="res://.godot/imported/Bipod Raise One Leg.wav-f1e16bbd3e1bbffb192632fb8a60f70d.sample"
+
+[deps]
+
+source_file="res://assets/sfx/Snake's SECOND Authentic Gun Sounds/& More/Bipod/WAV/Bipod Raise One Leg.wav"
+dest_files=["res://.godot/imported/Bipod Raise One Leg.wav-f1e16bbd3e1bbffb192632fb8a60f70d.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

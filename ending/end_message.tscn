@@ -1,0 +1,33 @@
+[gd_scene load_steps=4 format=3 uid="uid://cbxjguaw11xm0"]
+
+[ext_resource type="Script" path="res://ending/end_message.gd" id="1_cokvl"]
+[ext_resource type="Texture2D" uid="uid://du8u0e5y31wsj" path="res://assets/menu/menu_character_2.png" id="2_bvaag"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_wbblw"]
+font_size = 110
+font_color = Color(0, 0, 0, 1)
+
+[node name="EndMessage" type="Node2D"]
+script = ExtResource("1_cokvl")
+
+[node name="MenuCharacter2" type="Sprite2D" parent="."]
+position = Vector2(133, 65)
+texture = ExtResource("2_bvaag")
+
+[node name="Label" type="Label" parent="MenuCharacter2"]
+offset_left = -360.0
+offset_top = -155.0
+offset_right = 1218.0
+offset_bottom = 245.0
+text = "[GODOT 日报]
+    突发消息"
+label_settings = SubResource("LabelSettings_wbblw")
+
+[node name="Button" type="Button" parent="."]
+modulate = Color(1, 1, 1, 0)
+offset_left = -379.0
+offset_top = -68.0
+offset_right = 646.0
+offset_bottom = 199.0
+
+[connection signal="button_down" from="Button" to="." method="_on_button_button_down"]

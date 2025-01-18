@@ -1,9 +1,12 @@
-[gd_scene load_steps=6 format=3 uid="uid://clj5183xngyuf"]
+[gd_scene load_steps=9 format=3 uid="uid://clj5183xngyuf"]
 
 [ext_resource type="Script" path="res://inf_mode/inf_mode_chat_board.gd" id="1_y7vlg"]
 [ext_resource type="Texture2D" uid="uid://sn53n2kcr5uw" path="res://assets/menu/menu_top.png" id="2_c00ie"]
 [ext_resource type="Texture2D" uid="uid://ci1jympqhobx" path="res://assets/menu/menu_bottom.png" id="3_c8imd"]
 [ext_resource type="Script" path="res://inf_mode/inf_characters.gd" id="4_xa7pj"]
+[ext_resource type="PackedScene" uid="uid://ss5iryjqoobs" path="res://characters/game_group.tscn" id="5_6txgu"]
+[ext_resource type="PackedScene" uid="uid://bf42exewea75o" path="res://characters/lover.tscn" id="6_3oupd"]
+[ext_resource type="PackedScene" uid="uid://bfvhorvp2b8em" path="res://characters/wife.tscn" id="7_5rpwl"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_tow6j"]
 font_size = 40
@@ -72,6 +75,24 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("4_xa7pj")
+
+[node name="游戏开黑群" parent="characters" instance=ExtResource("5_6txgu")]
+layout_mode = 1
+offset_left = 2483.0
+offset_right = 3023.0
+offset_bottom = 960.0
+
+[node name="情人" parent="characters" instance=ExtResource("6_3oupd")]
+layout_mode = 1
+offset_left = 3770.0
+offset_right = 4270.0
+offset_bottom = 920.0
+
+[node name="妻子" parent="characters" instance=ExtResource("7_5rpwl")]
+offset_left = 1344.0
+offset_top = -12.0
+offset_right = 1844.0
+offset_bottom = 907.998
 
 [node name="mass_mailing" type="Button" parent="."]
 layout_mode = 0

@@ -18,3 +18,8 @@ var choice: Dictionary = {
 	"情人": "D",
 	"妻子": "D"
 }
+var good_ending:bool
+var bad_ending:bool
+var peace_ending:bool
+var finish_l:bool=false
+var finish_w:bool=false
