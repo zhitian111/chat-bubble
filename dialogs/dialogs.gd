@@ -15,6 +15,8 @@ func _ready() -> void:
 func add_sentence(sentence: String, poster:String) -> void:
 	var tween = get_tree().create_tween()
 	
+	new_message.emit(sentence, poster)
+
 	if speaker.is_empty():
 		if poster == "me":
 			var node = mine_bubble.instantiate()
