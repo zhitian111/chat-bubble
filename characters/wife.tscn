@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://bfvhorvp2b8em"]
+[gd_scene load_steps=20 format=3 uid="uid://bfvhorvp2b8em"]
 
 [ext_resource type="Script" path="res://chat/chat.gd" id="1_4sp5x"]
 [ext_resource type="Texture2D" uid="uid://ceh5bc05nclt7" path="res://assets/chat/chat_choice_block.png" id="2_bxtkp"]
@@ -66,11 +66,17 @@ tracks/1/path = NodePath("AnimationPlayer")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(6.93333),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(6.9, 7.53333, 8.26667),
+"transitions": PackedFloat32Array(1, 1, 1),
 "values": [{
-"args": ["妻子", "1A"],
-"method": &"choose_A"
+"args": ["妻子", "A", "1A"],
+"method": &"choose"
+}, {
+"args": ["妻子", "B", "1B"],
+"method": &"choose"
+}, {
+"args": ["妻子", "C", "1B"],
+"method": &"choose"
 }]
 }
 
@@ -84,10 +90,13 @@ tracks/0/path = NodePath("dialogs")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0.266667),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0.266667, 2.53333),
+"transitions": PackedFloat32Array(1, 1),
 "values": [{
 "args": ["嘻嘻，你对我最好啦", "妻子"],
+"method": &"add_sentence"
+}, {
+"args": ["你他吗的真是一点也看不上我了，你给我等着！", "妻子"],
 "method": &"add_sentence"
 }]
 }
@@ -98,17 +107,17 @@ tracks/1/path = NodePath("AnimationPlayer")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(3.4),
+"times": PackedFloat32Array(3.43333),
 "transitions": PackedFloat32Array(1),
 "values": [{
-"args": [&"dialog2", -1, 1.0, false],
-"method": &"play"
+"args": [false],
+"method": &"stop"
 }]
 }
 
-[sub_resource type="Animation" id="Animation_k52y3"]
-resource_name = "dialog2"
-length = 5.0
+[sub_resource type="Animation" id="Animation_1sxue"]
+resource_name = "1B"
+length = 10.0
 tracks/0/type = "method"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -116,9 +125,18 @@ tracks/0/path = NodePath("dialogs")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(),
-"transitions": PackedFloat32Array(),
-"values": []
+"times": PackedFloat32Array(0.0333333, 1.4, 2.36667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"values": [{
+"args": ["别闹了，贱人，你能不能懂点事？", "对不起老婆，我马上努力工作，一定尽快给你买上。", "菜就多练"],
+"method": &"set_choice"
+}, {
+"args": ["为了你我连班都不上了，结果你连这点钱都赚不来？", "妻子"],
+"method": &"add_sentence"
+}, {
+"args": [],
+"method": &"dialog_end"
+}]
 }
 tracks/1/type = "method"
 tracks/1/imported = false
@@ -127,7 +145,61 @@ tracks/1/path = NodePath("AnimationPlayer")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(1.16667),
+"times": PackedFloat32Array(2.83333, 3.13333, 3.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"values": [{
+"args": ["妻子", "A", "2A"],
+"method": &"choose"
+}, {
+"args": ["妻子", "B", "2B"],
+"method": &"choose"
+}, {
+"args": ["妻子", "C", "2A"],
+"method": &"choose"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_vbs2s"]
+resource_name = "2A"
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimationPlayer")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.733333),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [false],
+"method": &"stop"
+}]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("dialogs")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.266667),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": ["你他吗的真是一点也看不上我了，你给我等着！", "妻子"],
+"method": &"add_sentence"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_l61mx"]
+resource_name = "2B"
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimationPlayer")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.233333),
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [false],
@@ -138,8 +210,10 @@ tracks/1/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_rm3ei"]
 _data = {
 "1A": SubResource("Animation_lx8he"),
-"dialog": SubResource("Animation_sia8x"),
-"dialog2": SubResource("Animation_k52y3")
+"1B": SubResource("Animation_1sxue"),
+"2A": SubResource("Animation_vbs2s"),
+"2B": SubResource("Animation_l61mx"),
+"dialog": SubResource("Animation_sia8x")
 }
 
 [node name="妻子" type="Control"]

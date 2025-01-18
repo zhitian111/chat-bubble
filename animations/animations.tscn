@@ -1,0 +1,178 @@
+[gd_scene load_steps=16 format=3 uid="uid://cf62qiqc1h7t8"]
+
+[ext_resource type="Script" path="res://chat/chat.gd" id="1_so88i"]
+[ext_resource type="Texture2D" uid="uid://ceh5bc05nclt7" path="res://assets/chat/chat_choice_block.png" id="2_6yy3i"]
+[ext_resource type="PackedScene" uid="uid://7u5tp0a0pyk2" path="res://dialogs/dialogs.tscn" id="3_7ypci"]
+[ext_resource type="PackedScene" uid="uid://dclb550ddq3p5" path="res://choose_sentence/choose_sentence.tscn" id="4_dmj55"]
+[ext_resource type="LabelSettings" uid="uid://b5rgynu4bhoi6" path="res://chat/new_label_settings.tres" id="5_gmpqo"]
+[ext_resource type="Texture2D" uid="uid://cs7ha4xagp2qs" path="res://assets/chat/chat_exit.png" id="6_1xm5h"]
+[ext_resource type="Texture2D" uid="uid://ddw1xaeohn5f7" path="res://assets/chat/progress-Sheet.png" id="7_xcafu"]
+[ext_resource type="AnimationLibrary" uid="uid://cdlehoq8riec2" path="res://animations/dialogs.res" id="8_t1nxr"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_jy8os"]
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Theme" id="Theme_4bjhw"]
+Button/font_sizes/font_size = 36
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_20wuk"]
+atlas = ExtResource("7_xcafu")
+region = Rect2(0, 0, 1125, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i41xn"]
+atlas = ExtResource("7_xcafu")
+region = Rect2(0, 0, 1125, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lh4br"]
+atlas = ExtResource("7_xcafu")
+region = Rect2(12, 60, 1101, 25)
+
+[sub_resource type="Animation" id="Animation_1nri3"]
+resource_name = "dialog1"
+length = 10.0
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("dialogs")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.866667, 2.16667, 3.4, 4.43333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"values": [{
+"args": ["666带我个", "一群菜鸡", "菜就多练"],
+"method": &"set_choice"
+}, {
+"args": ["A1高闪来一个", "茄子"],
+"method": &"add_sentence"
+}, {
+"args": ["我打zywoo?", "danking"],
+"method": &"add_sentence"
+}, {
+"args": ["ez收徒", "kennys"],
+"method": &"add_sentence"
+}, {
+"args": [],
+"method": &"dialog_end"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_herud"]
+_data = {
+"dialog1": SubResource("Animation_1nri3")
+}
+
+[node name="animations" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_so88i")
+
+[node name="dialog_background" type="ColorRect" parent="."]
+z_index = -3
+layout_mode = 0
+offset_right = 540.0
+offset_bottom = 961.0
+color = Color(0.815686, 0.815686, 0.815686, 1)
+
+[node name="choice_background" type="TextureRect" parent="."]
+z_index = -1
+layout_mode = 2
+offset_top = 768.0
+offset_right = 540.0
+offset_bottom = 961.0
+texture = ExtResource("2_6yy3i")
+expand_mode = 1
+
+[node name="header_background" type="ColorRect" parent="."]
+z_index = 1
+layout_mode = 0
+offset_right = 540.0
+offset_bottom = 104.0
+color = Color(0.133333, 0.12549, 0.203922, 1)
+
+[node name="lose_inf" type="Label" parent="."]
+z_index = -2
+layout_mode = 0
+offset_top = 767.0
+offset_right = 540.0
+offset_bottom = 833.0
+text = "您已被移除群聊"
+label_settings = SubResource("LabelSettings_jy8os")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="dialogs" parent="." instance=ExtResource("3_7ypci")]
+layout_mode = 1
+offset_left = 4.0
+offset_top = 630.0
+offset_right = 544.0
+offset_bottom = 770.0
+
+[node name="choose_sentence" parent="." instance=ExtResource("4_dmj55")]
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 19.0
+offset_top = 785.0
+offset_right = 519.0
+offset_bottom = 943.0
+grow_horizontal = 1
+grow_vertical = 1
+
+[node name="Camera2D" type="Camera2D" parent="."]
+offset = Vector2(270, 480)
+
+[node name="header" type="Label" parent="."]
+z_index = 2
+layout_mode = 0
+offset_right = 540.0
+offset_bottom = 104.0
+label_settings = ExtResource("5_gmpqo")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="back" type="Button" parent="."]
+z_index = 1
+layout_mode = 0
+offset_right = 104.0
+offset_bottom = 104.0
+theme = SubResource("Theme_4bjhw")
+icon = ExtResource("6_1xm5h")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="timer" type="Timer" parent="."]
+one_shot = true
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="."]
+z_index = 1
+layout_mode = 0
+offset_top = 104.0
+offset_right = 540.0
+offset_bottom = 117.0
+value = 25.0
+nine_patch_stretch = true
+texture_under = SubResource("AtlasTexture_20wuk")
+texture_over = SubResource("AtlasTexture_i41xn")
+texture_progress = SubResource("AtlasTexture_lh4br")
+tint_progress = Color(0, 1, 0, 0.835294)
+
+[node name="button_mark" type="Marker2D" parent="."]
+position = Vector2(262.932, 864.226)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_herud"),
+"dialogs": ExtResource("8_t1nxr")
+}
+autoplay = "dialogs/dialog4"
+
+[connection signal="new_message" from="dialogs" to="." method="_on_dialogs_new_message"]
+[connection signal="pressed" from="back" to="." method="_on_back_pressed"]
+[connection signal="timeout" from="timer" to="." method="_on_timer_timeout"]
