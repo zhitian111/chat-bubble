@@ -3,14 +3,20 @@ extends Control
 @export var miss= preload("res://miss/miss.tscn")
 @onready var vbox = $ChatList
 @onready var camera = $Camera2D
+@onready var characters=$characters
 var chats: Dictionary
 var chat_objs:Dictionary={}
 var cameras: Dictionary = {}
 func _ready() -> void:
 	cameras["李佳灿"] = camera
 	camera.make_current()
-	chat_objs["test"]=$chat
-	chat_objs["test"].connect("all_info", Callable(self, "_on_all_info_received"))
+	for c in characters.get_children():
+		chat_objs[c.chat_name]=c
+	for c in chat_objs.values():
+		c.connect("all_info", Callable(self, "_on_all_info_received"))
+		c.connect("back",Callable(self,"_on_chat_back"))
+		c.connect("chosen",Callable(self,"chosen").bind(c))
+	print(chat_objs)
 func _on_all_info_received(message: String, poster: String, time: int, name: String, _camera: Camera2D) -> void:
 	add_chat(game.avatars[name], name, message, float(time))
 	cameras[name]=_camera
@@ -28,9 +34,12 @@ func add_chat(path: String, namee: String, textt: String, timee: float):
 func add_point(namee: String):
 	chats[namee].set_number(chats[namee].get_number() + 1)
 	chats[namee].add_point()
+func chosen(sender:Node):
+	for key in chat_objs.keys():
+		if chat_objs[key] == sender:
+			print(key)
+			chats[key].chosen()
 func _on_chat_button_pressed(sender: Node):
-	print(sender.name)
-	print("聊天按钮被按下")
 	for key in chats.keys():
 		if chats[key] == sender:
 			cameras[key].make_current()

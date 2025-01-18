@@ -2,9 +2,9 @@
 
 [ext_resource type="Script" path="res://chat_board.gd" id="1_b6m4g"]
 [ext_resource type="Texture2D" uid="uid://sn53n2kcr5uw" path="res://assets/menu/menu_top.png" id="2_x0q1t"]
+[ext_resource type="PackedScene" uid="uid://cpfpbyiyc6jjj" path="res://chat_list/single_chat.tscn" id="3_crbiw"]
 [ext_resource type="Texture2D" uid="uid://ci1jympqhobx" path="res://assets/menu/menu_bottom.png" id="4_3ujoa"]
 [ext_resource type="PackedScene" uid="uid://v0k4wvdk3cpg" path="res://chat/chat.tscn" id="4_n8412"]
-[ext_resource type="PackedScene" uid="uid://ss5iryjqoobs" path="res://characters/game_group.tscn" id="5_2unv7"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_tow6j"]
 font_size = 40
@@ -42,6 +42,12 @@ offset_right = 20.0
 offset_bottom = 120.0
 theme_override_constants/separation = 130
 
+[node name="SingleChat" parent="ChatList" instance=ExtResource("3_crbiw")]
+layout_mode = 2
+
+[node name="SingleChat2" parent="ChatList" instance=ExtResource("3_crbiw")]
+layout_mode = 2
+
 [node name="bottom" type="Label" parent="."]
 layout_mode = 2
 offset_left = 237.0
@@ -58,23 +64,11 @@ position = Vector2(34, 7)
 scale = Vector2(0.480889, 0.395221)
 texture = ExtResource("4_3ujoa")
 
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(270, 480)
-
-[node name="characters" type="Control" parent="."]
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="test" parent="characters" instance=ExtResource("4_n8412")]
+[node name="chat" parent="." instance=ExtResource("4_n8412")]
 layout_mode = 1
 offset_left = 1100.0
 offset_right = 1640.0
 offset_bottom = 960.0
 
-[node name="游戏开黑群" parent="characters" instance=ExtResource("5_2unv7")]
-layout_mode = 1
-offset_left = 2483.0
-offset_right = 3023.0
-offset_bottom = 960.0
-chat_name = "游戏开黑群"
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(270, 480)
