@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://eev2ac75hv1q"]
+[gd_scene load_steps=7 format=3 uid="uid://eev2ac75hv1q"]
 
 [ext_resource type="Script" path="res://chat_board.gd" id="1_b6m4g"]
 [ext_resource type="Texture2D" uid="uid://sn53n2kcr5uw" path="res://assets/menu/menu_top.png" id="2_x0q1t"]
+[ext_resource type="PackedScene" uid="uid://cpfpbyiyc6jjj" path="res://chat_list/single_chat.tscn" id="3_crbiw"]
 [ext_resource type="Texture2D" uid="uid://ci1jympqhobx" path="res://assets/menu/menu_bottom.png" id="4_3ujoa"]
 [ext_resource type="PackedScene" uid="uid://v0k4wvdk3cpg" path="res://chat/chat.tscn" id="4_n8412"]
 
@@ -39,7 +40,13 @@ offset_left = 20.0
 offset_top = 120.0
 offset_right = 20.0
 offset_bottom = 120.0
-theme_override_constants/separation = 110
+theme_override_constants/separation = 130
+
+[node name="SingleChat" parent="ChatList" instance=ExtResource("3_crbiw")]
+layout_mode = 2
+
+[node name="SingleChat2" parent="ChatList" instance=ExtResource("3_crbiw")]
+layout_mode = 2
 
 [node name="bottom" type="Label" parent="."]
 layout_mode = 2

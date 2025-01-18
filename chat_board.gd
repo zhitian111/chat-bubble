@@ -37,7 +37,7 @@ func _on_chat_button_pressed(sender: Node):
 func _on_time_end(sender:Node):
 	for key in chats.keys():
 		if chats[key] == sender:
-			chats[key].set_message("你已被移除群聊")
+			chats[key].set_message("你已被拉黑")
 	var m=miss.instantiate()
 	get_tree().current_scene.add_child(m)
 
