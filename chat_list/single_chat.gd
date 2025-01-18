@@ -16,6 +16,7 @@ func _ready() -> void:
 	timer = Timer.new()
 	add_child(timer)
 	timer.set_wait_time(5)
+	$TimerBox/time.text = ""
 func init(path: String, aname: String, amessage: String) -> void:
 	avatar.texture = load(path)
 	chat_name.text = aname
@@ -37,7 +38,8 @@ func _on_timer_timeout() -> void:
 
 # 更新剩余时间
 func _process(_delta: float) -> void:
-	time.text = "剩余时间：\n" + str(int(timer.time_left))
+	if !timer.is_stopped():
+		time.text = "剩余时间：\n" + str(int(timer.time_left))
 
 
 func _on_button_button_down() -> void:

@@ -14,8 +14,13 @@ extends Control
 signal all_info(message:String,poster: String,time:int,name:String,camera:Camera2D)
 signal back
 signal chosen
+signal script_chosen(left_time:float,rating:int,namee:String)
 
+signal timer_start(name:String,time:int)
+
+var start_choosing_mark:bool = false
 var done:bool = false
+var chosen_mark:bool = false
 
 var rating = preload("res://choose_sentence/rating/rating.tscn")
 
@@ -51,12 +56,31 @@ func _ready():
 func start_choosing():
 	buttons.visible = true
 	progress_bar.visible = true
+	start_choosing_mark = true
 	timer.start()
+	timer_start.emit(chat_name,time_length)
 
 func _process(delta: float) -> void:
 	progress_bar.value = timer.time_left
 	if !timer.is_stopped() && !done:
 		progress_bar.tint_progress += delta*(Color(1,1,1,1) - Color(0, 1, 0, 1))/time_length
+
+func script_end_choosing() -> void:
+	done = true
+	timer.paused = true
+	chosen.emit()
+	var rate
+	if timer.time_left * 1.0 < 1.0/3.0*time_length:
+		rate = 1
+	elif timer.time_left * 1.0 >= 1.0/3.0*time_length && timer.time_left * 1.0 <= 2.0/3.0*time_length:
+		rate = 2
+	else:
+		rate = 3
+	script_chosen.emit(timer.time_left,rate,chat_name)
+
+	dialogs.add_label(buttons.text1,"me")
+	buttons.chosen1()
+	chosen_mark = true
 
 func end_choosing():
 	done = true
@@ -96,7 +120,7 @@ func _on_dialogs_new_message(message: String, poster: String) -> void:
 
 
 func _on_back_pressed() -> void:
-	print(123)
+	# print(123)
 	back.emit()
 
 
