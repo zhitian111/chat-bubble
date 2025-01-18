@@ -16,10 +16,22 @@ func _ready() -> void:
 		c.connect("back",Callable(self,"_on_chat_back"))
 		c.connect("chosen",Callable(self,"chosen").bind(c))
 	print(chat_objs)
+
+func dynamic_add_chat(new_chat)->void:
+	chat_objs[new_chat.chat_name] = new_chat
+	new_chat.connect("all_info", Callable(self, "_on_all_info_received"))
+	new_chat.connect("back",Callable(self,"_on_chat_back"))
+	new_chat.connect("chosen",Callable(self,"chosen").bind(new_chat))
+
+
 func _on_all_info_received(message: String, poster: String, time: int, name: String, _camera: Camera2D) -> void:
-	add_chat(game.avatars[name], name, message, float(time))
+	if game.avatars.has(name):
+		add_chat(game.avatars[name], name, message, float(time))
+	else:
+		add_chat(game.avatars["test"],name,message,float(time))
 	cameras[name]=_camera
 func add_chat(path: String, namee: String, textt: String, timee: float):
+	# print(path)
 	if !chats.has(namee):
 		var c = chat.instantiate()
 		vbox.add_child(c)

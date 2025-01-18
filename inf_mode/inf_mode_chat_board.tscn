@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://clj5183xngyuf"]
 
-[ext_resource type="Script" path="res://chat_board.gd" id="1_4ty8s"]
+[ext_resource type="Script" path="res://inf_mode/inf_mode_chat_board.gd" id="1_y7vlg"]
 [ext_resource type="Texture2D" uid="uid://sn53n2kcr5uw" path="res://assets/menu/menu_top.png" id="2_c00ie"]
 [ext_resource type="Texture2D" uid="uid://ci1jympqhobx" path="res://assets/menu/menu_bottom.png" id="3_c8imd"]
 [ext_resource type="PackedScene" uid="uid://v0k4wvdk3cpg" path="res://chat/chat.tscn" id="4_rwvhy"]
@@ -14,7 +14,7 @@ font_color = Color(0, 0, 0, 1)
 [node name="infModeChatBoard" type="Control"]
 layout_mode = 3
 anchors_preset = 0
-script = ExtResource("1_4ty8s")
+script = ExtResource("1_y7vlg")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 z_index = -100

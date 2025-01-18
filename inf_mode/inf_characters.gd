@@ -10,7 +10,11 @@ func create_new_chat()->void:
 	var new_chat = chat.instantiate()
 	new_chat.position+=start_position
 	new_chat.position+=Vector2(540,0)*get_child_count()
+	
+	new_chat.chat_name = String.num_int64(randi())
+
 	self.add_child(new_chat)
+	get_parent().dynamic_add_chat(new_chat)
 
 
 func _on_timer_timeout() -> void:

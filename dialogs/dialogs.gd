@@ -25,7 +25,7 @@ func add_label(sentence: Label, poster:String) -> void:
 func add_sentence(sentence: String, poster:String) -> void:
 	var tween = get_tree().create_tween()
 
-	print(self.size)
+	# print(self.size)
 
 	if poster != "me":
 		new_message.emit(sentence, poster)
