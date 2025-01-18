@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://eev2ac75hv1q"]
+[gd_scene load_steps=8 format=3 uid="uid://eev2ac75hv1q"]
 
 [ext_resource type="Script" path="res://chat_board.gd" id="1_b6m4g"]
 [ext_resource type="Texture2D" uid="uid://sn53n2kcr5uw" path="res://assets/menu/menu_top.png" id="2_x0q1t"]
 [ext_resource type="Texture2D" uid="uid://ci1jympqhobx" path="res://assets/menu/menu_bottom.png" id="4_3ujoa"]
 [ext_resource type="PackedScene" uid="uid://v0k4wvdk3cpg" path="res://chat/chat.tscn" id="4_n8412"]
 [ext_resource type="PackedScene" uid="uid://ss5iryjqoobs" path="res://characters/game_group.tscn" id="5_2unv7"]
+[ext_resource type="PackedScene" uid="uid://bf42exewea75o" path="res://characters/lover.tscn" id="6_kt0rr"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_tow6j"]
 font_size = 40
@@ -77,5 +78,12 @@ layout_mode = 1
 offset_left = 2483.0
 offset_right = 3023.0
 offset_bottom = 960.0
+
+[node name="情人" parent="characters" instance=ExtResource("6_kt0rr")]
+layout_mode = 1
+offset_left = 3770.0
+offset_right = 4270.0
+offset_bottom = 920.0
+chat_name = "情人"
 
 [editable path="characters/test"]

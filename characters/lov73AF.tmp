@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://bf42exewea75o"]
+[gd_scene load_steps=17 format=3 uid="uid://bf42exewea75o"]
 
 [ext_resource type="Script" path="res://chat/chat.gd" id="1_b83f3"]
 [ext_resource type="Texture2D" uid="uid://ceh5bc05nclt7" path="res://assets/chat/chat_choice_block.png" id="2_sd5lq"]
@@ -53,27 +53,9 @@ tracks/0/keys = {
 "method": &"dialog_end"
 }]
 }
-tracks/1/type = "method"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("AnimationPlayer")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(7.33333, 9.9),
-"transitions": PackedFloat32Array(1, 1),
-"values": [{
-"args": ["情人", "1A"],
-"method": &"choose_A"
-}, {
-"args": [false],
-"method": &"stop"
-}]
-}
 
-[sub_resource type="Animation" id="Animation_ya621"]
-resource_name = "dialog2"
-length = 20.0
+[sub_resource type="Animation" id="Animation_b6gig"]
+resource_name = "1-A"
 tracks/0/type = "method"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -81,63 +63,7 @@ tracks/0/path = NodePath("dialogs")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(3.03333, 4.53333, 5.13333, 7.26667, 8.66667, 9.66667, 10.4667, 11.3, 12),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
-"values": [{
-"args": ["今天过得怎么样？", "me"],
-"method": &"add_sentence"
-}, {
-"args": ["还不错", "情人"],
-"method": &"add_sentence"
-}, {
-"args": ["但是你要告诉我，你打算什么时候让那个女人消失？", "情人"],
-"method": &"add_sentence"
-}, {
-"args": ["哎呀，要说服她跟我离婚，那不还得花费一段时间嘛。", "me"],
-"method": &"add_sentence"
-}, {
-"args": ["所以我说的是让她消失，消失。", "情人"],
-"method": &"add_sentence"
-}, {
-"args": ["你什么意思？", "me"],
-"method": &"add_sentence"
-}, {
-"args": ["我要你杀了她", "情人"],
-"method": &"add_sentence"
-}, {
-"args": ["你疯了？", "me"],
-"method": &"add_sentence"
-}, {
-"args": ["下不了手？哼，我就知道你没用。那我自己来", "情人"],
-"method": &"add_sentence"
-}]
-}
-tracks/1/type = "method"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("AnimationPlayer")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(13.4333),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": [false],
-"method": &"stop"
-}]
-}
-
-[sub_resource type="Animation" id="Animation_gbu35"]
-resource_name = "1A"
-length = 10.0
-tracks/0/type = "method"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("dialogs")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0.1),
+"times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": ["嘻嘻，你对我最好啦", "情人"],
@@ -151,19 +77,18 @@ tracks/1/path = NodePath("AnimationPlayer")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(3.96667),
+"times": PackedFloat32Array(0.833333),
 "transitions": PackedFloat32Array(1),
 "values": [{
-"args": [&"dialog2", -1, 1.0, false],
-"method": &"play"
+"args": [false],
+"method": &"stop"
 }]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_py1ma"]
 _data = {
-"1A": SubResource("Animation_gbu35"),
-"dialog": SubResource("Animation_2raju"),
-"dialog2": SubResource("Animation_ya621")
+"1-A": SubResource("Animation_b6gig"),
+"dialog": SubResource("Animation_2raju")
 }
 
 [node name="lover" type="Control"]
