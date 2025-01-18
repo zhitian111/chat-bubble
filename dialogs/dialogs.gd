@@ -16,6 +16,10 @@ func _ready() -> void:
 	# add_sentence("I'm fine, thanks for asking.", 1)
 	# $controller.play("dialog")
 
+
+func add_label(sentence: Label, poster:String) -> void:
+	add_sentence(sentence.text, poster)
+
 func add_sentence(sentence: String, poster:String) -> void:
 	var tween = get_tree().create_tween()
 	if poster != "me":
