@@ -6,7 +6,6 @@ var animations = []
 func _ready() -> void:
 	# 获取所有动画的名称
 	animations = get_animation_list()
-	
 	if animations.size() > 0:
 		play_next_animation()
 
@@ -27,7 +26,9 @@ func _on_animation_finished(anim_name: String) -> void:
 
 
 func _on_choose_sentence_value_chosen(count: String, chat_name: String) -> void:
+	print("count:",count)
 	game.choice[chat_name]=count
+	print(game.choice[chat_name])
 func choose_A(chat_name:String,next:String):
 	print(game.choice[chat_name])
 	if game.choice[chat_name]=="A":

@@ -11,6 +11,7 @@ func _ready() -> void:
 	camera.make_current()
 	for c in characters.get_children():
 		chat_objs[c.chat_name]=c
+	print(chat_objs)
 	for c in chat_objs.values():
 		c.connect("all_info", Callable(self, "_on_all_info_received"))
 		c.connect("back",Callable(self,"_on_chat_back"))
@@ -20,6 +21,7 @@ func _on_all_info_received(message: String, poster: String, time: int, name: Str
 	add_chat(game.avatars[name], name, message, float(time))
 	cameras[name]=_camera
 func add_chat(path: String, namee: String, textt: String, timee: float):
+	print(chats)
 	if !chats.has(namee):
 		var c = chat.instantiate()
 		vbox.add_child(c)

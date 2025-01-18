@@ -104,7 +104,7 @@ _data = {
 "dialog2": SubResource("Animation_iq5u5")
 }
 
-[node name="chat" type="Control"]
+[node name="chat2" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -148,12 +148,8 @@ label_settings = SubResource("LabelSettings_jy8os")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="dialogs" parent="." instance=ExtResource("2_heomk")]
-layout_mode = 1
-offset_top = 700.0
-offset_bottom = 840.0
-
 [node name="choose_sentence" parent="." instance=ExtResource("3_s4l5i")]
+z_index = 100
 layout_mode = 0
 anchors_preset = 0
 anchor_right = 0.0
@@ -164,6 +160,11 @@ offset_right = 519.0
 offset_bottom = 943.0
 grow_horizontal = 1
 grow_vertical = 1
+
+[node name="dialogs" parent="." instance=ExtResource("2_heomk")]
+layout_mode = 0
+offset_top = 627.0
+offset_bottom = 767.0
 
 [node name="Camera2D" type="Camera2D" parent="."]
 offset = Vector2(270, 480)
@@ -213,7 +214,6 @@ libraries = {
 autoplay = "dialog1"
 script = ExtResource("6_8rejo")
 
-[connection signal="new_message" from="dialogs" to="." method="_on_dialogs_new_message"]
 [connection signal="value_chosen" from="choose_sentence" to="AnimationPlayer" method="_on_choose_sentence_value_chosen"]
 [connection signal="pressed" from="back" to="." method="_on_back_pressed"]
 [connection signal="timeout" from="timer" to="." method="_on_timer_timeout"]

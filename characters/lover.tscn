@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://bf42exewea75o"]
+[gd_scene load_steps=19 format=3 uid="uid://bf42exewea75o"]
 
 [ext_resource type="Script" path="res://chat/chat.gd" id="1_b83f3"]
 [ext_resource type="Texture2D" uid="uid://ceh5bc05nclt7" path="res://assets/chat/chat_choice_block.png" id="2_sd5lq"]
@@ -60,11 +60,14 @@ tracks/1/path = NodePath("AnimationPlayer")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(7.33333, 9.9),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(7.33333, 8.7, 9.9),
+"transitions": PackedFloat32Array(1, 1, 1),
 "values": [{
 "args": ["情人", "1A"],
 "method": &"choose_A"
+}, {
+"args": ["情人", "1B"],
+"method": &"choose_B"
 }, {
 "args": [false],
 "method": &"stop"
@@ -159,9 +162,42 @@ tracks/1/keys = {
 }]
 }
 
+[sub_resource type="Animation" id="Animation_6tou2"]
+resource_name = "1B"
+length = 5.0
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("dialogs")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.833333),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": ["你为什么总是这么说？！对你来说我到底算什么？！！", "情人"],
+"method": &"add_sentence"
+}]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimationPlayer")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(3.43333),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [&"dialog2", -1, 1.0, false],
+"method": &"play"
+}]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_py1ma"]
 _data = {
 "1A": SubResource("Animation_gbu35"),
+"1B": SubResource("Animation_6tou2"),
 "dialog": SubResource("Animation_2raju"),
 "dialog2": SubResource("Animation_ya621")
 }
@@ -210,9 +246,9 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="dialogs" parent="." instance=ExtResource("3_0dwrm")]
-layout_mode = 1
-offset_top = 700.0
-offset_bottom = 840.0
+layout_mode = 0
+offset_top = 629.0
+offset_bottom = 769.0
 
 [node name="choose_sentence" parent="." instance=ExtResource("4_yitfo")]
 layout_mode = 0
@@ -273,7 +309,6 @@ libraries = {
 }
 script = ExtResource("8_83s7h")
 
-[connection signal="new_message" from="dialogs" to="." method="_on_dialogs_new_message"]
 [connection signal="value_chosen" from="choose_sentence" to="AnimationPlayer" method="_on_choose_sentence_value_chosen"]
 [connection signal="pressed" from="back" to="." method="_on_back_pressed"]
 [connection signal="timeout" from="timer" to="." method="_on_timer_timeout"]

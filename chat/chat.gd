@@ -96,7 +96,7 @@ func _on_dialogs_new_message(message: String, poster: String) -> void:
 
 
 func _on_back_pressed() -> void:
-	
+	print(123)
 	back.emit()
 
 
