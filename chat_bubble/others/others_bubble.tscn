@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://qvxyry0dp7wu"]
 
 [ext_resource type="Script" path="res://chat_bubble/others/others_bubble.gd" id="1_04vi7"]
-[ext_resource type="Texture2D" uid="uid://big3cqg8et58b" path="res://icon.svg" id="1_hu5ks"]
+[ext_resource type="Texture2D" uid="uid://b1h72wdx435n3" path="res://icon.svg" id="1_hu5ks"]
 [ext_resource type="LabelSettings" uid="uid://e0rvn5ayd8ia" path="res://chat_bubble/new_label_settings.tres" id="3_7vus8"]
 
 [node name="OthersBubble" type="GridContainer"]
