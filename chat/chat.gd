@@ -70,7 +70,7 @@ func end_choosing():
 
 		rate.start()
 
-		rate.global_position = get_viewport().get_mouse_position() - Vector2(rate.size.x/2,rate.size.y/2)
+		rate.global_position = get_viewport().get_mouse_position() - Vector2(rate.size.x/2,rate.size.y/2) + self.global_position
 	if timer.time_left * 1.0 > 2.0/3.0*time_length:
 		var rate = rating.instantiate()
 		rate.set_type(rate.rating.perfect)
@@ -78,7 +78,7 @@ func end_choosing():
 
 		rate.start()
 
-		rate.global_position = get_viewport().get_mouse_position() - Vector2(rate.size.x/2,rate.size.y/2)
+		rate.global_position = get_viewport().get_mouse_position() - Vector2(rate.size.x/2,rate.size.y/2) + self.global_position
 
 func _on_dialogs_new_message(message: String, poster: String) -> void:
 
@@ -107,4 +107,4 @@ func _on_timer_timeout() -> void:
 
 	rate.start()
 
-	rate.global_position = button_mark.global_position - Vector2(rate.size.x/2,rate.size.y/2)
+	rate.global_position = button_mark.global_position - Vector2(rate.size.x/2,rate.size.y/2) + self.global_position

@@ -7,6 +7,9 @@ extends VBoxContainer
 @onready var text1 = $CenterContainer/HBoxContainer/Label2
 @onready var text2 = $CenterContainer2/HBoxContainer/Label2
 @onready var text3 = $CenterContainer3/HBoxContainer/Label2
+
+signal value_chosen(count:String)
+
 func set_text(choice1:String,choice2:String,choice3:String):
 	print("set_text")
 	text1.text=choice1
@@ -21,3 +24,9 @@ func _ready() -> void:
 
 func chosen() -> void:
 	visible=false
+	if button_1.pressed:
+		value_chosen.emit("A")
+	elif button_2.pressed:
+		value_chosen.emit("B")
+	elif button_3.pressed:
+		value_chosen.emit("C")
