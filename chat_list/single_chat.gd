@@ -6,6 +6,7 @@ extends Control
 @onready var red_point = $HBoxContainer/avatar/Sprite2D
 @onready var red_point_num = $HBoxContainer/avatar/Sprite2D/Label
 @onready var timer_box = $TimerBox
+var is_shaking: bool = false
 var effect = preload("res://effect/effect.tscn")
 var chat_id
 var timer: Timer
@@ -91,6 +92,7 @@ func chosen():
 	timer.stop()
 	timer_box.visible = false
 func shake_control_once(intensity: float = 10.0, duration: float = 0.05):
+	is_shaking = true
 	var tween = create_tween()
 	var original_position = position # 保存初始位置
 	var shake_positions = [
@@ -103,3 +105,5 @@ func shake_control_once(intensity: float = 10.0, duration: float = 0.05):
 	# 使用 Tween 依次插值
 	for i in range(shake_positions.size()):
 		tween.tween_property(self, "position", position+shake_positions[i], duration)
+	await tween.finished
+	is_shaking = false
