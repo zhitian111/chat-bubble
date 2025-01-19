@@ -124,7 +124,3 @@ func _on_recording_timeout() -> void:
 		chat_objs[i.chat_id].script_end_choosing()
 		chats[i.chat_id]._on_script_pressed_button()
 		break
-
-func _process(delta: float) -> void:
-	var date_time = Time.get_datetime_dict_from_system()
-	$time.text = str(date_time["hour"]) + " : " + str(date_time["minute"]) 

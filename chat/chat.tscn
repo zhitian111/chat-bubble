@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://v0k4wvdk3cpg"]
+[gd_scene load_steps=40 format=3 uid="uid://v0k4wvdk3cpg"]
 
 [ext_resource type="Script" path="res://chat/chat.gd" id="1_engbf"]
 [ext_resource type="PackedScene" uid="uid://7u5tp0a0pyk2" path="res://dialogs/dialogs.tscn" id="1_exmix"]
@@ -10,7 +10,8 @@
 [ext_resource type="AnimationLibrary" uid="uid://cdlehoq8riec2" path="res://animations/dialogs.res" id="8_7puw2"]
 [ext_resource type="Script" path="res://chat/animation_player.gd" id="9_hoyb8"]
 [ext_resource type="Texture2D" uid="uid://dogajybyegabs" path="res://assets/chat/wait.png" id="10_7o1yj"]
-[ext_resource type="Texture2D" uid="uid://b1h72wdx435n3" path="res://icon.svg" id="11_50mrr"]
+[ext_resource type="Texture2D" uid="uid://crleskeuj0y7e" path="res://assets/menu/yes.png" id="11_4f85o"]
+[ext_resource type="Texture2D" uid="uid://bwsoxmox6i1fa" path="res://assets/menu/no.png" id="12_wtxgg"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_jy8os"]
 font_color = Color(0, 0, 0, 1)
@@ -308,7 +309,8 @@ offset_left = 199.0
 offset_top = 796.0
 offset_right = 327.0
 offset_bottom = 924.0
-texture = ExtResource("11_50mrr")
+texture = ExtResource("11_4f85o")
+expand_mode = 1
 
 [node name="miss" type="TextureRect" parent="."]
 layout_mode = 0
@@ -316,7 +318,8 @@ offset_left = 199.0
 offset_top = 796.0
 offset_right = 327.0
 offset_bottom = 924.0
-texture = ExtResource("11_50mrr")
+texture = ExtResource("12_wtxgg")
+expand_mode = 1
 
 [connection signal="new_message" from="dialogs" to="." method="_on_dialogs_new_message"]
 [connection signal="pressed" from="back" to="." method="_on_back_pressed"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://clj5183xngyuf"]
+[gd_scene load_steps=16 format=3 uid="uid://clj5183xngyuf"]
 
 [ext_resource type="Script" path="res://inf_mode/inf_mode_chat_board.gd" id="1_y7vlg"]
 [ext_resource type="Texture2D" uid="uid://sn53n2kcr5uw" path="res://assets/menu/menu_top.png" id="2_c00ie"]
@@ -10,6 +10,7 @@
 [ext_resource type="Script" path="res://inf_mode/auto_mailing.gd" id="7_f8lel"]
 [ext_resource type="Texture2D" uid="uid://ctnqx3wochagr" path="res://assets/menu/battery.png" id="9_v76n4"]
 [ext_resource type="Script" path="res://inf_mode/battery.gd" id="10_se4p7"]
+[ext_resource type="Script" path="res://inf_mode/time.gd" id="11_6murv"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_tow6j"]
 font_size = 40
@@ -169,6 +170,9 @@ text = "22:22"
 label_settings = SubResource("LabelSettings_ag4ih")
 horizontal_alignment = 1
 vertical_alignment = 1
+script = ExtResource("11_6murv")
+
+[node name="Timer" type="Timer" parent="time"]
 
 [connection signal="timeout" from="Timer" to="characters" method="_on_timer_timeout"]
 [connection signal="pressed" from="mass_mailing" to="." method="_on_mass_mailing_pressed"]
@@ -179,3 +183,4 @@ vertical_alignment = 1
 [connection signal="timeout" from="auto_mailing/Timer" to="auto_mailing" method="_on_timer_timeout"]
 [connection signal="timeout" from="auto_mailing/cd_timer" to="auto_mailing" method="_on_cd_timer_timeout"]
 [connection signal="timeout" from="auto_mailing/recording" to="." method="_on_recording_timeout"]
+[connection signal="timeout" from="time/Timer" to="time" method="_on_timer_timeout"]

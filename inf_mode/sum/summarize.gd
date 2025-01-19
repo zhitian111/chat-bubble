@@ -90,4 +90,5 @@ func _ready() -> void:
 	nice_label.visible = false
 	miss_label.visible = false
 	perfect_label.visible = false
+	red_label.visible = false
 	$AnimationPlayer.play("end")
