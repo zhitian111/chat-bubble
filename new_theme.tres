@@ -1,14 +1,16 @@
-[gd_resource type="Theme" load_steps=3 format=3 uid="uid://my7bgqgi4ecq"]
+[gd_resource type="Theme" load_steps=4 format=3 uid="uid://my7bgqgi4ecq"]
 
 [ext_resource type="Texture2D" uid="uid://6bq7vyc70el1" path="res://assets/chat/chat_choice_text.png" id="1_16jvf"]
+[ext_resource type="FontFile" uid="uid://dsxm5rjt7hxrl" path="res://assets/font/SmileySans-Oblique-2.ttf" id="1_gc44r"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_624wk"]
 texture = ExtResource("1_16jvf")
 
 [resource]
 Button/colors/font_color = Color(0.144063, 0.144062, 0.144063, 1)
-Button/fonts/font = null
+Button/fonts/font = ExtResource("1_gc44r")
 Button/styles/focus = SubResource("StyleBoxTexture_624wk")
 Button/styles/hover = SubResource("StyleBoxTexture_624wk")
 Button/styles/normal = SubResource("StyleBoxTexture_624wk")
 Button/styles/pressed = SubResource("StyleBoxTexture_624wk")
+Label/fonts/font = ExtResource("1_gc44r")

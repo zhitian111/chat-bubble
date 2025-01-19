@@ -56,7 +56,7 @@ func _on_timer_timeout() -> void:
 # 更新剩余时间
 func _process(_delta: float) -> void:
 	if !timer.is_stopped():
-		time.text = "剩余时间：\n" + str(int(timer.time_left))
+		time.text = "剩余时间\n" + str(int(timer.time_left))
 
 
 func _on_button_button_down() -> void:

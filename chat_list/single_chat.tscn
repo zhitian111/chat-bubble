@@ -1,9 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://cpfpbyiyc6jjj"]
+[gd_scene load_steps=12 format=3 uid="uid://cpfpbyiyc6jjj"]
 
 [ext_resource type="Texture2D" uid="uid://dgwkuou7ydwxp" path="res://chat_list/OIP.jpg" id="1_5xlj3"]
 [ext_resource type="Script" path="res://chat_list/single_chat.gd" id="1_7mhey"]
 [ext_resource type="Texture2D" uid="uid://ef0txhuxlccg" path="res://assets/menu/Sprite-0001.png" id="3_ujkuv"]
 [ext_resource type="Texture2D" uid="uid://du8u0e5y31wsj" path="res://assets/menu/menu_character_2.png" id="4_4ixrp"]
+[ext_resource type="Theme" uid="uid://my7bgqgi4ecq" path="res://new_theme.tres" id="5_1m04c"]
 
 [sub_resource type="Theme" id="Theme_pa7s8"]
 
@@ -64,10 +65,11 @@ texture = ExtResource("3_ujkuv")
 
 [node name="Label" type="Label" parent="HBoxContainer/avatar/Sprite2D"]
 z_index = 200
-offset_left = -12.5
-offset_top = -30.0
-offset_right = 141.5
-offset_bottom = 107.0
+offset_left = -8.88889
+offset_top = -24.4444
+offset_right = 145.111
+offset_bottom = 112.556
+theme = ExtResource("5_1m04c")
 text = "6
 "
 label_settings = SubResource("LabelSettings_x1qq5")
@@ -77,11 +79,13 @@ layout_mode = 2
 
 [node name="name" type="Label" parent="HBoxContainer/VBoxContainer"]
 layout_mode = 2
+theme = ExtResource("5_1m04c")
 text = "李佳灿"
 label_settings = SubResource("LabelSettings_kffjv")
 
 [node name="message" type="Label" parent="HBoxContainer/VBoxContainer"]
 layout_mode = 2
+theme = ExtResource("5_1m04c")
 text = "发送了一条新消息"
 label_settings = SubResource("LabelSettings_qk1i6")
 
@@ -94,6 +98,7 @@ offset_bottom = 150.0
 
 [node name="time" type="Label" parent="TimerBox"]
 layout_mode = 2
+theme = ExtResource("5_1m04c")
 text = "剩余时间：
 66：66"
 label_settings = SubResource("LabelSettings_ayd4r")

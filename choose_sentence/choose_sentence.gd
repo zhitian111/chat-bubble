@@ -11,7 +11,6 @@ extends VBoxContainer
 signal value_chosen(count:String,chat_name:String)
 
 func set_text(choice1:String,choice2:String,choice3:String):
-	print("set_text")
 	text1.text=choice1
 	text2.text=choice2
 	text3.text=choice3
