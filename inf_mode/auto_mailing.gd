@@ -10,6 +10,8 @@ func _ready() -> void:
 	$Timer.wait_time = working_time_length
 	$cd_timer.wait_time = cd_time_length
 	$time.visible = false
+	if !game.auto_reply:
+		self.queue_free()
 
 func _on_pressed() -> void:
 	if working:

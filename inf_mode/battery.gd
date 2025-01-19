@@ -12,5 +12,6 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 
 	self.value = game.inf_mode_health # 80%
-
+	if self.value < 9:
+		get_tree().change_scene_to_file("res://inf_mode/sum/summarize.tscn")
 	pass

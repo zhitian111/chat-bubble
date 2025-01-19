@@ -52,6 +52,10 @@ func _ready():
 
 	progress_bar.z_index = 1
 	progress_bar.tint_progress = Color(0, 1, 0, 1)
+	$waiting.visible = true
+
+	$miss.visible = false
+	$complete.visible = false
 
 func start_choosing():
 	buttons.visible = true
@@ -59,6 +63,8 @@ func start_choosing():
 	start_choosing_mark = true
 	timer.start()
 	timer_start.emit(chat_name,time_length)
+	$waiting.visible = false
+
 
 func _process(delta: float) -> void:
 	progress_bar.value = timer.time_left
@@ -66,6 +72,11 @@ func _process(delta: float) -> void:
 		progress_bar.tint_progress += delta*(Color(1,1,1,1) - Color(0, 1, 0, 1))/time_length
 
 func script_end_choosing() -> void:
+
+	$complete.visible = true
+
+	buttons.hide()
+
 
 	$kill.start()
 
@@ -90,6 +101,10 @@ func end_choosing():
 	done = true
 	timer.paused = true
 	chosen_mark = true
+
+	$complete.visible = true
+
+	buttons.hide()
 
 	$kill.start()
 
@@ -125,7 +140,6 @@ func _on_dialogs_new_message(message: String, poster: String) -> void:
 
 	all_info.emit(message,poster,time_length,chat_name,$Camera2D)
 
-
 func _on_back_pressed() -> void:
 	# print(123)
 	back.emit()
@@ -137,6 +151,8 @@ func _on_back_pressed() -> void:
 func _on_timer_timeout() -> void:
 
 	$kill.start()
+
+	$miss.show()
 
 	var tween = get_tree().create_tween()
 

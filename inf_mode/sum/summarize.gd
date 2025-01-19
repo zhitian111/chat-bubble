@@ -4,11 +4,13 @@ extends Control
 @onready var nice_label = $nice/count
 @onready var miss_label = $miss/count
 @onready var perfect_label = $perfect/count
+@onready var red_label = $red/count
+
 var great_count = 0
 var nice_count = 0
 var miss_count = 0
 var perfect_count = 0
-
+var red_count = 0
 
 func show_great_label()->void:
 	great_count	= 0
@@ -49,7 +51,7 @@ func show_miss_label()->void:
 	tween.tween_property(self,"miss_count",game.rating_count["miss"],0.5)
 
 func show_perfect_label()->void:
-	perfect_count	= 0
+	perfect_count = 0
 
 	var tween = get_tree().create_tween()
 	
@@ -60,15 +62,33 @@ func show_perfect_label()->void:
 
 	tween.tween_property(self,"perfect_count",game.rating_count["perfect"],0.5)
 
+func show_red_label():
+	red_count = 0
+
+	var tween = get_tree().create_tween()
+
+	red_label.modulate = Color(1,1,1,0)
+
+	tween.tween_property(red_label,"modulate",Color(1,1,1,1),0.5)
+
+	tween.tween_property(self,"red_count",game.red_points,0.5)
+
+
+	red_label.visible = true
+
+
+
 func _process(delta: float) -> void:
 	great_label.text = "Great: " + str(great_count)
 	nice_label.text = "Nice: " + str(nice_count)
 	miss_label.text = "Miss: " + str(miss_count)
 	perfect_label.text = "Perfect: " + str(perfect_count)
+	red_label.text = "消除红点: " + str(red_count)
 
 func _ready() -> void:
 	great_label.visible = false
 	nice_label.visible = false
 	miss_label.visible = false
 	perfect_label.visible = false
+	red_label.visible = false
 	$AnimationPlayer.play("end")

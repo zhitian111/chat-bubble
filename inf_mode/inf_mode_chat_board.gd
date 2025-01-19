@@ -45,7 +45,7 @@ func _on_all_info_received(message: String, poster: String, time: int, name: Str
 
 
 func add_chat(path: String, namee: String, textt: String, timee: float):
-	# print(path)
+
 	if !chats.has(namee):
 		var c = chat.instantiate()
 		vbox.add_child(c)
@@ -124,7 +124,3 @@ func _on_recording_timeout() -> void:
 		chat_objs[i.chat_id].script_end_choosing()
 		chats[i.chat_id]._on_script_pressed_button()
 		break
-
-func _process(delta: float) -> void:
-	var date_time = Time.get_datetime_dict_from_system()
-	$time.text = str(date_time["hour"]) + " : " + str(date_time["minute"]) 
