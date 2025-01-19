@@ -164,6 +164,7 @@ func _on_timer_timeout() -> void:
 	$kill.start()
 
 	$miss.show()
+	buttons.hide()
 
 	var tween = get_tree().create_tween()
 

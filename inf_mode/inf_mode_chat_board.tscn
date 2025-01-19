@@ -190,10 +190,10 @@ script = ExtResource("11_6murv")
 
 [node name="red_points" type="Label" parent="."]
 layout_mode = 0
-offset_left = 254.0
-offset_top = 920.0
-offset_right = 294.0
-offset_bottom = 943.0
+offset_left = 243.0
+offset_top = 916.0
+offset_right = 283.0
+offset_bottom = 939.0
 theme = ExtResource("12_06fk2")
 script = ExtResource("12_eai2j")
 

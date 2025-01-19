@@ -90,7 +90,7 @@ script = ExtResource("5_jv8tp")
 
 [node name="Menu" type="Sprite2D" parent="."]
 z_index = -100
-position = Vector2(271, 499)
+position = Vector2(270, 499)
 scale = Vector2(0.478222, 0.409483)
 texture = ExtResource("6_cttp1")
 
