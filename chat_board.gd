@@ -11,17 +11,17 @@ func _ready() -> void:
 	camera.make_current()
 	for c in characters.get_children():
 		chat_objs[c.chat_name]=c
-	print(chat_objs)
+	# print(chat_objs)
 	for c in chat_objs.values():
 		c.connect("all_info", Callable(self, "_on_all_info_received"))
 		c.connect("back",Callable(self,"_on_chat_back"))
 		c.connect("chosen",Callable(self,"chosen").bind(c))
-	print(chat_objs)
+	# print(chat_objs)
 func _on_all_info_received(message: String, poster: String, time: int, name: String, _camera: Camera2D) -> void:
 	add_chat(game.avatars[name], name, message, float(time))
 	cameras[name]=_camera
 func add_chat(path: String, namee: String, textt: String, timee: float):
-	print(chats)
+	# print(chats)
 	if !chats.has(namee):
 		var c = chat.instantiate()
 		vbox.add_child(c)
@@ -38,7 +38,7 @@ func add_point(namee: String):
 func chosen(sender:Node):
 	for key in chat_objs.keys():
 		if chat_objs[key] == sender:
-			print(key)
+			# print(key)
 			chats[key].chosen()
 func _on_chat_button_pressed(sender: Node):
 	for key in chats.keys():
