@@ -1,26 +1,34 @@
-[gd_scene load_steps=17 format=3 uid="uid://bqvvujywh4isu"]
+[gd_scene load_steps=26 format=3 uid="uid://bqvvujywh4isu"]
 
 [ext_resource type="Script" path="res://desktop/enter.gd" id="2_kltwq"]
 [ext_resource type="Script" path="res://desktop/wrong.gd" id="3_08rsj"]
+[ext_resource type="Texture2D" uid="uid://chjdiheio1xay" path="res://assets/icons/shangdian.png" id="4_0frip"]
 [ext_resource type="Texture2D" uid="uid://dhn1qpkhiq38t" path="res://chat_list/icon1.png" id="4_75phx"]
 [ext_resource type="Theme" uid="uid://my7bgqgi4ecq" path="res://new_theme.tres" id="4_drk1t"]
 [ext_resource type="Texture2D" uid="uid://ddxd8y6b4l7rp" path="res://assets/menu/menu.png" id="5_0sa0y"]
 [ext_resource type="Script" path="res://desktop/shop.gd" id="5_n718n"]
 [ext_resource type="Script" path="res://inf_mode/time.gd" id="7_a7rfh"]
-[ext_resource type="Texture2D" uid="uid://b5b0syfrw6cox" path="res://assets/store/新建文件夹/small.png" id="7_wpcys"]
 [ext_resource type="Texture2D" uid="uid://bq0hd3gcvem0d" path="res://shop/qq.jpeg" id="9_7rwom"]
 [ext_resource type="Texture2D" uid="uid://ctnqx3wochagr" path="res://assets/menu/battery.png" id="9_xtx0v"]
+[ext_resource type="Texture2D" uid="uid://7c57aiwrii50" path="res://assets/icons/bili.png" id="11_d08ii"]
+[ext_resource type="Texture2D" uid="uid://c2o3v10wh2a1n" path="res://assets/icons/jump.png" id="12_tnk48"]
+[ext_resource type="Texture2D" uid="uid://ns0mxl7cqkwa" path="res://assets/icons/shezhi.png" id="13_uawwd"]
+[ext_resource type="Texture2D" uid="uid://7i53ow85oine" path="res://assets/icons/steam.png" id="14_fh4sm"]
+[ext_resource type="Texture2D" uid="uid://dhr7dx2t3g0gq" path="res://assets/icons/wangyiyun.png" id="15_lq450"]
+[ext_resource type="Texture2D" uid="uid://kkmde5n3y8at" path="res://assets/icons/xiangce.png" id="16_78xkj"]
+[ext_resource type="Texture2D" uid="uid://cwqbs6uaik2u2" path="res://assets/icons/xianyu.png" id="17_61162"]
+[ext_resource type="Texture2D" uid="uid://dxcy17l7u3vh6" path="res://assets/icons/xiaoheihe.png" id="18_oiyi4"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_37sbw"]
-font_size = 200
+font_size = 220
 font_color = Color(0, 0, 0, 1)
-
-[sub_resource type="LabelSettings" id="LabelSettings_bt8o6"]
-font_size = 32
 
 [sub_resource type="LabelSettings" id="LabelSettings_aklls"]
 font_size = 40
 font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_bt8o6"]
+font_size = 32
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_x4p3u"]
 atlas = ExtResource("9_xtx0v")
@@ -32,6 +40,10 @@ region = Rect2(236, 37, 156, 113)
 
 [sub_resource type="LabelSettings" id="LabelSettings_03kqw"]
 font_size = 300
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_hdehk"]
+font_size = 25
 font_color = Color(0, 0, 0, 1)
 
 [node name="desktop" type="Node2D"]
@@ -59,9 +71,32 @@ offset_right = 419.0
 offset_bottom = 389.0
 script = ExtResource("2_kltwq")
 
+[node name="Shangdian" type="Sprite2D" parent="."]
+position = Vector2(265, 199)
+scale = Vector2(0.55, 0.55)
+texture = ExtResource("4_0frip")
+
+[node name="Label" type="Label" parent="Shangdian"]
+z_index = 10
+offset_left = -61.8182
+offset_top = 103.636
+offset_right = 578.182
+offset_bottom = 554.636
+theme = ExtResource("4_drk1t")
+text = "应用商店"
+label_settings = SubResource("LabelSettings_aklls")
+
+[node name="shop" type="Button" parent="Shangdian"]
+modulate = Color(1, 1, 1, 0)
+offset_left = -51.7917
+offset_top = -37.1902
+offset_right = 61.2083
+offset_bottom = 104.81
+script = ExtResource("5_n718n")
+
 [node name="Menu" type="Sprite2D" parent="."]
 z_index = -100
-position = Vector2(271, 481)
+position = Vector2(270, 477)
 scale = Vector2(0.480889, 0.39532)
 texture = ExtResource("5_0sa0y")
 
@@ -76,29 +111,6 @@ script = ExtResource("7_a7rfh")
 
 [node name="Timer" type="Timer" parent="time"]
 
-[node name="Small" type="Sprite2D" parent="."]
-position = Vector2(254, 207)
-scale = Vector2(0.741667, 0.65493)
-texture = ExtResource("7_wpcys")
-
-[node name="Label" type="Label" parent="Small"]
-z_index = 10
-offset_left = -62.0225
-offset_top = 71.7634
-offset_right = 577.978
-offset_bottom = 522.763
-theme = ExtResource("4_drk1t")
-text = "应用商店"
-label_settings = SubResource("LabelSettings_aklls")
-
-[node name="shop" type="Button" parent="Small"]
-modulate = Color(1, 1, 1, 0)
-offset_left = -55.0
-offset_top = -69.0
-offset_right = 58.0
-offset_bottom = 73.0
-script = ExtResource("5_n718n")
-
 [node name="battery" type="TextureProgressBar" parent="."]
 offset_left = 432.0
 offset_top = 16.0
@@ -111,29 +123,213 @@ texture_over = SubResource("AtlasTexture_x4p3u")
 texture_progress = SubResource("AtlasTexture_fs4qu")
 
 [node name="Qq" type="Sprite2D" parent="."]
-position = Vector2(441, 211)
-scale = Vector2(0.08, 0.08)
+position = Vector2(432, 201)
+scale = Vector2(0.07125, 0.0704688)
 texture = ExtResource("9_7rwom")
 
 [node name="wrong" type="Button" parent="Qq"]
 modulate = Color(1, 1, 1, 0)
-offset_left = -625.0
+offset_left = -612.0
 offset_top = -620.0
 offset_right = 623.0
-offset_bottom = 662.0
+offset_bottom = 613.0
 script = ExtResource("3_08rsj")
 
 [node name="Label" type="Label" parent="Qq"]
 z_index = 10
-offset_left = -99.9997
-offset_top = 612.5
-offset_right = 860.0
-offset_bottom = 1063.5
+offset_left = -140.351
+offset_top = 766.297
+offset_right = 819.649
+offset_bottom = 1217.3
 theme = ExtResource("4_drk1t")
 text = "QQ"
 label_settings = SubResource("LabelSettings_03kqw")
 
+[node name="Bili" type="Sprite2D" parent="."]
+position = Vector2(96, 380)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("11_d08ii")
+
+[node name="Jump" type="Sprite2D" parent="."]
+position = Vector2(268, 380)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("12_tnk48")
+
+[node name="Shezhi" type="Sprite2D" parent="."]
+position = Vector2(433, 382)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("13_uawwd")
+
+[node name="Steam" type="Sprite2D" parent="."]
+position = Vector2(100, 556)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("14_fh4sm")
+
+[node name="Wangyiyun" type="Sprite2D" parent="."]
+position = Vector2(270, 557)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("15_lq450")
+
+[node name="Xiangce" type="Sprite2D" parent="."]
+position = Vector2(432, 554)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("16_78xkj")
+
+[node name="Xianyu" type="Sprite2D" parent="."]
+position = Vector2(106, 714)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("17_61162")
+
+[node name="Xiaoheihe" type="Sprite2D" parent="."]
+position = Vector2(270, 716)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("18_oiyi4")
+
+[node name="wrong" type="Button" parent="."]
+modulate = Color(1, 1, 1, 0)
+offset_left = 45.0
+offset_top = 331.0
+offset_right = 147.0
+offset_bottom = 430.0
+script = ExtResource("3_08rsj")
+
+[node name="wrong3" type="Button" parent="."]
+modulate = Color(1, 1, 1, 0)
+offset_left = 220.0
+offset_top = 666.0
+offset_right = 322.0
+offset_bottom = 765.0
+script = ExtResource("3_08rsj")
+
+[node name="wrong4" type="Button" parent="."]
+modulate = Color(1, 1, 1, 0)
+offset_left = 53.0
+offset_top = 667.0
+offset_right = 155.0
+offset_bottom = 766.0
+script = ExtResource("3_08rsj")
+
+[node name="wrong5" type="Button" parent="."]
+modulate = Color(1, 1, 1, 0)
+offset_left = 398.0
+offset_top = 510.0
+offset_right = 500.0
+offset_bottom = 609.0
+script = ExtResource("3_08rsj")
+
+[node name="wrong6" type="Button" parent="."]
+modulate = Color(1, 1, 1, 0)
+offset_left = 219.0
+offset_top = 508.0
+offset_right = 321.0
+offset_bottom = 607.0
+script = ExtResource("3_08rsj")
+
+[node name="wrong7" type="Button" parent="."]
+modulate = Color(1, 1, 1, 0)
+offset_left = 51.0
+offset_top = 507.0
+offset_right = 153.0
+offset_bottom = 606.0
+script = ExtResource("3_08rsj")
+
+[node name="wrong8" type="Button" parent="."]
+modulate = Color(1, 1, 1, 0)
+offset_left = 382.0
+offset_top = 333.0
+offset_right = 484.0
+offset_bottom = 432.0
+script = ExtResource("3_08rsj")
+
+[node name="wrong9" type="Button" parent="."]
+modulate = Color(1, 1, 1, 0)
+offset_left = 217.0
+offset_top = 330.0
+offset_right = 319.0
+offset_bottom = 429.0
+script = ExtResource("3_08rsj")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 71.0
+offset_top = 428.0
+offset_right = 124.0
+offset_bottom = 459.0
+theme = ExtResource("4_drk1t")
+text = "Bilibili"
+label_settings = SubResource("LabelSettings_hdehk")
+
+[node name="Label2" type="Label" parent="."]
+offset_left = 242.0
+offset_top = 428.0
+offset_right = 295.0
+offset_bottom = 459.0
+theme = ExtResource("4_drk1t")
+text = "Jumping"
+label_settings = SubResource("LabelSettings_hdehk")
+
+[node name="Label3" type="Label" parent="."]
+offset_left = 409.0
+offset_top = 430.0
+offset_right = 462.0
+offset_bottom = 461.0
+theme = ExtResource("4_drk1t")
+text = "Bibilili"
+label_settings = SubResource("LabelSettings_hdehk")
+
+[node name="Label4" type="Label" parent="."]
+offset_left = 71.0
+offset_top = 607.0
+offset_right = 124.0
+offset_bottom = 638.0
+theme = ExtResource("4_drk1t")
+text = "游戏管家"
+label_settings = SubResource("LabelSettings_hdehk")
+
+[node name="Label5" type="Label" parent="."]
+offset_left = 242.0
+offset_top = 607.0
+offset_right = 295.0
+offset_bottom = 638.0
+theme = ExtResource("4_drk1t")
+text = "QQ音乐"
+label_settings = SubResource("LabelSettings_hdehk")
+
+[node name="Label6" type="Label" parent="."]
+offset_left = 386.0
+offset_top = 606.0
+offset_right = 486.0
+offset_bottom = 637.0
+theme = ExtResource("4_drk1t")
+text = "视频播放器"
+label_settings = SubResource("LabelSettings_hdehk")
+
+[node name="Label7" type="Label" parent="."]
+offset_left = 78.0
+offset_top = 770.0
+offset_right = 131.0
+offset_bottom = 801.0
+theme = ExtResource("4_drk1t")
+text = "美团"
+label_settings = SubResource("LabelSettings_hdehk")
+
+[node name="Label8" type="Label" parent="."]
+offset_left = 242.0
+offset_top = 770.0
+offset_right = 295.0
+offset_bottom = 801.0
+theme = ExtResource("4_drk1t")
+text = "小红书"
+label_settings = SubResource("LabelSettings_hdehk")
+
 [connection signal="button_down" from="Icon1/enter" to="Icon1/enter" method="_on_button_down"]
+[connection signal="button_down" from="Shangdian/shop" to="Shangdian/shop" method="_on_button_down"]
 [connection signal="timeout" from="time/Timer" to="time" method="_on_timer_timeout"]
-[connection signal="button_down" from="Small/shop" to="Small/shop" method="_on_button_down"]
 [connection signal="button_down" from="Qq/wrong" to="Qq/wrong" method="_on_button_down"]
+[connection signal="button_down" from="wrong" to="wrong" method="_on_button_down"]
+[connection signal="button_down" from="wrong3" to="wrong3" method="_on_button_down"]
+[connection signal="button_down" from="wrong4" to="wrong4" method="_on_button_down"]
+[connection signal="button_down" from="wrong5" to="wrong5" method="_on_button_down"]
+[connection signal="button_down" from="wrong6" to="wrong6" method="_on_button_down"]
+[connection signal="button_down" from="wrong7" to="wrong7" method="_on_button_down"]
+[connection signal="button_down" from="wrong8" to="wrong8" method="_on_button_down"]
+[connection signal="button_down" from="wrong9" to="wrong9" method="_on_button_down"]
