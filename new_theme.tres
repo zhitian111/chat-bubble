@@ -1,0 +1,14 @@
+[gd_resource type="Theme" load_steps=3 format=3 uid="uid://my7bgqgi4ecq"]
+
+[ext_resource type="Texture2D" uid="uid://6bq7vyc70el1" path="res://assets/chat/chat_choice_text.png" id="1_16jvf"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_624wk"]
+texture = ExtResource("1_16jvf")
+
+[resource]
+Button/colors/font_color = Color(0.144063, 0.144062, 0.144063, 1)
+Button/fonts/font = null
+Button/styles/focus = SubResource("StyleBoxTexture_624wk")
+Button/styles/hover = SubResource("StyleBoxTexture_624wk")
+Button/styles/normal = SubResource("StyleBoxTexture_624wk")
+Button/styles/pressed = SubResource("StyleBoxTexture_624wk")

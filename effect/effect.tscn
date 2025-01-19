@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://btr0efuu3fg1k"]
+
+[ext_resource type="Script" path="res://effect.gd" id="1_qnoox"]
+
+[sub_resource type="Curve" id="Curve_nxndh"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_oaxjv"]
+curve = SubResource("Curve_nxndh")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_dgdyv"]
+particle_flag_disable_z = true
+spread = 180.0
+initial_velocity_min = 100.0
+initial_velocity_max = 150.0
+gravity = Vector3(0, 500, 0)
+scale_min = 3.0
+scale_max = 5.0
+scale_curve = SubResource("CurveTexture_oaxjv")
+color = Color(0.67451, 0.352941, 0.101961, 1)
+
+[node name="effect" type="Node2D"]
+position = Vector2(272, 148)
+script = ExtResource("1_qnoox")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+emitting = false
+amount = 100
+process_material = SubResource("ParticleProcessMaterial_dgdyv")
+one_shot = true
+explosiveness = 1.0

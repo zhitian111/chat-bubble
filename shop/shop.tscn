@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://dnla6tqymxf5n"]
+[gd_scene load_steps=9 format=3 uid="uid://dnla6tqymxf5n"]
 
 [ext_resource type="Script" path="res://shop/shop.gd" id="1_jdlp6"]
 [ext_resource type="Texture2D" uid="uid://bfoetxsvorlkf" path="res://assets/chat/menu_background.png" id="1_qd7od"]
+[ext_resource type="Theme" uid="uid://my7bgqgi4ecq" path="res://new_theme.tres" id="2_54cn8"]
 [ext_resource type="Texture2D" uid="uid://hxwftcm3kfmr" path="res://assets/skill/group_message.png" id="3_4k7p0"]
 [ext_resource type="Texture2D" uid="uid://bj5xxisebypy" path="res://assets/skill/auto_reply.png" id="4_hgtx5"]
 [ext_resource type="Script" path="res://shop/red_points.gd" id="5_jv8tp"]
@@ -23,6 +24,7 @@ offset_left = 435.0
 offset_top = 144.0
 offset_right = 516.0
 offset_bottom = 188.0
+theme = ExtResource("2_54cn8")
 text = "安装"
 
 [node name="auto_reply" type="Button" parent="."]
@@ -31,6 +33,7 @@ offset_left = 434.0
 offset_top = 242.0
 offset_right = 514.0
 offset_bottom = 286.0
+theme = ExtResource("2_54cn8")
 text = "安装"
 
 [node name="MenuBackground" type="Sprite2D" parent="."]
@@ -66,10 +69,11 @@ text = "自动回复，一段时间内
 label_settings = SubResource("LabelSettings_d4n4i")
 
 [node name="back" type="Button" parent="."]
-offset_left = 6.0
-offset_top = 390.0
-offset_right = 46.0
-offset_bottom = 421.0
+offset_left = 7.0
+offset_top = 369.0
+offset_right = 75.0
+offset_bottom = 400.0
+theme = ExtResource("2_54cn8")
 text = "返回"
 
 [node name="red_points" type="Label" parent="."]
