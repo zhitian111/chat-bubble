@@ -16,6 +16,7 @@ config/features=PackedStringArray("4.3", "Mobile")
 boot_splash/image="res://assets/不知道什么图.png"
 boot_splash/use_filter=false
 config/icon="res://icon.svg"
+config/windows_native_icon="res://assets/icon2.ico"
 
 [autoload]
 
