@@ -14,7 +14,7 @@ var red_count = 0
 
 var animation_end:bool = false
 
-
+	
 func show_great_label()->void:
 	great_count	= 0
 
@@ -89,6 +89,8 @@ func _process(delta: float) -> void:
 	red_label.text = "消除红点: " + str(red_count)
 
 func _ready() -> void:
+	AudioPlayer.stop()
+	AudioPlayer.play_end()
 	great_label.visible = false
 	nice_label.visible = false
 	miss_label.visible = false
@@ -116,4 +118,6 @@ func _input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
 		if event.pressed && animation_end:
 			get_tree().change_scene_to_file("res://desktop/desktop.tscn")
+			AudioPlayer.stop_end()
+			AudioPlayer.play()
 			pass

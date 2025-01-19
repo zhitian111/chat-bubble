@@ -2,24 +2,37 @@ extends Node
 
 @onready var sound_effect = $SE
 @onready var bgm_player = $BGM/BGMPlayer
-@export var bgm1:AudioStream
-@export var bgm_easy:AudioStream
-@export var bgm4:AudioStream
+@onready var bgm_player_easy=$BGM/BGMPlayer2
+@onready var bgm_player_4=$BGM/BGMPlayer3
 enum BUSS{
 	master,
 	bgm,
 	sfx
 };
-	
-func _physics_process(delta: float) -> void:
-	pass
-func _ready():
-	# menu.volume_db = -80
-	# print(AudioServer.get_bus_count())
-	# print(AudioServer.get_bus_name(1))
-	# play_sound_effect("button_pressed")
-	pass
-
+func _ready() -> void:
+	bgm_player.play()
+	bgm_player_easy.play()
+	bgm_player_easy.volume_db=-80
+func easy(a:bool):
+	var tween = get_tree().create_tween()
+	if	a:
+		tween.tween_property(bgm_player, "volume_db", -80,0.2)
+		tween.parallel()
+		tween.tween_property(bgm_player_easy, "volume_db", 0,0.2)
+	else:
+		tween.tween_property(bgm_player_easy, "volume_db", -80,0.2)
+		tween.parallel()
+		tween.tween_property(bgm_player, "volume_db", 0,0.2)
+func stop():
+	bgm_player.stop()
+	bgm_player_easy.stop()
+func play():
+	bgm_player.play()
+	bgm_player_easy.play()
+func play_end():
+	bgm_player_4.play()
+func stop_end():
+	bgm_player_4.stop()
 
 func play_sound_effect(sound_effect_name:String):
 	var audio = sound_effect.get_node(sound_effect_name) as AudioStreamPlayer
@@ -31,14 +44,6 @@ func play_sound_effect(sound_effect_name:String):
 	audio.play(0)
 
 func play_bgm(bgm:AudioStream):
-
-	if bgm_player.playing == true && bgm_player.stream == bgm:
-		return
-	if bgm == null:
-		return
-	if bgm_player.stream != bgm:
-		bgm_player.stream = bgm
-	# bgm_player.volume_db = (1 - bgm_sound_level * main_sound_level) * sound_offset
 	bgm_player.play()
 
 # func change_to_menu():

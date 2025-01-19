@@ -1,5 +1,6 @@
-[gd_scene load_steps=26 format=3 uid="uid://bqvvujywh4isu"]
+[gd_scene load_steps=27 format=3 uid="uid://bqvvujywh4isu"]
 
+[ext_resource type="Script" path="res://desktop/desktop.gd" id="1_gml83"]
 [ext_resource type="Script" path="res://desktop/enter.gd" id="2_kltwq"]
 [ext_resource type="Script" path="res://desktop/wrong.gd" id="3_08rsj"]
 [ext_resource type="Texture2D" uid="uid://chjdiheio1xay" path="res://assets/icons/shangdian.png" id="4_0frip"]
@@ -47,6 +48,7 @@ font_size = 25
 font_color = Color(0, 0, 0, 1)
 
 [node name="desktop" type="Node2D"]
+script = ExtResource("1_gml83")
 
 [node name="Icon1" type="Sprite2D" parent="."]
 position = Vector2(86, 200)

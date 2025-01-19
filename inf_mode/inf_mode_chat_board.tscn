@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://clj5183xngyuf"]
+[gd_scene load_steps=20 format=3 uid="uid://clj5183xngyuf"]
 
 [ext_resource type="Script" path="res://inf_mode/inf_mode_chat_board.gd" id="1_y7vlg"]
 [ext_resource type="Texture2D" uid="uid://sn53n2kcr5uw" path="res://assets/menu/menu_top.png" id="2_c00ie"]
@@ -29,6 +29,9 @@ region = Rect2(236, 37, 156, 113)
 
 [sub_resource type="LabelSettings" id="LabelSettings_ag4ih"]
 font_size = 32
+
+[sub_resource type="LabelSettings" id="LabelSettings_oqpff"]
+font_size = 25
 
 [node name="infModeChatBoard" type="Control"]
 layout_mode = 3
@@ -190,11 +193,14 @@ script = ExtResource("11_6murv")
 
 [node name="red_points" type="Label" parent="."]
 layout_mode = 0
-offset_left = 243.0
-offset_top = 916.0
-offset_right = 283.0
-offset_bottom = 939.0
+offset_top = 905.0
+offset_right = 540.0
+offset_bottom = 928.0
 theme = ExtResource("12_06fk2")
+text = "123123"
+label_settings = SubResource("LabelSettings_oqpff")
+horizontal_alignment = 1
+vertical_alignment = 1
 script = ExtResource("12_eai2j")
 
 [connection signal="timeout" from="Timer" to="characters" method="_on_timer_timeout"]

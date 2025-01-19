@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://b5808658ppe8g"]
+[gd_scene load_steps=17 format=3 uid="uid://b5808658ppe8g"]
 
 [ext_resource type="Script" path="res://audio_player/audio_player.gd" id="1_wddt7"]
 [ext_resource type="AudioStream" uid="uid://xcgmot7ly86o" path="res://assets/sfx/Coins sounds [OGG]/1_Coins.ogg" id="2_gx773"]
@@ -15,12 +15,11 @@
 [ext_resource type="AudioStream" uid="uid://cbx1resk82r3v" path="res://assets/sfx/提示音.wav" id="9_xlsxf"]
 [ext_resource type="AudioStream" uid="uid://oghk62t7wlme" path="res://assets/sfx/error.MP3" id="13_phmxo"]
 [ext_resource type="AudioStream" uid="uid://iqxrewnu2krd" path="res://assets/sfx/stage_two.mp3" id="14_j6gxd"]
+[ext_resource type="AudioStream" uid="uid://y6r4erfxu4j5" path="res://assets/sfx/stage_4.mp3" id="16_l58yd"]
 
 [node name="AudioPlayer" type="Node"]
 process_mode = 3
 script = ExtResource("1_wddt7")
-bgm1 = ExtResource("14_j6gxd")
-bgm_easy = ExtResource("3_5vh33")
 
 [node name="SE" type="Node" parent="."]
 
@@ -71,3 +70,14 @@ volume_db = 3.0
 
 [node name="BGMPlayer" type="AudioStreamPlayer" parent="BGM"]
 stream = ExtResource("14_j6gxd")
+autoplay = true
+parameters/looping = true
+
+[node name="BGMPlayer2" type="AudioStreamPlayer" parent="BGM"]
+stream = ExtResource("3_5vh33")
+autoplay = true
+parameters/looping = true
+
+[node name="BGMPlayer3" type="AudioStreamPlayer" parent="BGM"]
+stream = ExtResource("16_l58yd")
+parameters/looping = true

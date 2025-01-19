@@ -33,7 +33,16 @@ func init(path: String, aname: String, amessage: String) -> void:
 		"摸鱼摸到海底",
 		"卷不动也得卷",
 		"键盘侠终极联盟",
-		"改Bug第一天"
+		"改Bug第一天",
+		"夜晚cs狂欢群",
+		"一天不玩瓦就难受",
+		"坤坤应援一群",
+		"坤坤应援二群",
+		"GGJ*CiGA群",
+		"2025GGJ济南站点群",
+		"兴趣开放实验室总群",
+		"怪猎糕手培育中心",
+		"La Soleil糕点店",
 	]
 	randomize() # 确保随机性
 	var random_name = group_names[randi() % group_names.size()]
@@ -67,7 +76,7 @@ func _on_button_button_down() -> void:
 		var e = effect.instantiate()
 		get_tree().current_scene.add_child(e)
 		e.global_position = red_point.global_position
-		AudioPlayer.play_sound_effect("red_point")
+		
 	number = 0
 	red_point.visible = false
 	red_point_num.visible = false
@@ -80,7 +89,6 @@ func _on_script_pressed_button() -> void:
 	var e = effect.instantiate()
 	get_tree().current_scene.add_child(e)
 	e.global_position = red_point.global_position
-	AudioPlayer.play_sound_effect("red_point")
 
 func add_point():
 	red_point.visible = true

@@ -10,7 +10,7 @@ var chats: Dictionary
 var chat_objs:Dictionary={}
 var cameras: Dictionary = {}
 func _ready() -> void:
-
+	AudioPlayer.easy(true)
 	game.rating_count["miss"] = 0
 	game.rating_count["nice"] = 0
 	game.rating_count["great"] = 0

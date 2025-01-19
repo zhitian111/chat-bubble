@@ -13,6 +13,8 @@ config_version=5
 config/name="chat-bubble"
 run/main_scene="res://desktop/desktop.tscn"
 config/features=PackedStringArray("4.3", "Mobile")
+boot_splash/image="res://assets/不知道什么图.png"
+boot_splash/use_filter=false
 config/icon="res://icon.svg"
 
 [autoload]

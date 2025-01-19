@@ -1,7 +1,8 @@
 extends Node2D
 @onready var gbutton=$group_reply
 @onready var abutton=$auto_reply
-
+func _ready() -> void:
+	AudioPlayer.easy(true)
 func _on_group_reply_button_down() -> void:
 	if game.group_reply:
 		gbutton.disabled=true
