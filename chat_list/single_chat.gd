@@ -59,6 +59,7 @@ func _process(_delta: float) -> void:
 
 
 func _on_button_button_down() -> void:
+	game.red_points+=number
 	number=0
 	red_point.visible=false
 	red_point_num.visible=false

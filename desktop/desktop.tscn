@@ -1,14 +1,15 @@
-[gd_scene load_steps=5 format=3 uid="uid://bqvvujywh4isu"]
+[gd_scene load_steps=6 format=3 uid="uid://bqvvujywh4isu"]
 
 [ext_resource type="Texture2D" uid="uid://de4giqd7b0jq8" path="res://desktop/Screenshot_2025-01-17-21-05-45-768_com.miui.home.jpg" id="1_mxxon"]
 [ext_resource type="Script" path="res://desktop/enter.gd" id="2_kltwq"]
 [ext_resource type="Script" path="res://desktop/wrong.gd" id="3_08rsj"]
 [ext_resource type="Texture2D" uid="uid://dhn1qpkhiq38t" path="res://chat_list/icon1.png" id="4_75phx"]
+[ext_resource type="Script" path="res://desktop/shop.gd" id="5_n718n"]
 
 [node name="desktop" type="Node2D"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(271, 359)
+position = Vector2(271, 358)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("1_mxxon")
 
@@ -81,6 +82,70 @@ position = Vector2(333, 487)
 scale = Vector2(0.112037, 0.113137)
 texture = ExtResource("4_75phx")
 
+[node name="wrong8" type="Button" parent="."]
+modulate = Color(1, 1, 1, 0)
+offset_left = 170.0
+offset_top = 602.0
+offset_right = 247.0
+offset_bottom = 684.0
+script = ExtResource("3_08rsj")
+
+[node name="wrong9" type="Button" parent="."]
+modulate = Color(1, 1, 1, 0)
+offset_left = 296.0
+offset_top = 605.0
+offset_right = 373.0
+offset_bottom = 687.0
+script = ExtResource("3_08rsj")
+
+[node name="wrong10" type="Button" parent="."]
+modulate = Color(1, 1, 1, 0)
+offset_left = 424.0
+offset_top = 601.0
+offset_right = 501.0
+offset_bottom = 683.0
+script = ExtResource("3_08rsj")
+
+[node name="wrong11" type="Button" parent="."]
+modulate = Color(1, 1, 1, 0)
+offset_left = 165.0
+offset_top = 818.0
+offset_right = 242.0
+offset_bottom = 900.0
+script = ExtResource("3_08rsj")
+
+[node name="wrong12" type="Button" parent="."]
+modulate = Color(1, 1, 1, 0)
+offset_left = 44.0
+offset_top = 818.0
+offset_right = 121.0
+offset_bottom = 900.0
+script = ExtResource("3_08rsj")
+
+[node name="wrong13" type="Button" parent="."]
+modulate = Color(1, 1, 1, 0)
+offset_left = 295.0
+offset_top = 819.0
+offset_right = 372.0
+offset_bottom = 901.0
+script = ExtResource("3_08rsj")
+
+[node name="wrong14" type="Button" parent="."]
+modulate = Color(1, 1, 1, 0)
+offset_left = 424.0
+offset_top = 819.0
+offset_right = 501.0
+offset_bottom = 901.0
+script = ExtResource("3_08rsj")
+
+[node name="shop" type="Button" parent="."]
+modulate = Color(1, 1, 1, 0)
+offset_left = 38.0
+offset_top = 602.0
+offset_right = 121.0
+offset_bottom = 685.0
+script = ExtResource("5_n718n")
+
 [connection signal="button_down" from="enter" to="enter" method="_on_button_down"]
 [connection signal="button_down" from="wrong" to="wrong" method="_on_button_down"]
 [connection signal="button_down" from="wrong2" to="wrong2" method="_on_button_down"]
@@ -89,3 +154,11 @@ texture = ExtResource("4_75phx")
 [connection signal="button_down" from="wrong5" to="wrong5" method="_on_button_down"]
 [connection signal="button_down" from="wrong6" to="wrong6" method="_on_button_down"]
 [connection signal="button_down" from="wrong7" to="wrong7" method="_on_button_down"]
+[connection signal="button_down" from="wrong8" to="wrong8" method="_on_button_down"]
+[connection signal="button_down" from="wrong9" to="wrong9" method="_on_button_down"]
+[connection signal="button_down" from="wrong10" to="wrong10" method="_on_button_down"]
+[connection signal="button_down" from="wrong11" to="wrong11" method="_on_button_down"]
+[connection signal="button_down" from="wrong12" to="wrong12" method="_on_button_down"]
+[connection signal="button_down" from="wrong13" to="wrong13" method="_on_button_down"]
+[connection signal="button_down" from="wrong14" to="wrong14" method="_on_button_down"]
+[connection signal="button_down" from="shop" to="shop" method="_on_button_down"]
