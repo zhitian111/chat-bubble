@@ -20,6 +20,9 @@ func _ready() -> void:
 	button_1.pressed.connect(chosen1)
 	button_2.pressed.connect(chosen2)
 	button_3.pressed.connect(chosen3)
+	button_1.pressed.connect(AudioPlayer.play_sound_effect.bind("dingdong"))
+	button_2.pressed.connect(AudioPlayer.play_sound_effect.bind("dingdong"))
+	button_3.pressed.connect(AudioPlayer.play_sound_effect.bind("dingdong"))
 func chosen1() -> void:
 	visible=false
 	value_chosen.emit("A",chat_name)

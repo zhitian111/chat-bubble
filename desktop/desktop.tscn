@@ -69,6 +69,7 @@ offset_left = -366.0
 offset_top = -371.0
 offset_right = 419.0
 offset_bottom = 389.0
+mouse_default_cursor_shape = 2
 script = ExtResource("2_kltwq")
 
 [node name="Shangdian" type="Sprite2D" parent="."]
@@ -92,11 +93,12 @@ offset_left = -51.7917
 offset_top = -37.1902
 offset_right = 61.2083
 offset_bottom = 104.81
+mouse_default_cursor_shape = 2
 script = ExtResource("5_n718n")
 
 [node name="Menu" type="Sprite2D" parent="."]
 z_index = -100
-position = Vector2(270, 477)
+position = Vector2(270, 482)
 scale = Vector2(0.480889, 0.39532)
 texture = ExtResource("5_0sa0y")
 
@@ -133,6 +135,7 @@ offset_left = -612.0
 offset_top = -620.0
 offset_right = 623.0
 offset_bottom = 613.0
+mouse_default_cursor_shape = 2
 script = ExtResource("3_08rsj")
 
 [node name="Label" type="Label" parent="Qq"]
@@ -191,6 +194,7 @@ offset_left = 45.0
 offset_top = 331.0
 offset_right = 147.0
 offset_bottom = 430.0
+mouse_default_cursor_shape = 2
 script = ExtResource("3_08rsj")
 
 [node name="wrong3" type="Button" parent="."]
@@ -199,6 +203,7 @@ offset_left = 220.0
 offset_top = 666.0
 offset_right = 322.0
 offset_bottom = 765.0
+mouse_default_cursor_shape = 2
 script = ExtResource("3_08rsj")
 
 [node name="wrong4" type="Button" parent="."]
@@ -207,6 +212,7 @@ offset_left = 53.0
 offset_top = 667.0
 offset_right = 155.0
 offset_bottom = 766.0
+mouse_default_cursor_shape = 2
 script = ExtResource("3_08rsj")
 
 [node name="wrong5" type="Button" parent="."]
@@ -215,6 +221,7 @@ offset_left = 398.0
 offset_top = 510.0
 offset_right = 500.0
 offset_bottom = 609.0
+mouse_default_cursor_shape = 2
 script = ExtResource("3_08rsj")
 
 [node name="wrong6" type="Button" parent="."]
@@ -223,6 +230,7 @@ offset_left = 219.0
 offset_top = 508.0
 offset_right = 321.0
 offset_bottom = 607.0
+mouse_default_cursor_shape = 2
 script = ExtResource("3_08rsj")
 
 [node name="wrong7" type="Button" parent="."]
@@ -231,6 +239,7 @@ offset_left = 51.0
 offset_top = 507.0
 offset_right = 153.0
 offset_bottom = 606.0
+mouse_default_cursor_shape = 2
 script = ExtResource("3_08rsj")
 
 [node name="wrong8" type="Button" parent="."]
@@ -239,6 +248,7 @@ offset_left = 382.0
 offset_top = 333.0
 offset_right = 484.0
 offset_bottom = 432.0
+mouse_default_cursor_shape = 2
 script = ExtResource("3_08rsj")
 
 [node name="wrong9" type="Button" parent="."]
@@ -247,89 +257,128 @@ offset_left = 217.0
 offset_top = 330.0
 offset_right = 319.0
 offset_bottom = 429.0
+mouse_default_cursor_shape = 2
 script = ExtResource("3_08rsj")
 
 [node name="Label" type="Label" parent="."]
-offset_left = 71.0
+offset_left = 47.0
 offset_top = 428.0
-offset_right = 124.0
+offset_right = 145.0
 offset_bottom = 459.0
 theme = ExtResource("4_drk1t")
 text = "Bilibili"
 label_settings = SubResource("LabelSettings_hdehk")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Label2" type="Label" parent="."]
-offset_left = 242.0
+offset_left = 221.0
 offset_top = 428.0
-offset_right = 295.0
+offset_right = 314.0
 offset_bottom = 459.0
 theme = ExtResource("4_drk1t")
 text = "Jumping"
 label_settings = SubResource("LabelSettings_hdehk")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Label3" type="Label" parent="."]
-offset_left = 409.0
+offset_left = 384.0
 offset_top = 430.0
-offset_right = 462.0
+offset_right = 484.0
 offset_bottom = 461.0
 theme = ExtResource("4_drk1t")
-text = "Bibilili"
+text = "设置"
 label_settings = SubResource("LabelSettings_hdehk")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Label4" type="Label" parent="."]
-offset_left = 71.0
+offset_left = 51.0
 offset_top = 607.0
-offset_right = 124.0
+offset_right = 149.0
 offset_bottom = 638.0
 theme = ExtResource("4_drk1t")
 text = "游戏管家"
 label_settings = SubResource("LabelSettings_hdehk")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Label5" type="Label" parent="."]
-offset_left = 242.0
+offset_left = 221.0
 offset_top = 607.0
-offset_right = 295.0
+offset_right = 317.0
 offset_bottom = 638.0
 theme = ExtResource("4_drk1t")
 text = "QQ音乐"
 label_settings = SubResource("LabelSettings_hdehk")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Label6" type="Label" parent="."]
-offset_left = 386.0
+offset_left = 384.0
 offset_top = 606.0
 offset_right = 486.0
 offset_bottom = 637.0
 theme = ExtResource("4_drk1t")
-text = "视频播放器"
+text = "相册"
 label_settings = SubResource("LabelSettings_hdehk")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Label7" type="Label" parent="."]
-offset_left = 78.0
+offset_left = 57.0
 offset_top = 770.0
-offset_right = 131.0
+offset_right = 155.0
 offset_bottom = 801.0
 theme = ExtResource("4_drk1t")
 text = "美团"
 label_settings = SubResource("LabelSettings_hdehk")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Label8" type="Label" parent="."]
-offset_left = 242.0
+offset_left = 221.0
 offset_top = 770.0
-offset_right = 295.0
+offset_right = 317.0
 offset_bottom = 801.0
 theme = ExtResource("4_drk1t")
-text = "小红书"
+text = "小白书"
 label_settings = SubResource("LabelSettings_hdehk")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="button_down" from="Icon1/enter" to="Icon1/enter" method="_on_button_down"]
+[connection signal="mouse_entered" from="Icon1/enter" to="Icon1/enter" method="_on_mouse_entered"]
+[connection signal="pressed" from="Icon1/enter" to="Icon1/enter" method="_on_button_pressed_sound"]
 [connection signal="button_down" from="Shangdian/shop" to="Shangdian/shop" method="_on_button_down"]
+[connection signal="mouse_entered" from="Shangdian/shop" to="Icon1/enter" method="_on_shop_mouse_entered"]
+[connection signal="pressed" from="Shangdian/shop" to="Icon1/enter" method="_on_button_pressed_sound"]
 [connection signal="timeout" from="time/Timer" to="time" method="_on_timer_timeout"]
 [connection signal="button_down" from="Qq/wrong" to="Qq/wrong" method="_on_button_down"]
-[connection signal="button_down" from="wrong" to="wrong" method="_on_button_down"]
+[connection signal="mouse_entered" from="Qq/wrong" to="Icon1/enter" method="_on_mouse_entered"]
+[connection signal="pressed" from="Qq/wrong" to="Icon1/enter" method="_on_button_pressed_sound"]
+[connection signal="mouse_entered" from="wrong" to="Icon1/enter" method="_on_mouse_entered"]
+[connection signal="pressed" from="wrong" to="Icon1/enter" method="_on_button_pressed_sound"]
+[connection signal="pressed" from="wrong" to="Icon1/enter" method="_on_wrong_pressed"]
 [connection signal="button_down" from="wrong3" to="wrong3" method="_on_button_down"]
+[connection signal="mouse_entered" from="wrong3" to="Icon1/enter" method="_on_mouse_entered"]
+[connection signal="pressed" from="wrong3" to="Icon1/enter" method="_on_button_pressed_sound"]
 [connection signal="button_down" from="wrong4" to="wrong4" method="_on_button_down"]
+[connection signal="mouse_entered" from="wrong4" to="Icon1/enter" method="_on_mouse_entered"]
+[connection signal="pressed" from="wrong4" to="Icon1/enter" method="_on_button_pressed_sound"]
 [connection signal="button_down" from="wrong5" to="wrong5" method="_on_button_down"]
+[connection signal="mouse_entered" from="wrong5" to="Icon1/enter" method="_on_mouse_entered"]
+[connection signal="pressed" from="wrong5" to="Icon1/enter" method="_on_button_pressed_sound"]
 [connection signal="button_down" from="wrong6" to="wrong6" method="_on_button_down"]
+[connection signal="mouse_entered" from="wrong6" to="Icon1/enter" method="_on_mouse_entered"]
+[connection signal="pressed" from="wrong6" to="Icon1/enter" method="_on_button_pressed_sound"]
 [connection signal="button_down" from="wrong7" to="wrong7" method="_on_button_down"]
+[connection signal="mouse_entered" from="wrong7" to="Icon1/enter" method="_on_mouse_entered"]
+[connection signal="pressed" from="wrong7" to="Icon1/enter" method="_on_button_pressed_sound"]
 [connection signal="button_down" from="wrong8" to="wrong8" method="_on_button_down"]
+[connection signal="mouse_entered" from="wrong8" to="Icon1/enter" method="_on_mouse_entered"]
+[connection signal="pressed" from="wrong8" to="Icon1/enter" method="_on_button_pressed_sound"]
 [connection signal="button_down" from="wrong9" to="wrong9" method="_on_button_down"]
+[connection signal="mouse_entered" from="wrong9" to="Icon1/enter" method="_on_mouse_entered"]
+[connection signal="pressed" from="wrong9" to="Icon1/enter" method="_on_button_pressed_sound"]
