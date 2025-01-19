@@ -6,6 +6,7 @@ extends Control
 @onready var red_point=$HBoxContainer/avatar/Sprite2D
 @onready var red_point_num=$HBoxContainer/avatar/Sprite2D/Label
 @onready var timer_box=$TimerBox
+var effect=preload("res://effect/effect.tscn")
 var chat_id
 var timer: Timer
 var number:int=0
@@ -60,6 +61,10 @@ func _process(_delta: float) -> void:
 
 func _on_button_button_down() -> void:
 	game.red_points+=number
+	if red_point.visible==true:
+		var e=effect.instantiate()
+		get_tree().current_scene.add_child(e)
+		e.global_position=red_point.global_position
 	number=0
 	red_point.visible=false
 	red_point_num.visible=false
@@ -69,6 +74,9 @@ func _on_script_pressed_button()->void:
 	number=0
 	red_point.visible=false
 	red_point_num.visible=false
+	var e=effect.instantiate()
+	get_tree().current_scene.add_child(e)
+	e.global_position=red_point.global_position
 
 func add_point():
 	red_point.visible=true
