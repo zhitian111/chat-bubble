@@ -84,7 +84,7 @@ func add_point():
 	red_point.visible = true
 	red_point_num.visible = true
 	red_point_num.text = var_to_str(number)
-	shake_control_once()
+	#shake_control_once()
 func set_number(num: int):
 	number = num
 func get_number():
