@@ -24,6 +24,9 @@ var chosen_mark:bool = false
 
 var rating = preload("res://choose_sentence/rating/rating.tscn")
 
+
+var animation_playing:bool = false
+
 @export var time_length = 10
 
 
@@ -142,6 +145,8 @@ func _on_dialogs_new_message(message: String, poster: String) -> void:
 
 func _on_back_pressed() -> void:
 	# print(123)
+	if animation_playing:
+		return
 	back.emit()
 
 
@@ -172,3 +177,63 @@ func _on_kill_timeout() -> void:
 	if camera.is_current():
 		return
 	self.queue_free()
+
+func cut_in_animation():
+	# $dialogs.visible = false
+	animation_playing = true
+	var tween = get_tree().create_tween()
+	$dialog_background.position += Vector2(540,0)
+	$choice_background.position += Vector2(540,0)
+	$header_background.position += Vector2(540,0)
+	$lose_inf.position += Vector2(540,0)
+	# $dialogs.position += Vector2(540,0)
+	$choose_sentence.position += Vector2(540,0)
+	$header.position += Vector2(540,0)
+	$back.position += Vector2(540,0)
+	$TextureProgressBar.position += Vector2(540,0)
+	$button_mark.position += Vector2(540,0)
+	$waiting.position += Vector2(540,0)
+	$complete.position += Vector2(540,0)
+	$miss.position += Vector2(540,0)
+
+	var animation_time_length = 0.2
+
+	tween.tween_property($dialog_background,"position",Vector2(-540,0),animation_time_length).as_relative()
+	tween.parallel()
+	tween.tween_property($choice_background,"position",Vector2(-540,0),animation_time_length).as_relative()
+	tween.parallel()
+	tween.tween_property($header_background,"position",Vector2(-540,0),animation_time_length).as_relative()
+	tween.parallel()
+	tween.tween_property($lose_inf,"position",Vector2(-540,0),animation_time_length).as_relative()
+	tween.parallel()
+	# tween.tween_property($dialogs,"position",Vector2(-540,0),animation_time_length).as_relative()
+	# tween.parallel()
+	tween.tween_property($choose_sentence,"position",Vector2(-540,0),animation_time_length).as_relative()
+	tween.parallel()
+	tween.tween_property($header,"position",Vector2(-540,0),animation_time_length).as_relative()
+	tween.parallel()
+	tween.tween_property($back,"position",Vector2(-540,0),animation_time_length).as_relative()
+	tween.parallel()
+	tween.tween_property($TextureProgressBar,"position",Vector2(-540,0),animation_time_length).as_relative()
+	tween.parallel()
+	tween.tween_property($button_mark,"position",Vector2(-540,0),animation_time_length).as_relative()
+	tween.parallel()
+	tween.tween_property($waiting,"position",Vector2(-540,0),animation_time_length).as_relative()
+	tween.parallel()
+	tween.tween_property($complete,"position",Vector2(-540,0),animation_time_length).as_relative()
+	tween.parallel()
+	tween.tween_property($miss,"position",Vector2(-540,0),animation_time_length).as_relative()
+	tween.parallel()
+	self.modulate = Color(1,1,1,0)
+	
+	$dialogs.modulate = Color(1,1,1,0)
+
+	tween.tween_property(self,"modulate",Color(1,1,1,1),animation_time_length)
+	# tween.parallel()
+	tween.tween_property($dialogs,"modulate",Color(1,1,1,1),animation_time_length)
+
+	tween.tween_callback(animation_end)
+
+func animation_end():
+	animation_playing = false
+	# $dialogs.visible = true

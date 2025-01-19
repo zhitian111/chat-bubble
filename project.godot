@@ -29,3 +29,5 @@ window/size/resizable=false
 [rendering]
 
 renderer/rendering_method="mobile"
+environment/defaults/default_clear_color=Color(0.815686, 0.815686, 0.815686, 1)
+environment/bg_color=Color(0.14, 0.14, 0.14, 1)

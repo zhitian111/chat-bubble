@@ -231,8 +231,14 @@ vertical_alignment = 1
 
 [node name="dialogs" parent="." instance=ExtResource("1_exmix")]
 layout_mode = 1
-offset_top = 696.0
-offset_bottom = 836.0
+offset_top = 630.0
+offset_bottom = 770.0
+
+[node name="Control" type="Control" parent="dialogs"]
+layout_mode = 2
+
+[node name="Control2" type="Control" parent="dialogs"]
+layout_mode = 2
 
 [node name="choose_sentence" parent="." instance=ExtResource("2_2udvc")]
 layout_mode = 0

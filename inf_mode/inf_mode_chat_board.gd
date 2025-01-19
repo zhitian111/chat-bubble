@@ -71,6 +71,7 @@ func _on_chat_button_pressed(sender: Node):
 	for key in chats.keys():
 		if chats[key] == sender:
 			cameras[key].make_current()
+			chat_objs[key].cut_in_animation()
 func _on_time_end(sender:Node):
 	for key in chats.keys():
 		if chats[key] == sender:
