@@ -3,18 +3,19 @@ extends Control
 @onready var chat_name = $HBoxContainer/VBoxContainer/name
 @onready var message = $HBoxContainer/VBoxContainer/message
 @onready var time = $TimerBox/time
-@onready var red_point=$HBoxContainer/avatar/Sprite2D
-@onready var red_point_num=$HBoxContainer/avatar/Sprite2D/Label
-@onready var timer_box=$TimerBox
-var effect=preload("res://effect/effect.tscn")
+@onready var red_point = $HBoxContainer/avatar/Sprite2D
+@onready var red_point_num = $HBoxContainer/avatar/Sprite2D/Label
+@onready var timer_box = $TimerBox
+var is_shaking:bool=false
+var effect = preload("res://effect/effect.tscn")
 var chat_id
 var timer: Timer
-var number:int=0
+var number: int = 0
 signal chat_button_pressed
 signal time_end
 func _ready() -> void:
-	red_point.visible=false
-	red_point_num.visible=false
+	red_point.visible = false
+	red_point_num.visible = false
 	timer = Timer.new()
 	add_child(timer)
 	timer.set_wait_time(5)
@@ -33,59 +34,76 @@ func init(path: String, aname: String, amessage: String) -> void:
 		"键盘侠终极联盟",
 		"改Bug第一天"
 	]
-	randomize()  # 确保随机性
+	randomize() # 确保随机性
 	var random_name = group_names[randi() % group_names.size()]
 	chat_name.text = random_name
 	if amessage.length() > 7:
-		amessage = amessage.substr(0, 7) + "..."  # 超过部分显示省略号
+		amessage = amessage.substr(0, 7) + "..." # 超过部分显示省略号
 	message.text = amessage
 	timer.connect("timeout", Callable(self, "_on_timer_timeout"))
 	chat_id = aname
-func set_message(amessage:String):
+func set_message(amessage: String):
 	message.text = amessage
-func set_timer(atime: float=5):
+func set_timer(atime: float = 5):
 	timer.stop()
 	timer.set_wait_time(atime)
 	timer.start()
-	timer_box.visible=true
+	timer_box.visible = true
 func _on_timer_timeout() -> void:
 	emit_signal("time_end")
-	timer_box.visible=false
+	timer_box.visible = false
 	timer.stop()
 
 # 更新剩余时间
 func _process(_delta: float) -> void:
 	if !timer.is_stopped():
-		time.text = "剩余时间：\n" + str(int(timer.time_left))
+		time.text = "剩余时间\n" + str(int(timer.time_left))
 
 
 func _on_button_button_down() -> void:
-	game.red_points+=number
-	if red_point.visible==true:
-		var e=effect.instantiate()
+	game.red_points += number
+	if red_point.visible == true:
+		var e = effect.instantiate()
 		get_tree().current_scene.add_child(e)
-		e.global_position=red_point.global_position
-	number=0
-	red_point.visible=false
-	red_point_num.visible=false
+		e.global_position = red_point.global_position
+	number = 0
+	red_point.visible = false
+	red_point_num.visible = false
 	emit_signal("chat_button_pressed")
 
-func _on_script_pressed_button()->void:
-	number=0
-	red_point.visible=false
-	red_point_num.visible=false
-	var e=effect.instantiate()
+func _on_script_pressed_button() -> void:
+	number = 0
+	red_point.visible = false
+	red_point_num.visible = false
+	var e = effect.instantiate()
 	get_tree().current_scene.add_child(e)
-	e.global_position=red_point.global_position
+	e.global_position = red_point.global_position
 
 func add_point():
-	red_point.visible=true
-	red_point_num.visible=true
-	red_point_num.text=var_to_str(number)
-func set_number(num:int):
-	number=num
+	red_point.visible = true
+	red_point_num.visible = true
+	red_point_num.text = var_to_str(number)
+	shake_control_once()
+func set_number(num: int):
+	number = num
 func get_number():
 	return number;
 func chosen():
 	timer.stop()
-	timer_box.visible=false
+	timer_box.visible = false
+func shake_control_once(intensity: float = 10.0, duration: float = 0.05):
+	is_shaking=true
+	var tween = create_tween()
+	var original_position = position # 保存初始位置
+	var shake_positions = [
+		original_position + Vector2(-intensity, -intensity),
+		original_position + Vector2(intensity, -intensity),
+		original_position + Vector2(-intensity, intensity),
+		original_position + Vector2(intensity, intensity),
+		original_position # 回到初始位置
+	]
+	# 使用 Tween 依次插值
+	for i in range(shake_positions.size()):
+		tween.tween_property(self, "position",shake_positions[i], duration)
+	await tween.finished
+	is_shaking = false

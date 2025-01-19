@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://v0k4wvdk3cpg"]
+[gd_scene load_steps=48 format=3 uid="uid://v0k4wvdk3cpg"]
 
 [ext_resource type="Script" path="res://chat/chat.gd" id="1_engbf"]
 [ext_resource type="PackedScene" uid="uid://7u5tp0a0pyk2" path="res://dialogs/dialogs.tscn" id="1_exmix"]
@@ -11,6 +11,7 @@
 [ext_resource type="Script" path="res://chat/animation_player.gd" id="9_hoyb8"]
 [ext_resource type="Texture2D" uid="uid://dogajybyegabs" path="res://assets/chat/wait.png" id="10_7o1yj"]
 [ext_resource type="Texture2D" uid="uid://crleskeuj0y7e" path="res://assets/menu/yes.png" id="11_4f85o"]
+[ext_resource type="Texture2D" uid="uid://dqomgo7otpuli" path="res://assets/loading_point_360_305.png" id="11_vs243"]
 [ext_resource type="Texture2D" uid="uid://bwsoxmox6i1fa" path="res://assets/menu/no.png" id="12_wtxgg"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_jy8os"]
@@ -115,6 +116,34 @@ region = Rect2(85, 576, 85, 96)
 atlas = ExtResource("10_7o1yj")
 region = Rect2(170, 576, 85, 96)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_4k6ev"]
+atlas = ExtResource("11_vs243")
+region = Rect2(0, 0, 256, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w2m8v"]
+atlas = ExtResource("11_vs243")
+region = Rect2(0, 96, 256, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_14cjq"]
+atlas = ExtResource("11_vs243")
+region = Rect2(0, 192, 256, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kvabq"]
+atlas = ExtResource("11_vs243")
+region = Rect2(0, 288, 256, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mitki"]
+atlas = ExtResource("11_vs243")
+region = Rect2(0, 384, 256, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_268ou"]
+atlas = ExtResource("11_vs243")
+region = Rect2(0, 480, 256, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nd7in"]
+atlas = ExtResource("11_vs243")
+region = Rect2(0, 576, 256, 96)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_jtq35"]
 animations = [{
 "frames": [{
@@ -184,6 +213,32 @@ animations = [{
 "loop": true,
 "name": &"default",
 "speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4k6ev")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w2m8v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_14cjq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kvabq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mitki")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_268ou")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nd7in")
+}],
+"loop": true,
+"name": &"running",
+"speed": 10.0
 }]
 
 [node name="chat" type="Control"]
@@ -305,9 +360,10 @@ wait_time = 3.0
 
 [node name="waiting" type="AnimatedSprite2D" parent="."]
 position = Vector2(283, 866)
-scale = Vector2(1.45294, 1.45294)
 sprite_frames = SubResource("SpriteFrames_jtq35")
-autoplay = "default"
+animation = &"running"
+autoplay = "running"
+frame_progress = 0.543793
 
 [node name="complete" type="TextureRect" parent="."]
 layout_mode = 0

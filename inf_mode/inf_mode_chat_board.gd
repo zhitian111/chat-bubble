@@ -36,10 +36,10 @@ func dynamic_add_chat(new_chat)->void:
 	new_chat.connect("timer_start",Callable(self,"_on_time_start"))
 
 func _on_all_info_received(message: String, poster: String, time: int, name: String, _camera: Camera2D) -> void:
-	var avatar_keys = game.avatars.keys()  # 获取所有键（用户名）
+	var avatar_keys = game.group_avatars.keys()  # 获取所有键（用户名）
 	if avatar_keys.size() > 0:  # 确保 avatars 不为空	
 		var random_key = avatar_keys[randi() % avatar_keys.size()]  # 随机选择一个键
-		add_chat(game.avatars[random_key], name, message, float(time))
+		add_chat(game.group_avatars[random_key], name, message, float(time))
 	cameras[name]=_camera
 
 
