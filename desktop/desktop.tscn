@@ -1,164 +1,139 @@
-[gd_scene load_steps=6 format=3 uid="uid://bqvvujywh4isu"]
+[gd_scene load_steps=17 format=3 uid="uid://bqvvujywh4isu"]
 
-[ext_resource type="Texture2D" uid="uid://de4giqd7b0jq8" path="res://desktop/Screenshot_2025-01-17-21-05-45-768_com.miui.home.jpg" id="1_mxxon"]
 [ext_resource type="Script" path="res://desktop/enter.gd" id="2_kltwq"]
 [ext_resource type="Script" path="res://desktop/wrong.gd" id="3_08rsj"]
 [ext_resource type="Texture2D" uid="uid://dhn1qpkhiq38t" path="res://chat_list/icon1.png" id="4_75phx"]
+[ext_resource type="Theme" uid="uid://my7bgqgi4ecq" path="res://new_theme.tres" id="4_drk1t"]
+[ext_resource type="Texture2D" uid="uid://ddxd8y6b4l7rp" path="res://assets/menu/menu.png" id="5_0sa0y"]
 [ext_resource type="Script" path="res://desktop/shop.gd" id="5_n718n"]
+[ext_resource type="Script" path="res://inf_mode/time.gd" id="7_a7rfh"]
+[ext_resource type="Texture2D" uid="uid://b5b0syfrw6cox" path="res://assets/store/新建文件夹/small.png" id="7_wpcys"]
+[ext_resource type="Texture2D" uid="uid://bq0hd3gcvem0d" path="res://shop/qq.jpeg" id="9_7rwom"]
+[ext_resource type="Texture2D" uid="uid://ctnqx3wochagr" path="res://assets/menu/battery.png" id="9_xtx0v"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_37sbw"]
+font_size = 200
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_bt8o6"]
+font_size = 32
+
+[sub_resource type="LabelSettings" id="LabelSettings_aklls"]
+font_size = 40
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x4p3u"]
+atlas = ExtResource("9_xtx0v")
+region = Rect2(17, 37, 179, 113)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fs4qu"]
+atlas = ExtResource("9_xtx0v")
+region = Rect2(236, 37, 156, 113)
+
+[sub_resource type="LabelSettings" id="LabelSettings_03kqw"]
+font_size = 300
+font_color = Color(0, 0, 0, 1)
 
 [node name="desktop" type="Node2D"]
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(271, 358)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("1_mxxon")
-
-[node name="enter" type="Button" parent="."]
-modulate = Color(1, 1, 1, 0)
-offset_left = 301.0
-offset_top = 452.0
-offset_right = 372.0
-offset_bottom = 527.0
-script = ExtResource("2_kltwq")
-
-[node name="wrong" type="Button" parent="."]
-modulate = Color(1, 1, 1, 0)
-offset_left = 45.0
-offset_top = 294.0
-offset_right = 122.0
-offset_bottom = 376.0
-script = ExtResource("3_08rsj")
-
-[node name="wrong2" type="Button" parent="."]
-modulate = Color(1, 1, 1, 0)
-offset_left = 170.0
-offset_top = 294.0
-offset_right = 247.0
-offset_bottom = 376.0
-script = ExtResource("3_08rsj")
-
-[node name="wrong3" type="Button" parent="."]
-modulate = Color(1, 1, 1, 0)
-offset_left = 298.0
-offset_top = 293.0
-offset_right = 375.0
-offset_bottom = 375.0
-script = ExtResource("3_08rsj")
-
-[node name="wrong4" type="Button" parent="."]
-modulate = Color(1, 1, 1, 0)
-offset_left = 423.0
-offset_top = 295.0
-offset_right = 500.0
-offset_bottom = 377.0
-script = ExtResource("3_08rsj")
-
-[node name="wrong5" type="Button" parent="."]
-modulate = Color(1, 1, 1, 0)
-offset_left = 42.0
-offset_top = 450.0
-offset_right = 119.0
-offset_bottom = 532.0
-script = ExtResource("3_08rsj")
-
-[node name="wrong6" type="Button" parent="."]
-modulate = Color(1, 1, 1, 0)
-offset_left = 169.0
-offset_top = 448.0
-offset_right = 246.0
-offset_bottom = 530.0
-script = ExtResource("3_08rsj")
-
-[node name="wrong7" type="Button" parent="."]
-modulate = Color(1, 1, 1, 0)
-offset_left = 422.0
-offset_top = 449.0
-offset_right = 499.0
-offset_bottom = 531.0
-script = ExtResource("3_08rsj")
-
 [node name="Icon1" type="Sprite2D" parent="."]
-position = Vector2(333, 487)
+position = Vector2(86, 200)
 scale = Vector2(0.112037, 0.113137)
 texture = ExtResource("4_75phx")
 
-[node name="wrong8" type="Button" parent="."]
-modulate = Color(1, 1, 1, 0)
-offset_left = 170.0
-offset_top = 602.0
-offset_right = 247.0
-offset_bottom = 684.0
-script = ExtResource("3_08rsj")
+[node name="Label" type="Label" parent="Icon1"]
+z_index = 10
+offset_left = -116.033
+offset_top = 468.459
+offset_right = 383.967
+offset_bottom = 919.459
+theme = ExtResource("4_drk1t")
+text = "微Q"
+label_settings = SubResource("LabelSettings_37sbw")
 
-[node name="wrong9" type="Button" parent="."]
+[node name="enter" type="Button" parent="Icon1"]
 modulate = Color(1, 1, 1, 0)
-offset_left = 296.0
-offset_top = 605.0
-offset_right = 373.0
-offset_bottom = 687.0
-script = ExtResource("3_08rsj")
+offset_left = -366.0
+offset_top = -371.0
+offset_right = 419.0
+offset_bottom = 389.0
+script = ExtResource("2_kltwq")
 
-[node name="wrong10" type="Button" parent="."]
-modulate = Color(1, 1, 1, 0)
-offset_left = 424.0
-offset_top = 601.0
-offset_right = 501.0
-offset_bottom = 683.0
-script = ExtResource("3_08rsj")
+[node name="Menu" type="Sprite2D" parent="."]
+z_index = -100
+position = Vector2(271, 481)
+scale = Vector2(0.480889, 0.39532)
+texture = ExtResource("5_0sa0y")
 
-[node name="wrong11" type="Button" parent="."]
-modulate = Color(1, 1, 1, 0)
-offset_left = 165.0
-offset_top = 818.0
-offset_right = 242.0
-offset_bottom = 900.0
-script = ExtResource("3_08rsj")
+[node name="time" type="Label" parent="."]
+offset_right = 542.0
+offset_bottom = 100.0
+text = "22:22"
+label_settings = SubResource("LabelSettings_bt8o6")
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("7_a7rfh")
 
-[node name="wrong12" type="Button" parent="."]
-modulate = Color(1, 1, 1, 0)
-offset_left = 44.0
-offset_top = 818.0
-offset_right = 121.0
-offset_bottom = 900.0
-script = ExtResource("3_08rsj")
+[node name="Timer" type="Timer" parent="time"]
 
-[node name="wrong13" type="Button" parent="."]
-modulate = Color(1, 1, 1, 0)
-offset_left = 295.0
-offset_top = 819.0
-offset_right = 372.0
-offset_bottom = 901.0
-script = ExtResource("3_08rsj")
+[node name="Small" type="Sprite2D" parent="."]
+position = Vector2(254, 207)
+scale = Vector2(0.741667, 0.65493)
+texture = ExtResource("7_wpcys")
 
-[node name="wrong14" type="Button" parent="."]
-modulate = Color(1, 1, 1, 0)
-offset_left = 424.0
-offset_top = 819.0
-offset_right = 501.0
-offset_bottom = 901.0
-script = ExtResource("3_08rsj")
+[node name="Label" type="Label" parent="Small"]
+z_index = 10
+offset_left = -62.0225
+offset_top = 71.7634
+offset_right = 577.978
+offset_bottom = 522.763
+theme = ExtResource("4_drk1t")
+text = "应用商店"
+label_settings = SubResource("LabelSettings_aklls")
 
-[node name="shop" type="Button" parent="."]
+[node name="shop" type="Button" parent="Small"]
 modulate = Color(1, 1, 1, 0)
-offset_left = 38.0
-offset_top = 602.0
-offset_right = 121.0
-offset_bottom = 685.0
+offset_left = -55.0
+offset_top = -69.0
+offset_right = 58.0
+offset_bottom = 73.0
 script = ExtResource("5_n718n")
 
-[connection signal="button_down" from="enter" to="enter" method="_on_button_down"]
-[connection signal="button_down" from="wrong" to="wrong" method="_on_button_down"]
-[connection signal="button_down" from="wrong2" to="wrong2" method="_on_button_down"]
-[connection signal="button_down" from="wrong3" to="wrong3" method="_on_button_down"]
-[connection signal="button_down" from="wrong4" to="wrong4" method="_on_button_down"]
-[connection signal="button_down" from="wrong5" to="wrong5" method="_on_button_down"]
-[connection signal="button_down" from="wrong6" to="wrong6" method="_on_button_down"]
-[connection signal="button_down" from="wrong7" to="wrong7" method="_on_button_down"]
-[connection signal="button_down" from="wrong8" to="wrong8" method="_on_button_down"]
-[connection signal="button_down" from="wrong9" to="wrong9" method="_on_button_down"]
-[connection signal="button_down" from="wrong10" to="wrong10" method="_on_button_down"]
-[connection signal="button_down" from="wrong11" to="wrong11" method="_on_button_down"]
-[connection signal="button_down" from="wrong12" to="wrong12" method="_on_button_down"]
-[connection signal="button_down" from="wrong13" to="wrong13" method="_on_button_down"]
-[connection signal="button_down" from="wrong14" to="wrong14" method="_on_button_down"]
-[connection signal="button_down" from="shop" to="shop" method="_on_button_down"]
+[node name="battery" type="TextureProgressBar" parent="."]
+offset_left = 432.0
+offset_top = 16.0
+offset_right = 519.0
+offset_bottom = 71.0
+value = 80.0
+fill_mode = 1
+nine_patch_stretch = true
+texture_over = SubResource("AtlasTexture_x4p3u")
+texture_progress = SubResource("AtlasTexture_fs4qu")
+
+[node name="Qq" type="Sprite2D" parent="."]
+position = Vector2(441, 211)
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("9_7rwom")
+
+[node name="wrong" type="Button" parent="Qq"]
+modulate = Color(1, 1, 1, 0)
+offset_left = -625.0
+offset_top = -620.0
+offset_right = 623.0
+offset_bottom = 662.0
+script = ExtResource("3_08rsj")
+
+[node name="Label" type="Label" parent="Qq"]
+z_index = 10
+offset_left = -99.9997
+offset_top = 612.5
+offset_right = 860.0
+offset_bottom = 1063.5
+theme = ExtResource("4_drk1t")
+text = "QQ"
+label_settings = SubResource("LabelSettings_03kqw")
+
+[connection signal="button_down" from="Icon1/enter" to="Icon1/enter" method="_on_button_down"]
+[connection signal="timeout" from="time/Timer" to="time" method="_on_timer_timeout"]
+[connection signal="button_down" from="Small/shop" to="Small/shop" method="_on_button_down"]
+[connection signal="button_down" from="Qq/wrong" to="Qq/wrong" method="_on_button_down"]

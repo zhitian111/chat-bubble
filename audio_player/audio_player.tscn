@@ -1,7 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://b5808658ppe8g"]
+[gd_scene load_steps=7 format=3 uid="uid://b5808658ppe8g"]
 
 [ext_resource type="Script" path="res://audio_player/audio_player.gd" id="1_wddt7"]
 [ext_resource type="AudioStream" uid="uid://xcgmot7ly86o" path="res://assets/sfx/Coins sounds [OGG]/1_Coins.ogg" id="2_gx773"]
+[ext_resource type="AudioStream" uid="uid://3tq55jg7d243" path="res://assets/sfx/RPG_Essentials_Free/10_UI_Menu_SFX/029_Decline_09.wav" id="3_mugd2"]
+[ext_resource type="AudioStream" uid="uid://7h6gkbmdh547" path="res://assets/sfx/RPG_Essentials_Free/10_UI_Menu_SFX/098_Unpause_04.wav" id="4_yntvg"]
+[ext_resource type="AudioStream" uid="uid://usgmu8lho7pu" path="res://assets/sfx/RPG_Essentials_Free/10_UI_Menu_SFX/079_Buy_sell_01.wav" id="5_takai"]
+[ext_resource type="AudioStream" uid="uid://otgfv0bveu18" path="res://assets/sfx/RPG_Essentials_Free/12_Player_Movement_SFX/56_Attack_03.wav" id="6_pelu7"]
 
 [node name="AudioPlayer" type="Node"]
 process_mode = 3
@@ -13,6 +17,18 @@ script = ExtResource("1_wddt7")
 
 [node name="coin" type="AudioStreamPlayer" parent="SE"]
 stream = ExtResource("2_gx773")
+
+[node name="bubble" type="AudioStreamPlayer" parent="SE"]
+stream = ExtResource("3_mugd2")
+
+[node name="miss" type="AudioStreamPlayer" parent="SE"]
+stream = ExtResource("4_yntvg")
+
+[node name="buy" type="AudioStreamPlayer" parent="SE"]
+stream = ExtResource("5_takai")
+
+[node name="red_point" type="AudioStreamPlayer" parent="SE"]
+stream = ExtResource("6_pelu7")
 
 [node name="BGM" type="Node" parent="."]
 
