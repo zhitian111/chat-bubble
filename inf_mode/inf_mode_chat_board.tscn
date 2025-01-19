@@ -83,7 +83,7 @@ texture = ExtResource("3_c8imd")
 position = Vector2(270, 480)
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 0.5
+wait_time = 0.1
 
 [node name="characters" type="Control" parent="."]
 anchors_preset = 0

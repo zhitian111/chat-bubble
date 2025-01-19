@@ -47,6 +47,10 @@ func _on_all_info_received(message: String, poster: String, time: int, name: Str
 func add_chat(path: String, namee: String, textt: String, timee: float):
 
 	if !chats.has(namee):
+		for i in vbox.get_children():
+			if i.is_shaking:	
+				chat_objs[namee].queue_free()
+				return
 		var c = chat.instantiate()
 		vbox.add_child(c)
 		vbox.move_child(c, 0)
@@ -72,6 +76,7 @@ func _on_chat_button_pressed(sender: Node):
 	for key in chats.keys():
 		if chats[key] == sender:
 			cameras[key].make_current()
+			chat_objs[key].cut_in_animation()
 func _on_time_end(sender:Node):
 	for key in chats.keys():
 		if chats[key] == sender:

@@ -18,6 +18,10 @@ func create_new_chat()->void:
 
 
 func _on_timer_timeout() -> void:
+	# for i in $"../ChatList/ChatList".get_children():
+		# if i.is_shaking:
+		# 	print("shake")
+		# 	return
 	var tem = randi()%4
 	if tem == 0:
 		create_new_chat()
