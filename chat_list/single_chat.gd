@@ -13,6 +13,7 @@ var timer: Timer
 var number: int = 0
 signal chat_button_pressed
 signal time_end
+var tween = create_tween()
 func _ready() -> void:
 	red_point.visible = false
 	red_point_num.visible = false
@@ -93,7 +94,7 @@ func chosen():
 	timer_box.visible = false
 func shake_control_once(intensity: float = 10.0, duration: float = 0.05):
 	is_shaking = true
-	var tween = create_tween()
+	tween = create_tween()
 	var original_position = position # 保存初始位置
 	var shake_positions = [
 		Vector2(-intensity, -intensity),
@@ -105,5 +106,8 @@ func shake_control_once(intensity: float = 10.0, duration: float = 0.05):
 	# 使用 Tween 依次插值
 	for i in range(shake_positions.size()):
 		tween.tween_property(self, "position", position+shake_positions[i], duration)
-	await tween.finished
+	tween.tween_callback(end_shake)
+	# await tween.finished
+	# is_shaking = false
+func end_shake():
 	is_shaking = false

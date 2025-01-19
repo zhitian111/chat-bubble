@@ -12,6 +12,9 @@ var miss_count = 0
 var perfect_count = 0
 var red_count = 0
 
+var animation_end:bool = false
+
+
 func show_great_label()->void:
 	great_count	= 0
 
@@ -91,8 +94,26 @@ func _ready() -> void:
 	miss_label.visible = false
 	perfect_label.visible = false
 	red_label.visible = false
+	$info.visible = false
 	self.modulate = Color(1,1,1,0)
 	var tween = get_tree().create_tween()
 	tween.tween_property(self,"modulate",Color(1,1,1,1),1)
 	
 	tween.tween_callback($AnimationPlayer.play.bind("end"))
+
+func show_info_label():
+	$info.visible = true
+	var tween = get_tree().create_tween()
+	$info.modulate = Color(1,1,1,0)
+	tween.tween_property($info,"modulate",Color(1,1,1,1),0.5)
+	tween.tween_callback(end_animation)
+
+func end_animation()->void:
+	animation_end = true
+
+
+func _input(event: InputEvent) -> void:
+	if event is InputEventMouseButton:
+		if event.pressed && animation_end:
+			get_tree().change_scene_to_file("res://desktop/desktop.tscn")
+			pass
