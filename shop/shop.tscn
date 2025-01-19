@@ -1,0 +1,86 @@
+[gd_scene load_steps=8 format=3 uid="uid://dnla6tqymxf5n"]
+
+[ext_resource type="Script" path="res://shop/shop.gd" id="1_jdlp6"]
+[ext_resource type="Texture2D" uid="uid://bfoetxsvorlkf" path="res://assets/chat/menu_background.png" id="1_qd7od"]
+[ext_resource type="Texture2D" uid="uid://hxwftcm3kfmr" path="res://assets/skill/group_message.png" id="3_4k7p0"]
+[ext_resource type="Texture2D" uid="uid://bj5xxisebypy" path="res://assets/skill/auto_reply.png" id="4_hgtx5"]
+[ext_resource type="Script" path="res://shop/red_points.gd" id="5_jv8tp"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_d4n4i"]
+font_size = 25
+font_color = Color(0.125911, 0.125911, 0.125911, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_rcki3"]
+font_size = 30
+font_color = Color(0.133196, 0.133196, 0.133196, 1)
+
+[node name="shop" type="Node2D"]
+script = ExtResource("1_jdlp6")
+
+[node name="group_reply" type="Button" parent="."]
+z_index = 10
+offset_left = 435.0
+offset_top = 144.0
+offset_right = 516.0
+offset_bottom = 188.0
+text = "安装"
+
+[node name="auto_reply" type="Button" parent="."]
+z_index = 10
+offset_left = 434.0
+offset_top = 242.0
+offset_right = 514.0
+offset_bottom = 286.0
+text = "安装"
+
+[node name="MenuBackground" type="Sprite2D" parent="."]
+position = Vector2(297, 463)
+texture = ExtResource("1_qd7od")
+
+[node name="GroupMessage" type="Sprite2D" parent="."]
+position = Vector2(50, 152)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_4k7p0")
+
+[node name="AutoReply" type="Sprite2D" parent="."]
+position = Vector2(52, 262)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_hgtx5")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 109.0
+offset_top = 127.0
+offset_right = 484.0
+offset_bottom = 162.0
+text = "群发功能，一次消除
+多条未读消息"
+label_settings = SubResource("LabelSettings_d4n4i")
+
+[node name="Label2" type="Label" parent="."]
+offset_left = 109.0
+offset_top = 226.0
+offset_right = 484.0
+offset_bottom = 295.0
+text = "自动回复，一段时间内
+自动消除多条未读消息"
+label_settings = SubResource("LabelSettings_d4n4i")
+
+[node name="back" type="Button" parent="."]
+offset_left = 6.0
+offset_top = 390.0
+offset_right = 46.0
+offset_bottom = 421.0
+text = "返回"
+
+[node name="red_points" type="Label" parent="."]
+offset_left = 140.0
+offset_top = 15.0
+offset_right = 390.0
+offset_bottom = 84.0
+text = "小红点数量"
+label_settings = SubResource("LabelSettings_rcki3")
+script = ExtResource("5_jv8tp")
+
+[connection signal="button_down" from="group_reply" to="." method="_on_group_reply_button_down"]
+[connection signal="button_down" from="auto_reply" to="." method="_on_auto_reply_button_down"]
+[connection signal="button_down" from="back" to="." method="_on_back_button_down"]

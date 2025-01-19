@@ -18,11 +18,6 @@ var choice: Dictionary = {
 	"情人": "D",
 	"妻子": "D"
 }
-var good_ending: bool
-var bad_ending: bool
-var peace_ending: bool
-var finish_l: bool = false
-var finish_w: bool = false
 
 
 var rating_count = {
@@ -33,3 +28,6 @@ var rating_count = {
 }
 
 var  inf_mode_health = 89.0
+var red_points:int=0
+var group_reply:bool=false
+var auto_reply:bool=false
