@@ -36,10 +36,10 @@ func dynamic_add_chat(new_chat)->void:
 	new_chat.connect("timer_start",Callable(self,"_on_time_start"))
 
 func _on_all_info_received(message: String, poster: String, time: int, name: String, _camera: Camera2D) -> void:
-	if game.avatars.has(name):
-		add_chat(game.avatars[name], name, message, float(time))
-	else:
-		add_chat(game.avatars["test"],name,message,float(time))
+	var avatar_keys = game.avatars.keys()  # 获取所有键（用户名）
+	if avatar_keys.size() > 0:  # 确保 avatars 不为空	
+		var random_key = avatar_keys[randi() % avatar_keys.size()]  # 随机选择一个键
+		add_chat(game.avatars[random_key], name, message, float(time))
 	cameras[name]=_camera
 
 
@@ -87,13 +87,13 @@ func _on_time_start(namee:String,timee:int):
 
 func _on_mass_mailing_pressed() -> void:
 	for i in vbox.get_children():
-		if !chat_objs[i.chat_name.text].start_choosing_mark:
+		if !chat_objs[i.chat_id].start_choosing_mark:
 			continue
-		if chat_objs[i.chat_name.text].chosen_mark:
+		if chat_objs[i.chat_id].chosen_mark:
 			continue
-		chat_objs[i.chat_name.text].script_chosen.connect(_on_script_chosen)
-		chat_objs[i.chat_name.text].script_end_choosing()
-		chats[i.chat_name.text]._on_button_button_down()
+		chat_objs[i.chat_id].script_chosen.connect(_on_script_chosen)
+		chat_objs[i.chat_id].script_end_choosing()
+		chats[i.chat_id]._on_script_pressed_button()
 
 func _on_script_chosen(left_time:float,rating:int,chat_name:String):
 	var node = rating_view.instantiate()
@@ -114,15 +114,15 @@ func _on_script_chosen(left_time:float,rating:int,chat_name:String):
 
 func _on_recording_timeout() -> void:
 	for i in vbox.get_children():
-		if !chat_objs[i.chat_name.text].start_choosing_mark:
+		if !chat_objs[i.chat_id].start_choosing_mark:
 			continue
-		if chat_objs[i.chat_name.text].chosen_mark:
+		if chat_objs[i.chat_id].chosen_mark:
 			continue
-		if chat_objs[i.chat_name.text].camera.is_current():
+		if chat_objs[i.chat_id].camera.is_current():
 			continue
-		chat_objs[i.chat_name.text].script_chosen.connect(_on_script_chosen)
-		chat_objs[i.chat_name.text].script_end_choosing()
-		chats[i.chat_name.text]._on_button_button_down()
+		chat_objs[i.chat_id].script_chosen.connect(_on_script_chosen)
+		chat_objs[i.chat_id].script_end_choosing()
+		chats[i.chat_id]._on_script_pressed_button()
 		break
 
 func _process(delta: float) -> void:

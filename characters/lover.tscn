@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://bf42exewea75o"]
+[gd_scene load_steps=22 format=3 uid="uid://bf42exewea75o"]
 
 [ext_resource type="Script" path="res://chat/chat.gd" id="1_b83f3"]
 [ext_resource type="Texture2D" uid="uid://ceh5bc05nclt7" path="res://assets/chat/chat_choice_block.png" id="2_sd5lq"]
@@ -37,16 +37,13 @@ tracks/0/path = NodePath("dialogs")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0.0333333, 1.06667, 2.53333, 3.46667),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
+"times": PackedFloat32Array(0, 2.36667, 3.93333),
+"transitions": PackedFloat32Array(1, 1, 1),
 "values": [{
 "args": ["[转账¥2000]", "最近手头有点紧，以后再说吧", "呜呜呜，我没钱"],
 "method": &"set_choice"
 }, {
-"args": ["今天过得怎么样？", "me"],
-"method": &"add_sentence"
-}, {
-"args": ["平平淡淡啦，没什么特别的。只是今天看上了双两千块钱的鞋子没钱买呀。你给我买好不好？", "情人"],
+"args": ["今天看上了双两千块钱的鞋子没钱买呀。你给我买好不好？", "情人"],
 "method": &"add_sentence"
 }, {
 "args": [],
@@ -60,17 +57,14 @@ tracks/1/path = NodePath("AnimationPlayer")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(8.1, 8.93333, 9.5, 9.9),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
+"times": PackedFloat32Array(8.53333, 9.3, 9.93333),
+"transitions": PackedFloat32Array(1, 1, 1),
 "values": [{
 "args": ["情人", "A", "1A"],
 "method": &"choose"
 }, {
-"args": ["情人", "B", "1B"],
-"method": &"choose"
-}, {
-"args": ["情人", "C", "1B"],
-"method": &"choose"
+"args": [&"1B", -1, 1.0, false],
+"method": &"play"
 }, {
 "args": [false],
 "method": &"stop"
@@ -87,7 +81,7 @@ tracks/0/path = NodePath("dialogs")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(3.03333, 4.53333, 5.13333, 7.26667, 8.66667, 9.66667, 10.4667, 11.3, 12),
+"times": PackedFloat32Array(2, 3.96667, 6, 7.96667, 9.2, 10.2333, 11.2, 12.4333, 13.7),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
 "values": [{
 "args": ["今天过得怎么样？", "me"],
@@ -125,9 +119,12 @@ tracks/1/path = NodePath("AnimationPlayer")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(13.4333),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(18.6667, 19.4667),
+"transitions": PackedFloat32Array(1, 1),
 "values": [{
+"args": [],
+"method": &"peace_ending"
+}, {
 "args": [false],
 "method": &"stop"
 }]
@@ -143,7 +140,7 @@ tracks/0/path = NodePath("dialogs")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0.1),
+"times": PackedFloat32Array(2.03333),
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": ["嘻嘻，你对我最好啦", "情人"],
@@ -157,7 +154,7 @@ tracks/1/path = NodePath("AnimationPlayer")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(3.96667),
+"times": PackedFloat32Array(8.03333),
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [&"dialog2", -1, 1.0, false],
@@ -167,6 +164,47 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id="Animation_6tou2"]
 resource_name = "1B"
+length = 10.0
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("dialogs")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3, 4.03333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"values": [{
+"args": ["宝贝，你当然是我最爱的人呀。", "够了，认清楚你自己的位置，你只是我的一个情人", "滚"],
+"method": &"set_choice"
+}, {
+"args": ["你为什么总是这么说？！对你来说我到底算什么？！！", "情人"],
+"method": &"add_sentence"
+}, {
+"args": [],
+"method": &"dialog_end"
+}]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimationPlayer")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(7.96667, 8.7),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": ["情人", "A", "2A"],
+"method": &"choose"
+}, {
+"args": [&"2B", -1, 1.0, false],
+"method": &"play"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_nokar"]
+resource_name = "2A"
 length = 5.0
 tracks/0/type = "method"
 tracks/0/imported = false
@@ -175,10 +213,13 @@ tracks/0/path = NodePath("dialogs")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0.2),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 2.03333),
+"transitions": PackedFloat32Array(1, 1),
 "values": [{
-"args": ["你为什么总是这么说？！对你来说我到底算什么？！！", "情人"],
+"args": ["", "", ""],
+"method": &"set_choice"
+}, {
+"args": ["算你识相，记住你今天说的话", "情人"],
 "method": &"add_sentence"
 }]
 }
@@ -189,7 +230,7 @@ tracks/1/path = NodePath("AnimationPlayer")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(3.43333),
+"times": PackedFloat32Array(4.76667),
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [&"dialog2", -1, 1.0, false],
@@ -197,10 +238,65 @@ tracks/1/keys = {
 }]
 }
 
+[sub_resource type="Animation" id="Animation_383df"]
+resource_name = "2B"
+length = 2.0
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("dialogs")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.0666667),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": ["滚吧，跟那个疯女人在一起，你终有一天会后悔的。你会后悔的！", "情人"],
+"method": &"add_sentence"
+}]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimationPlayer")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1.26667),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [&"GD", -1, 1.0, false],
+"method": &"play"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_g6d13"]
+resource_name = "GD"
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimationPlayer")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.0333333, 0.833333),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"good_ending"
+}, {
+"args": [false],
+"method": &"stop"
+}]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_py1ma"]
 _data = {
 "1A": SubResource("Animation_gbu35"),
 "1B": SubResource("Animation_6tou2"),
+"2A": SubResource("Animation_nokar"),
+"2B": SubResource("Animation_383df"),
+"GD": SubResource("Animation_g6d13"),
 "dialog": SubResource("Animation_2raju"),
 "dialog2": SubResource("Animation_ya621")
 }

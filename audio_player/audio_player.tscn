@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://b5808658ppe8g"]
+
+[ext_resource type="Script" path="res://audio_player/audio_player.gd" id="1_wddt7"]
+[ext_resource type="AudioStream" uid="uid://xcgmot7ly86o" path="res://assets/sfx/Coins sounds [OGG]/1_Coins.ogg" id="2_gx773"]
+
+[node name="AudioPlayer" type="Node"]
+process_mode = 3
+script = ExtResource("1_wddt7")
+
+[node name="SE" type="Node" parent="."]
+
+[node name="send" type="AudioStreamPlayer" parent="SE"]
+
+[node name="coin" type="AudioStreamPlayer" parent="SE"]
+stream = ExtResource("2_gx773")
+
+[node name="BGM" type="Node" parent="."]
+
+[node name="BGMPlayer" type="AudioStreamPlayer" parent="BGM"]

@@ -6,6 +6,7 @@ extends Control
 @onready var red_point=$HBoxContainer/avatar/Sprite2D
 @onready var red_point_num=$HBoxContainer/avatar/Sprite2D/Label
 @onready var timer_box=$TimerBox
+var chat_id
 var timer: Timer
 var number:int=0
 signal chat_button_pressed
@@ -19,11 +20,26 @@ func _ready() -> void:
 	$TimerBox/time.text = ""
 func init(path: String, aname: String, amessage: String) -> void:
 	avatar.texture = load(path)
-	chat_name.text = aname
+	var group_names = [
+		"代码吧少年",
+		"秃头研究协会",
+		"今天也要努力划水",
+		"吃饭睡觉打代码",
+		"闲聊不如赚钱",
+		"复读机选手俱乐部",
+		"摸鱼摸到海底",
+		"卷不动也得卷",
+		"键盘侠终极联盟",
+		"改Bug第一天"
+	]
+	randomize()  # 确保随机性
+	var random_name = group_names[randi() % group_names.size()]
+	chat_name.text = random_name
 	if amessage.length() > 7:
 		amessage = amessage.substr(0, 7) + "..."  # 超过部分显示省略号
 	message.text = amessage
 	timer.connect("timeout", Callable(self, "_on_timer_timeout"))
+	chat_id = aname
 func set_message(amessage:String):
 	message.text = amessage
 func set_timer(atime: float=5):
@@ -47,6 +63,12 @@ func _on_button_button_down() -> void:
 	red_point.visible=false
 	red_point_num.visible=false
 	emit_signal("chat_button_pressed")
+
+func _on_script_pressed_button()->void:
+	number=0
+	red_point.visible=false
+	red_point_num.visible=false
+
 func add_point():
 	red_point.visible=true
 	red_point_num.visible=true

@@ -7,6 +7,8 @@
 [ext_resource type="LabelSettings" uid="uid://b5rgynu4bhoi6" path="res://chat/new_label_settings.tres" id="4_al2pt"]
 [ext_resource type="Texture2D" uid="uid://cs7ha4xagp2qs" path="res://assets/chat/chat_exit.png" id="5_oepvv"]
 [ext_resource type="Texture2D" uid="uid://ddw1xaeohn5f7" path="res://assets/chat/progress-Sheet.png" id="6_ay6v7"]
+[ext_resource type="AnimationLibrary" uid="uid://cdlehoq8riec2" path="res://animations/dialogs.res" id="8_7puw2"]
+[ext_resource type="Script" path="res://chat/animation_player.gd" id="9_hoyb8"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_jy8os"]
 font_color = Color(0, 0, 0, 1)
@@ -25,38 +27,6 @@ region = Rect2(0, 0, 1125, 48)
 [sub_resource type="AtlasTexture" id="AtlasTexture_lh4br"]
 atlas = ExtResource("6_ay6v7")
 region = Rect2(12, 60, 1101, 25)
-
-[sub_resource type="Animation" id="Animation_a1tgr"]
-resource_name = "dialog"
-length = 15.0
-tracks/0/type = "method"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("dialogs")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0.1, 1.73333, 2.43333, 2.46667),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"values": [{
-"args": ["test", "李佳灿"],
-"method": &"add_sentence"
-}, {
-"args": ["😀", "test1"],
-"method": &"add_sentence"
-}, {
-"args": ["test", "test1"],
-"method": &"add_sentence"
-}, {
-"args": [],
-"method": &"dialog_end"
-}]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_aii7r"]
-_data = {
-"dialog": SubResource("Animation_a1tgr")
-}
 
 [node name="chat" type="Control"]
 layout_mode = 3
@@ -159,8 +129,9 @@ tint_progress = Color(0, 1, 0, 0.835294)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_aii7r")
+"dialogs": ExtResource("8_7puw2")
 }
+script = ExtResource("9_hoyb8")
 
 [node name="button_mark" type="Marker2D" parent="."]
 position = Vector2(262.932, 864.226)

@@ -1,0 +1,25 @@
+[gd_scene load_steps=2 format=3 uid="uid://do731nuogm4kp"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_4pf4e"]
+font_size = 50
+
+[node name="peace_ending" type="Node2D"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+z_index = -100
+offset_right = 540.0
+offset_bottom = 961.0
+color = Color(0.815686, 0.815686, 0.815686, 1)
+
+[node name="Label" type="Label" parent="."]
+offset_left = 19.0
+offset_top = 51.0
+offset_right = 959.0
+offset_bottom = 455.0
+text = "尊敬的市民先生您好！
+我市近日一名女子离家
+出走，失踪人士照片如
+下。希望有线索的市民
+能尽快联系我们派出所
+，报警电话是：110"
+label_settings = SubResource("LabelSettings_4pf4e")
