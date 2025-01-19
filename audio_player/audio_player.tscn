@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://b5808658ppe8g"]
+[gd_scene load_steps=4 format=3 uid="uid://b5808658ppe8g"]
 
 [ext_resource type="Script" path="res://audio_player/audio_player.gd" id="1_wddt7"]
 [ext_resource type="AudioStream" uid="uid://xcgmot7ly86o" path="res://assets/sfx/Coins sounds [OGG]/1_Coins.ogg" id="2_gx773"]
+[ext_resource type="AudioStream" uid="uid://3tq55jg7d243" path="res://assets/sfx/RPG_Essentials_Free/10_UI_Menu_SFX/029_Decline_09.wav" id="3_mugd2"]
 
 [node name="AudioPlayer" type="Node"]
 process_mode = 3
@@ -13,6 +14,9 @@ script = ExtResource("1_wddt7")
 
 [node name="coin" type="AudioStreamPlayer" parent="SE"]
 stream = ExtResource("2_gx773")
+
+[node name="bubble" type="AudioStreamPlayer" parent="SE"]
+stream = ExtResource("3_mugd2")
 
 [node name="BGM" type="Node" parent="."]
 
