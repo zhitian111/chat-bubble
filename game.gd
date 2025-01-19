@@ -37,6 +37,6 @@ var rating_count = {
 }
 
 var inf_mode_health = 89.0
-var red_points: int = 0
+var red_points: int = 100
 var group_reply: bool = false
 var auto_reply: bool = false

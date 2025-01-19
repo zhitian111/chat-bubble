@@ -10,6 +10,7 @@ func _on_group_reply_button_down() -> void:
 		if game.red_points >= 100:
 			game.group_reply = true
 			game.red_points -= 100
+			AudioPlayer.play_sound_effect("buy")
 		else:
 			print("not enough red_points")
 
@@ -22,6 +23,7 @@ func _on_auto_reply_button_down() -> void:
 		if game.red_points >= 100:
 			game.auto_reply = true
 			game.red_points -= 100
+			AudioPlayer.play_sound_effect("buy")
 		else:
 			print("not enough red_points")
 

@@ -59,7 +59,7 @@ func add_chat(path: String, namee: String, textt: String, timee: float):
 		c.connect("chat_button_pressed", Callable(self, "_on_chat_button_pressed").bind(c))
 		c.connect("time_end",Callable(self,"_on_time_end").bind(c))
 		chat_objs[namee].connect("tree_exited",Callable(c,"queue_free"))
-		c.shake_control_once()
+		#c.shake_control_once()
 	# chats[namee].set_timer(timee)
 	add_point(namee)
 

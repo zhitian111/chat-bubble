@@ -67,6 +67,7 @@ func _on_button_button_down() -> void:
 		var e = effect.instantiate()
 		get_tree().current_scene.add_child(e)
 		e.global_position = red_point.global_position
+		AudioPlayer.play_sound_effect("red_point")
 	number = 0
 	red_point.visible = false
 	red_point_num.visible = false
@@ -79,12 +80,13 @@ func _on_script_pressed_button() -> void:
 	var e = effect.instantiate()
 	get_tree().current_scene.add_child(e)
 	e.global_position = red_point.global_position
+	AudioPlayer.play_sound_effect("red_point")
 
 func add_point():
 	red_point.visible = true
 	red_point_num.visible = true
 	red_point_num.text = var_to_str(number)
-	#shake_control_once()
+	shake_control_once()
 func set_number(num: int):
 	number = num
 func get_number():
@@ -93,6 +95,7 @@ func chosen():
 	timer.stop()
 	timer_box.visible = false
 func shake_control_once(intensity: float = 10.0, duration: float = 0.05):
+	AudioPlayer.play_sound_effect("bubble")
 	is_shaking = true
 	tween = create_tween()
 	var original_position = position # 保存初始位置

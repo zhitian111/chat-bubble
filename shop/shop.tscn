@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://dnla6tqymxf5n"]
+[gd_scene load_steps=12 format=3 uid="uid://dnla6tqymxf5n"]
 
 [ext_resource type="Script" path="res://shop/shop.gd" id="1_jdlp6"]
 [ext_resource type="Theme" uid="uid://my7bgqgi4ecq" path="res://new_theme.tres" id="2_54cn8"]
@@ -17,51 +17,54 @@ font_color = Color(0.125911, 0.125911, 0.125911, 1)
 font_size = 30
 font_color = Color(0.133196, 0.133196, 0.133196, 1)
 
+[sub_resource type="LabelSettings" id="LabelSettings_22c5l"]
+font_color = Color(0.0605303, 0.0605303, 0.0605303, 1)
+
 [node name="shop" type="Node2D"]
 script = ExtResource("1_jdlp6")
 
 [node name="group_reply" type="Button" parent="."]
 z_index = 10
-offset_left = 432.0
-offset_top = 152.0
-offset_right = 513.0
-offset_bottom = 196.0
+offset_left = 440.0
+offset_top = 341.0
+offset_right = 521.0
+offset_bottom = 385.0
 theme = ExtResource("2_54cn8")
 text = "安装"
 
 [node name="auto_reply" type="Button" parent="."]
 z_index = 10
-offset_left = 432.0
-offset_top = 264.0
-offset_right = 512.0
-offset_bottom = 308.0
+offset_left = 440.0
+offset_top = 504.0
+offset_right = 520.0
+offset_bottom = 548.0
 theme = ExtResource("2_54cn8")
 text = "安装"
 
 [node name="GroupMessage" type="Sprite2D" parent="."]
-position = Vector2(51, 186)
+position = Vector2(59, 375)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("3_4k7p0")
 
 [node name="AutoReply" type="Sprite2D" parent="."]
-position = Vector2(51, 296)
+position = Vector2(59, 536)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("4_hgtx5")
 
 [node name="Label" type="Label" parent="."]
-offset_left = 108.0
-offset_top = 158.0
-offset_right = 483.0
-offset_bottom = 193.0
+offset_left = 116.0
+offset_top = 347.0
+offset_right = 491.0
+offset_bottom = 382.0
 theme = ExtResource("2_54cn8")
 text = "群发功能，一次消除多条未读消息"
 label_settings = SubResource("LabelSettings_d4n4i")
 
 [node name="Label2" type="Label" parent="."]
-offset_left = 108.0
-offset_top = 264.0
-offset_right = 483.0
-offset_bottom = 333.0
+offset_left = 116.0
+offset_top = 504.0
+offset_right = 491.0
+offset_bottom = 573.0
 theme = ExtResource("2_54cn8")
 text = "自动回复，一段时间内
 自动消除多条未读消息"
@@ -69,37 +72,55 @@ label_settings = SubResource("LabelSettings_d4n4i")
 
 [node name="back" type="Button" parent="."]
 offset_left = 240.0
-offset_top = 890.0
+offset_top = 922.0
 offset_right = 308.0
-offset_bottom = 921.0
+offset_bottom = 953.0
 theme = ExtResource("2_54cn8")
 text = "返回"
 
 [node name="red_points" type="Label" parent="."]
-offset_left = 140.0
-offset_top = 15.0
-offset_right = 390.0
-offset_bottom = 84.0
+offset_left = 18.0
+offset_top = 146.0
+offset_right = 268.0
+offset_bottom = 215.0
 theme = ExtResource("2_54cn8")
-text = "小红点数量"
+text = "已有点数："
 label_settings = SubResource("LabelSettings_rcki3")
 script = ExtResource("5_jv8tp")
 
 [node name="Menu" type="Sprite2D" parent="."]
 z_index = -100
-position = Vector2(271, 462.25)
+position = Vector2(271, 499)
 scale = Vector2(0.478222, 0.409483)
 texture = ExtResource("6_cttp1")
 
 [node name="Jingxuan" type="Sprite2D" parent="."]
-position = Vector2(281, 21)
+position = Vector2(308, 54)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("7_7qftg")
 
 [node name="Small" type="Sprite2D" parent="."]
-position = Vector2(151, 20)
+position = Vector2(180, 60)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("8_ueg77")
+
+[node name="price" type="Label" parent="."]
+offset_left = 20.0
+offset_top = 296.0
+offset_right = 128.0
+offset_bottom = 319.0
+theme = ExtResource("2_54cn8")
+text = "消耗点数：100"
+label_settings = SubResource("LabelSettings_22c5l")
+
+[node name="price2" type="Label" parent="."]
+offset_left = 20.0
+offset_top = 451.0
+offset_right = 128.0
+offset_bottom = 474.0
+theme = ExtResource("2_54cn8")
+text = "消耗点数：100"
+label_settings = SubResource("LabelSettings_22c5l")
 
 [connection signal="button_down" from="group_reply" to="." method="_on_group_reply_button_down"]
 [connection signal="button_down" from="auto_reply" to="." method="_on_auto_reply_button_down"]
