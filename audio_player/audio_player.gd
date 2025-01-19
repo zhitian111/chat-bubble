@@ -2,13 +2,17 @@ extends Node
 
 @onready var sound_effect = $SE
 @onready var bgm_player = $BGM/BGMPlayer
-
+@export var bgm1:AudioStream
+@export var bgm_easy:AudioStream
+@export var bgm4:AudioStream
 enum BUSS{
 	master,
 	bgm,
 	sfx
 };
-
+	
+func _physics_process(delta: float) -> void:
+	pass
 func _ready():
 	# menu.volume_db = -80
 	# print(AudioServer.get_bus_count())

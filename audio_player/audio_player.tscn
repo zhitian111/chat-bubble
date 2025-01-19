@@ -1,7 +1,8 @@
-[gd_scene load_steps=13 format=3 uid="uid://b5808658ppe8g"]
+[gd_scene load_steps=16 format=3 uid="uid://b5808658ppe8g"]
 
 [ext_resource type="Script" path="res://audio_player/audio_player.gd" id="1_wddt7"]
 [ext_resource type="AudioStream" uid="uid://xcgmot7ly86o" path="res://assets/sfx/Coins sounds [OGG]/1_Coins.ogg" id="2_gx773"]
+[ext_resource type="AudioStream" uid="uid://cjrwdk5vug228" path="res://assets/sfx/stage_two_easy.mp3" id="3_5vh33"]
 [ext_resource type="AudioStream" uid="uid://3tq55jg7d243" path="res://assets/sfx/RPG_Essentials_Free/10_UI_Menu_SFX/029_Decline_09.wav" id="3_mugd2"]
 [ext_resource type="AudioStream" uid="uid://7h6gkbmdh547" path="res://assets/sfx/RPG_Essentials_Free/10_UI_Menu_SFX/098_Unpause_04.wav" id="4_yntvg"]
 [ext_resource type="AudioStream" uid="uid://usgmu8lho7pu" path="res://assets/sfx/RPG_Essentials_Free/10_UI_Menu_SFX/079_Buy_sell_01.wav" id="5_takai"]
@@ -12,10 +13,14 @@
 [ext_resource type="AudioStream" uid="uid://cxeywajp8bi62" path="res://assets/sfx/menu按键按下音效.wav" id="8_m02e6"]
 [ext_resource type="AudioStream" uid="uid://bldecno1pp25o" path="res://assets/sfx/perfect.MP3" id="9_4t1l4"]
 [ext_resource type="AudioStream" uid="uid://cbx1resk82r3v" path="res://assets/sfx/提示音.wav" id="9_xlsxf"]
+[ext_resource type="AudioStream" uid="uid://oghk62t7wlme" path="res://assets/sfx/error.MP3" id="13_phmxo"]
+[ext_resource type="AudioStream" uid="uid://iqxrewnu2krd" path="res://assets/sfx/stage_two.mp3" id="14_j6gxd"]
 
 [node name="AudioPlayer" type="Node"]
 process_mode = 3
 script = ExtResource("1_wddt7")
+bgm1 = ExtResource("14_j6gxd")
+bgm_easy = ExtResource("3_5vh33")
 
 [node name="SE" type="Node" parent="."]
 
@@ -58,6 +63,11 @@ volume_db = 8.0
 stream = ExtResource("9_4t1l4")
 volume_db = 5.0
 
+[node name="error" type="AudioStreamPlayer" parent="SE"]
+stream = ExtResource("13_phmxo")
+volume_db = 3.0
+
 [node name="BGM" type="Node" parent="."]
 
 [node name="BGMPlayer" type="AudioStreamPlayer" parent="BGM"]
+stream = ExtResource("14_j6gxd")

@@ -4,7 +4,6 @@ extends Control
 @onready var vbox = $ChatList/ChatList
 @onready var camera = $Camera2D
 @onready var characters=$characters
-
 var rating_view = preload("res://choose_sentence/rating/rating.tscn")
 
 var chats: Dictionary
@@ -27,7 +26,6 @@ func _ready() -> void:
 		c.connect("back",Callable(self,"_on_chat_back"))
 		c.connect("chosen",Callable(self,"chosen").bind(c))
 	# print(chat_objs)
-
 func dynamic_add_chat(new_chat)->void:
 	chat_objs[new_chat.chat_name] = new_chat
 	new_chat.connect("all_info", Callable(self, "_on_all_info_received"))

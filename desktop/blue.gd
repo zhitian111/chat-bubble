@@ -12,3 +12,5 @@ func _input(event: InputEvent) -> void:
 
 func end_animation():
 	can_back = true
+func sound():
+	AudioPlayer.play_sound_effect("error")
