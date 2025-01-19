@@ -45,7 +45,7 @@ func _on_all_info_received(message: String, poster: String, time: int, name: Str
 
 
 func add_chat(path: String, namee: String, textt: String, timee: float):
-	# print(path)
+
 	if !chats.has(namee):
 		var c = chat.instantiate()
 		vbox.add_child(c)

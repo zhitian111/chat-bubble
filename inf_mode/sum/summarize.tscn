@@ -123,3 +123,17 @@ offset_right = 215.114
 offset_bottom = 67.6424
 text = "nice:"
 label_settings = ExtResource("3_mckjd")
+
+[node name="red_points" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="count" type="Label" parent="red_points"]
+layout_mode = 0
+offset_left = 58.0
+offset_top = 648.0
+offset_right = 195.0
+offset_bottom = 693.0
+text = "消除红点:"
+label_settings = ExtResource("3_mckjd")

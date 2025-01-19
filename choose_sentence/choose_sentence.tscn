@@ -16,7 +16,6 @@ grow_horizontal = 2
 grow_vertical = 2
 alignment = 1
 script = ExtResource("1_orf3n")
-metadata/_edit_group_ = true
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
 layout_mode = 2

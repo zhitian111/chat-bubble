@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://v0k4wvdk3cpg"]
+[gd_scene load_steps=39 format=3 uid="uid://v0k4wvdk3cpg"]
 
 [ext_resource type="Script" path="res://chat/chat.gd" id="1_engbf"]
 [ext_resource type="PackedScene" uid="uid://7u5tp0a0pyk2" path="res://dialogs/dialogs.tscn" id="1_exmix"]
@@ -9,6 +9,8 @@
 [ext_resource type="Texture2D" uid="uid://ddw1xaeohn5f7" path="res://assets/chat/progress-Sheet.png" id="6_ay6v7"]
 [ext_resource type="AnimationLibrary" uid="uid://cdlehoq8riec2" path="res://animations/dialogs.res" id="8_7puw2"]
 [ext_resource type="Script" path="res://chat/animation_player.gd" id="9_hoyb8"]
+[ext_resource type="Texture2D" uid="uid://dogajybyegabs" path="res://assets/chat/wait.png" id="10_7o1yj"]
+[ext_resource type="Texture2D" uid="uid://b1h72wdx435n3" path="res://icon.svg" id="11_50mrr"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_jy8os"]
 font_color = Color(0, 0, 0, 1)
@@ -27,6 +29,161 @@ region = Rect2(0, 0, 1125, 48)
 [sub_resource type="AtlasTexture" id="AtlasTexture_lh4br"]
 atlas = ExtResource("6_ay6v7")
 region = Rect2(12, 60, 1101, 25)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8t3ja"]
+atlas = ExtResource("10_7o1yj")
+region = Rect2(0, 0, 85, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dt2ex"]
+atlas = ExtResource("10_7o1yj")
+region = Rect2(85, 0, 85, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sx1sn"]
+atlas = ExtResource("10_7o1yj")
+region = Rect2(170, 0, 85, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q8st1"]
+atlas = ExtResource("10_7o1yj")
+region = Rect2(0, 96, 85, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pw2ra"]
+atlas = ExtResource("10_7o1yj")
+region = Rect2(85, 96, 85, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vpxe6"]
+atlas = ExtResource("10_7o1yj")
+region = Rect2(170, 96, 85, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uov3d"]
+atlas = ExtResource("10_7o1yj")
+region = Rect2(0, 192, 85, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7tyuq"]
+atlas = ExtResource("10_7o1yj")
+region = Rect2(85, 192, 85, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0jhr7"]
+atlas = ExtResource("10_7o1yj")
+region = Rect2(170, 192, 85, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_huix3"]
+atlas = ExtResource("10_7o1yj")
+region = Rect2(0, 288, 85, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8sbn8"]
+atlas = ExtResource("10_7o1yj")
+region = Rect2(85, 288, 85, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cigwq"]
+atlas = ExtResource("10_7o1yj")
+region = Rect2(170, 288, 85, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_we34v"]
+atlas = ExtResource("10_7o1yj")
+region = Rect2(0, 384, 85, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qi0xc"]
+atlas = ExtResource("10_7o1yj")
+region = Rect2(85, 384, 85, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j1dac"]
+atlas = ExtResource("10_7o1yj")
+region = Rect2(170, 384, 85, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5wml8"]
+atlas = ExtResource("10_7o1yj")
+region = Rect2(0, 480, 85, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5yrg0"]
+atlas = ExtResource("10_7o1yj")
+region = Rect2(85, 480, 85, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ijjr3"]
+atlas = ExtResource("10_7o1yj")
+region = Rect2(170, 480, 85, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_50enp"]
+atlas = ExtResource("10_7o1yj")
+region = Rect2(0, 576, 85, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5v3cc"]
+atlas = ExtResource("10_7o1yj")
+region = Rect2(85, 576, 85, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mqx72"]
+atlas = ExtResource("10_7o1yj")
+region = Rect2(170, 576, 85, 96)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jtq35"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8t3ja")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dt2ex")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sx1sn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q8st1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pw2ra")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vpxe6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uov3d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7tyuq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0jhr7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_huix3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8sbn8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cigwq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_we34v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qi0xc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j1dac")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5wml8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5yrg0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ijjr3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_50enp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5v3cc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mqx72")
+}],
+"loop": true,
+"name": &"default",
+"speed": 3.0
+}]
 
 [node name="chat" type="Control"]
 layout_mode = 3
@@ -138,6 +295,28 @@ position = Vector2(262.932, 864.226)
 
 [node name="kill" type="Timer" parent="."]
 wait_time = 3.0
+
+[node name="waiting" type="AnimatedSprite2D" parent="."]
+position = Vector2(283, 866)
+scale = Vector2(1.45294, 1.45294)
+sprite_frames = SubResource("SpriteFrames_jtq35")
+autoplay = "default"
+
+[node name="complete" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 199.0
+offset_top = 796.0
+offset_right = 327.0
+offset_bottom = 924.0
+texture = ExtResource("11_50mrr")
+
+[node name="miss" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 199.0
+offset_top = 796.0
+offset_right = 327.0
+offset_bottom = 924.0
+texture = ExtResource("11_50mrr")
 
 [connection signal="new_message" from="dialogs" to="." method="_on_dialogs_new_message"]
 [connection signal="pressed" from="back" to="." method="_on_back_pressed"]

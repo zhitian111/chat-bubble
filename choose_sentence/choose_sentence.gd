@@ -24,6 +24,8 @@ func _ready() -> void:
 func chosen1() -> void:
 	visible=false
 	value_chosen.emit("A",chat_name)
+	
+
 func chosen2() -> void:
 	visible=false
 
