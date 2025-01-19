@@ -24,6 +24,7 @@ func set_type(new_type: rating)->void:
 
 func start()->void:
 	if type == rating.good:
+		AudioPlayer.play_sound_effect("great")
 		good_texture.show()
 		perfect_texture.queue_free()
 		bad_texture.queue_free()
@@ -37,12 +38,14 @@ func start()->void:
 		game.rating_count["miss"]+=1
 		game.inf_mode_health -= 7
 	if type == rating.perfect:
+		AudioPlayer.play_sound_effect("perfect")
 		perfect_texture.show()
 		good_texture.queue_free()
 		bad_texture.queue_free()
 		nice_texture.queue_free()
 		game.rating_count["perfect"]+=1
 	if type == rating.nice:
+		AudioPlayer.play_sound_effect("nice")
 		nice_texture.show()
 		good_texture.queue_free()
 		bad_texture.queue_free()

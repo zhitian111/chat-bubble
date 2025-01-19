@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bcx05r5gnutgk"
+path="res://.godot/imported/【视频剪辑素材】Nice音效 自抠像 - 1.【视频剪辑素材】Nice音效原版_1(Av66671160,P1)(1).mp3-0746af5515fb769d6e5b8e6925023e7e.mp3str"
+
+[deps]
+
+source_file="res://assets/sfx/【视频剪辑素材】Nice音效 自抠像 - 1.【视频剪辑素材】Nice音效原版_1(Av66671160,P1)(1).mp3"
+dest_files=["res://.godot/imported/【视频剪辑素材】Nice音效 自抠像 - 1.【视频剪辑素材】Nice音效原版_1(Av66671160,P1)(1).mp3-0746af5515fb769d6e5b8e6925023e7e.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
