@@ -10,8 +10,8 @@ func _on_group_reply_button_down() -> void:
 		if game.red_points >= 100:
 			game.group_reply = true
 			game.red_points -= 100
-		else:
-			print("not enough red_points")
+		# else:
+			# print("not enough red_points")
 
 		
 func _on_auto_reply_button_down() -> void:
@@ -22,8 +22,8 @@ func _on_auto_reply_button_down() -> void:
 		if game.red_points >= 100:
 			game.auto_reply = true
 			game.red_points -= 100
-		else:
-			print("not enough red_points")
+		# else:
+			# print("not enough red_points")
 
 
 func _on_back_button_down() -> void:

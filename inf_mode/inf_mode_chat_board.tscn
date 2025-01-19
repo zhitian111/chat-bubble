@@ -1,8 +1,9 @@
-[gd_scene load_steps=16 format=3 uid="uid://clj5183xngyuf"]
+[gd_scene load_steps=17 format=3 uid="uid://clj5183xngyuf"]
 
 [ext_resource type="Script" path="res://inf_mode/inf_mode_chat_board.gd" id="1_y7vlg"]
 [ext_resource type="Texture2D" uid="uid://sn53n2kcr5uw" path="res://assets/menu/menu_top.png" id="2_c00ie"]
 [ext_resource type="Texture2D" uid="uid://ci1jympqhobx" path="res://assets/menu/menu_bottom.png" id="3_c8imd"]
+[ext_resource type="Script" path="res://inf_mode/difficulty_timer.gd" id="4_uafl0"]
 [ext_resource type="Script" path="res://inf_mode/inf_characters.gd" id="4_xa7pj"]
 [ext_resource type="Texture2D" uid="uid://hxwftcm3kfmr" path="res://assets/skill/group_message.png" id="5_5vn5r"]
 [ext_resource type="Script" path="res://inf_mode/mass_mailing.gd" id="6_gmw02"]
@@ -83,7 +84,18 @@ texture = ExtResource("3_c8imd")
 position = Vector2(270, 480)
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 0.1
+wait_time = 0.8
+
+[node name="difficulty_timer" type="Timer" parent="Timer"]
+wait_time = 10.0
+script = ExtResource("4_uafl0")
+
+[node name="probability_timer" type="Timer" parent="Timer"]
+wait_time = 5.0
+
+[node name="range_timer" type="Timer" parent="Timer"]
+wait_time = 5.0
+autostart = true
 
 [node name="characters" type="Control" parent="."]
 anchors_preset = 0
@@ -175,6 +187,9 @@ script = ExtResource("11_6murv")
 [node name="Timer" type="Timer" parent="time"]
 
 [connection signal="timeout" from="Timer" to="characters" method="_on_timer_timeout"]
+[connection signal="timeout" from="Timer/difficulty_timer" to="Timer/difficulty_timer" method="_on_timeout"]
+[connection signal="timeout" from="Timer/probability_timer" to="characters" method="_on_probability_timer_timeout"]
+[connection signal="timeout" from="Timer/range_timer" to="characters" method="_on_range_timer_timeout"]
 [connection signal="pressed" from="mass_mailing" to="." method="_on_mass_mailing_pressed"]
 [connection signal="pressed" from="mass_mailing" to="mass_mailing" method="_on_pressed"]
 [connection signal="timeout" from="mass_mailing/cd_timer" to="mass_mailing" method="_on_cd_timer_timeout"]

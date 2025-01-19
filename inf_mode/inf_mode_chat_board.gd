@@ -26,7 +26,7 @@ func _ready() -> void:
 		c.connect("all_info", Callable(self, "_on_all_info_received"))
 		c.connect("back",Callable(self,"_on_chat_back"))
 		c.connect("chosen",Callable(self,"chosen").bind(c))
-	print(chat_objs)
+	# print(chat_objs)
 
 func dynamic_add_chat(new_chat)->void:
 	chat_objs[new_chat.chat_name] = new_chat
@@ -70,7 +70,7 @@ func add_point(namee: String):
 func chosen(sender:Node):
 	for key in chat_objs.keys():
 		if chat_objs[key] == sender:
-			print(key)
+			# print(key)
 			chats[key].chosen()
 func _on_chat_button_pressed(sender: Node):
 	for key in chats.keys():

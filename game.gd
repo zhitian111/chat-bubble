@@ -40,3 +40,6 @@ var inf_mode_health = 89.0
 var red_points: int = 0
 var group_reply: bool = false
 var auto_reply: bool = false
+
+
+var time_range_subscript = 0

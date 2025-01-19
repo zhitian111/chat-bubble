@@ -32,6 +32,10 @@ var animation_playing:bool = false
 
 
 func _ready():
+
+	time_length = randi_range(12 + game.time_range_subscript,12 - game.time_range_subscript)
+
+
 	buttons.button_1.pressed.connect(dialogs.add_label.bind(buttons.text1,"me"))
 	buttons.button_2.pressed.connect(dialogs.add_label.bind(buttons.text2,"me"))
 	buttons.button_3.pressed.connect(dialogs.add_label.bind(buttons.text3,"me"))
@@ -59,6 +63,8 @@ func _ready():
 
 	$miss.visible = false
 	$complete.visible = false
+
+
 
 func start_choosing():
 	buttons.visible = true
@@ -88,11 +94,11 @@ func script_end_choosing() -> void:
 	chosen.emit()
 	var rate
 	if timer.time_left * 1.0 < 1.0/3.0*time_length:
-		rate = 1
+		rate = 3
 	elif timer.time_left * 1.0 >= 1.0/3.0*time_length && timer.time_left * 1.0 <= 2.0/3.0*time_length:
 		rate = 2
 	else:
-		rate = 3
+		rate = 1
 	script_chosen.emit(timer.time_left,rate,chat_name)
 
 	dialogs.add_label(buttons.text1,"me")
@@ -114,7 +120,7 @@ func end_choosing():
 	chosen.emit()
 	if timer.time_left * 1.0 < 1.0/3.0*time_length:
 		var rate = rating.instantiate()
-		rate.set_type(rate.rating.nice)
+		rate.set_type(rate.rating.perfect)
 		self.add_child(rate)
 
 		rate.start()
@@ -132,7 +138,7 @@ func end_choosing():
 
 	if timer.time_left * 1.0 > 2.0/3.0*time_length:
 		var rate = rating.instantiate()
-		rate.set_type(rate.rating.perfect)
+		rate.set_type(rate.rating.nice)
 		self.add_child(rate)
 
 		rate.start()
