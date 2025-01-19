@@ -68,10 +68,10 @@ text = "自动回复，一段时间内
 label_settings = SubResource("LabelSettings_d4n4i")
 
 [node name="back" type="Button" parent="."]
-offset_left = 2.0
-offset_top = 444.0
-offset_right = 70.0
-offset_bottom = 475.0
+offset_left = 240.0
+offset_top = 890.0
+offset_right = 308.0
+offset_bottom = 921.0
 theme = ExtResource("2_54cn8")
 text = "返回"
 
